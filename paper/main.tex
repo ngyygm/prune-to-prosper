@@ -129,24 +129,25 @@ We use 35 benchmark tasks from MTEB \citep{mteb} covering 6 categories:
 Given a $D$-dimensional embedding $\mathbf{e} \in \mathbb{R}^D$ and a target dimension $k < D$, we compare five selection strategies:
 
 \paragraph{1. Random.}
-Uniformly sample $k$ dimensions without replacement. We repeat this 10 times with different seeds and report the mean score:
+Uniformly sample $k$ of $D$ dimensions without replacement, producing a $k$-dimensional subvector. We repeat this 10 times with different random seeds and report the mean score:
 \begin{equation}
-\mathbf{e}^{(\text{rand})} = \mathrm{Select}_k(\mathbf{e};\; \text{seed}_1, \ldots, \text{seed}_{10})
+\mathbf{e}^{(\text{rand})} = \mathbf{e}[\mathcal{I}_k], \quad \mathcal{I}_k \sim \mathrm{Uniform}\big(\{1,\ldots,D\}, k\big)
 \end{equation}
+where $\mathcal{I}_k \subset \{1, \ldots, D\}$ is a random index set of size $k$, and $\mathbf{e}[\mathcal{I}_k]$ denotes the subvector formed by the indexed dimensions.
 
 \paragraph{2. Sequential (Sort).}
 Retain the first $k$ dimensions as ordered in the model output:
 \begin{equation}
-\mathbf{e}^{(\text{seq})} = \mathbf{e}[1:k]
+\mathbf{e}^{(\text{seq})} = \mathbf{e}[1:k] = (e_1, e_2, \ldots, e_k)
 \end{equation}
-This baseline tests whether the intrinsic ordering of dimensions (e.g., from layer-wise processing) carries implicit importance information.
+where $e_i$ denotes the $i$-th component of the embedding vector. This baseline tests whether the model's native dimension ordering carries importance information.
 
 \paragraph{3. Magnitude.}
-Rank dimensions by their L2 norm in the embedding weight matrix $\mathbf{W} \in \mathbb{R}^{V \times D}$, where $V$ is vocabulary size:
+Rank dimensions by their L2 norm in the embedding weight matrix $\mathbf{W} \in \mathbb{R}^{V \times D}$, where $V$ is the vocabulary size and $D$ is the embedding dimension:
 \begin{equation}
-\mathrm{Importance}(d) = \|\mathbf{W}[:, d]\|_2
+\mathrm{Importance}(d) = \|\mathbf{w}_d\|_2, \quad \mathbf{w}_d = \mathbf{W}[:, d] \in \mathbb{R}^V
 \end{equation}
-Select the $k$ dimensions with highest magnitude. Weight magnitude is the most widely used heuristic in neural network pruning literature \citep{han2015pruning}, where it serves as a proxy for neuron importance: dimensions with larger accumulated weights are assumed to contribute more to the model's computation. We adopt this standard heuristic to test whether the same principle applies to \emph{output embedding} dimensions. If magnitude-based pruning---which requires no task-specific evaluation---can outperform random selection, it would provide a practical zero-cost compression strategy.
+where $\mathbf{w}_d$ is the $d$-th column of the embedding matrix. Select the $k$ dimensions with highest magnitude. Weight magnitude is a standard pruning heuristic \citep{han2015pruning} where larger weights indicate greater neuron importance. We adopt this to test whether the same principle applies to \emph{output embedding} dimensions. If magnitude pruning can outperform random selection, it would provide a zero-cost compression strategy.
 
 \paragraph{4. Optimized (Oracle).}
 Divide the $D$ dimensions into $N = D/w$ contiguous chunks of size $w$ (we use $w = 2$ to balance granularity with computational cost; see Appendix~\ref{sec:chunk_size} for a sensitivity analysis). For each chunk $i$, compute its marginal contribution to task performance by replacing all other chunks with zeros and evaluating on the target task:
@@ -193,9 +194,9 @@ Figure~\ref{fig:method_framework} illustrates the complete evaluation pipeline, 
 
 For each model-task-method combination, we compute the \textbf{retention ratio}:
 \begin{equation}
-R = \frac{S_{\text{pruned}}}{S_{\text{full}}} \times 100\%
+R^{M,T}_k = \frac{S^{M,T}_k}{S^{M,T}_{D}} \times 100\%
 \end{equation}
-where $S_{\text{pruned}}$ is the MTEB main score at the target dimension and $S_{\text{full}}$ is the full-dimension baseline score. We report mean retention across tasks, with 95\% bootstrap confidence intervals and paired statistical tests (paired $t$-test and Wilcoxon signed-rank test). Because we conduct 8 pairwise comparisons across models and methods, we apply Holm-Bonferroni correction to control the family-wise error rate. We exclude STS17 from all analyses due to unreliable baseline scores.
+where $S^{M,T}_k$ is the MTEB main metric of model $M$ on task $T$ using $k$ dimensions, and $S^{M,T}_D$ is the full-dimension ($D$) baseline score. $R > 100\%$ means pruning improves performance. We report mean retention across tasks, with 95\% bootstrap confidence intervals and paired statistical tests (paired $t$-test and Wilcoxon signed-rank test). Because we conduct 8 pairwise comparisons across models and methods, we apply Holm-Bonferroni correction to control the family-wise error rate. We exclude STS17 from all analyses due to unreliable baseline scores.
 
 \section{Finding 1: Optimized Selection Does Not Outperform Random}
 
@@ -382,9 +383,9 @@ The findings above raise a question: \emph{why} are dimensions interchangeable? 
 \paragraph{Dimension importance is nearly uniform.}
 To quantify the uniformity of dimension importance, we compute the normalized Shannon entropy of the \emph{chunk-level task importance distribution} (not the selection frequency). For each model-task pair, the importance of chunk $i$ is its task-specific evaluation score $S_i^T$ (from the optimized selection procedure in Section~\ref{sec:method}), and $p_i = S_i^T / \sum_j S_j^T$ is the normalized importance. We then compute:
 \begin{equation}
-H_{\text{norm}} = -\frac{1}{\log N} \sum_{i=1}^{N} p_i \log p_i
+H_{\text{norm}} = -\frac{1}{\log_2 N} \sum_{i=1}^{N} p_i \log_2 p_i
 \end{equation}
-where $p_i$ is the normalized importance of chunk $i$ and $N$ is the total number of chunks. As shown in Figure~\ref{fig:mechanism}(a) and Figure~\ref{fig:entropy_all}, $H_{\text{norm}} = 0.988$--$0.993$ across all models (out of a maximum of 1.0 for perfectly uniform). This means that no single dimension or small group of dimensions dominates the representation.
+where $p_i = S_i^T / \sum_j S_j^T$ is the normalized importance of chunk $i$, $S_i^T$ is the task-specific evaluation score of chunk $i$ on task $T$ (from the optimized selection procedure in Section~\ref{sec:method}), and $N$ is the total number of chunks. $H_{\text{norm}} = 1$ indicates perfectly uniform importance; $H_{\text{norm}} = 0$ indicates all importance concentrated in one chunk.
 
 \begin{figure*}[t]
     \centering
@@ -460,7 +461,7 @@ The universal redundancy we observe suggests that current embedding models are s
 Our findings provide an empirical lower bound on the value of learned dimension adaptation. \citet{matryoshka2023} show that MRL-trained models achieve up to 14$\times$ embedding compression with no accuracy loss on classification and retrieval---but this requires special training with an adaptive loss function. In contrast, our results show that for models \emph{not} trained with MRL, simply truncating to 256 dimensions (75\% reduction) retains 97\%+ of performance via random selection, while sequential truncation (the closest analog to MRL's ``first-$k$ dimensions'' property) achieves the same retention ($d < 0.02$). This suggests that the redundancy exploited by MRL is already present in off-the-shelf models, but \emph{without training}, no ordering of dimensions can be identified that is universally better than random. A direct numerical comparison between MRL-trained and standard models on the same MTEB tasks would require re-implementing MRL training for each model, which is beyond our computational budget; we leave this to future work.
 
 \paragraph{Theoretical perspective: uniform importance as a design consequence.}
-Our findings align with the intrinsic dimensionality literature \citep{li2018measuring,alemohammad2023intrinsic}, which shows that high-dimensional neural representations live on low-dimensional manifolds. We extend this by showing that the \emph{importance distribution across dimensions} is approximately uniform for models trained on diverse data. This uniformity is not accidental: contrastive learning objectives (which train most modern embedding models) encourage all dimensions to contribute to the similarity signal, as any dimension that consistently provides useful gradients will be reinforced during training. The result is a ``democratic'' representation where no dimension dominates. We formalize this intuition: under a contrastive loss $\mathcal{L} = -\log(\exp(\mathbf{e}_i \cdot \mathbf{e}_j) / \sum_k \exp(\mathbf{e}_i \cdot \mathbf{e}_k))$, each dimension $d$ contributes additively to the dot product. If the training data is diverse (many task types), no single dimension can specialize without losing performance on other tasks, leading to an equilibrium where all dimensions contribute roughly equally---analogous to load balancing in distributed systems. The Roberta-InBedder exception supports this interpretation: its narrower training objective (retrieval only) creates a less democratic distribution, allowing task-aware selection to gain an edge. This account generates a specific, falsifiable prediction: models trained with non-contrastive objectives (e.g., masked language modeling without contrastive fine-tuning) should exhibit less uniform importance distributions and thus show larger gaps between optimized and random selection, even without task-specific fine-tuning.
+Our findings align with the intrinsic dimensionality literature \citep{li2018measuring,alemohammad2023intrinsic}, which shows that high-dimensional neural representations live on low-dimensional manifolds. We extend this by showing that the \emph{importance distribution across dimensions} is approximately uniform for models trained on diverse data. This uniformity is not accidental: contrastive learning objectives (which train most modern embedding models) encourage all dimensions to contribute to the similarity signal, as any dimension that consistently provides useful gradients will be reinforced during training. The result is a ``democratic'' representation where no dimension dominates. We formalize this intuition. Under a contrastive loss $\mathcal{L} = -\log[\exp(\mathbf{z}_i \cdot \mathbf{z}_j) / \sum_{k} \exp(\mathbf{z}_i \cdot \mathbf{z}_k)]$ where $\mathbf{z}_i$ is the representation of anchor $i$, $\mathbf{z}_j$ is the positive, and $\mathbf{z}_k$ ranges over all negatives in the batch, each dimension $d$ contributes additively to the dot product. If the training data is diverse (many task types), no single dimension can specialize without losing performance on other tasks, leading to an equilibrium where all dimensions contribute roughly equally---analogous to load balancing in distributed systems. The Roberta-InBedder exception supports this interpretation: its narrower training objective (retrieval only) creates a less democratic distribution, allowing task-aware selection to gain an edge. This account generates a specific, falsifiable prediction: models trained with non-contrastive objectives (e.g., masked language modeling without contrastive fine-tuning) should exhibit less uniform importance distributions and thus show larger gaps between optimized and random selection, even without task-specific fine-tuning.
 
 A natural concern is whether this interchangeability is an artifact of the specific coordinate system (basis) in which the embedding dimensions are defined. To address this, we tested pruning behavior under multiple basis transformations---random orthogonal rotations, PCA, and whitening---finding that the sequential--random gap remains below 1\% in every basis (Figure~\ref{fig:basis_independence}). This confirms that interchangeability is an intrinsic property of the representation, not a consequence of the model's native coordinate system.
 
@@ -560,6 +561,7 @@ Table~\ref{tab:detailed_stats} provides detailed statistical comparisons between
     \caption{Detailed statistical comparisons at dim=256. Cohen's $d$ effect sizes (paired), paired $t$-test $p$-values, Wilcoxon signed-rank $p$-values, and 95\% bootstrap CIs for the mean difference. $p_{\text{holm}}$ shows Holm-Bonferroni corrected values across all 8 pairwise tests in this paper.}
     \label{tab:detailed_stats}
     \small
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{llccccc}
         \toprule
         Model & Comparison & $\Delta$ Mean & 95\% CI & $d$ & $t$/$W$ $p$ & $p_{\text{holm}}$ \\
@@ -568,9 +570,11 @@ Table~\ref{tab:detailed_stats} provides detailed statistical comparisons between
         Stella & Mag vs Rnd & $-$0.12\% & [$-$0.39\%, +0.13\%] & $-$0.045 & 0.377 & 1.000 \\
         GTE-Large & Seq vs Rnd & +0.03\% & [$-$0.20\%, +0.26\%] & +0.011 & 0.820 & 1.000 \\
         GTE-Large & Mag vs Rnd & $-$0.76\% & [$-$1.22\%, $-$0.35\%] & $-$0.278 & 0.002 & 0.010* \\
-        Roberta-IB & Seq vs Rnd & +0.83\% & [+0.02\%, +1.59\%] & +0.226 & 0.049 & 0.196 \\
+        Roberta-InBedder & Seq vs Rnd & +0.83\% & [+0.02\%, +1.59\%] & +0.226 & 0.049 & 0.196 \\
         \bottomrule
-    \end{tabular}
+    \end{tabular}%
+    }
+    }%
 \end{table*}
 
 \section{Model List}
