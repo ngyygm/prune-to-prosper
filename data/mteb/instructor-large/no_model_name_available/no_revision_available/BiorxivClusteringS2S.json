@@ -1,0 +1,32 @@
+{
+  "dataset_revision": "258694dd0231531bc1fd9de6ceb52a0853c6d908",
+  "task_name": "BiorxivClusteringS2S",
+  "mteb_version": "1.38.54",
+  "scores": {
+    "test": [
+      {
+        "v_measure": 0.301024,
+        "v_measure_std": 0.006609,
+        "v_measures": [
+          0.295104,
+          0.305113,
+          0.290778,
+          0.299993,
+          0.291884,
+          0.306133,
+          0.296908,
+          0.307362,
+          0.3078,
+          0.309168
+        ],
+        "main_score": 0.301024,
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ]
+      }
+    ]
+  },
+  "evaluation_time": 10919.032416820526,
+  "kg_co2_emissions": null
+}

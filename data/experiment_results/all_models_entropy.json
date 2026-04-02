@@ -1,0 +1,1323 @@
+{
+  "bart-base": {
+    "model_name": "bart-base",
+    "model_dim": 768,
+    "tasks": {
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.999610974115339,
+        "gini_coefficient": 0.038314301644180884,
+        "chunk_importance_cv": 0.06849043552699767,
+        "top_50pct_concentration": 0.5278640455623168,
+        "n_chunks": 384
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9996375446877035,
+        "gini_coefficient": 0.036480777463847994,
+        "chunk_importance_cv": 0.0662713115643539,
+        "top_50pct_concentration": 0.5259724358019823,
+        "n_chunks": 384
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.998623393420355,
+        "gini_coefficient": 0.07169752940130371,
+        "chunk_importance_cv": 0.12821718438986848,
+        "top_50pct_concentration": 0.5502945274333785,
+        "n_chunks": 384
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.998982373175988,
+        "gini_coefficient": 0.06180745036685371,
+        "chunk_importance_cv": 0.11089391881240064,
+        "top_50pct_concentration": 0.5438377211911954,
+        "n_chunks": 384
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.9996568645419435,
+        "gini_coefficient": 0.03431099733810298,
+        "chunk_importance_cv": 0.06477602261206014,
+        "top_50pct_concentration": 0.524233458857738,
+        "n_chunks": 384
+      },
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.9981547700297176,
+        "gini_coefficient": 0.08408266094096879,
+        "chunk_importance_cv": 0.14932135469118832,
+        "top_50pct_concentration": 0.5598663641410669,
+        "n_chunks": 384
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.9873693169467059,
+        "gini_coefficient": 0.21823676048725593,
+        "chunk_importance_cv": 0.4014087729607022,
+        "top_50pct_concentration": 0.6555392367974497,
+        "n_chunks": 384
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9973594982734614,
+        "gini_coefficient": 0.09966602993576214,
+        "chunk_importance_cv": 0.17920396532486152,
+        "top_50pct_concentration": 0.5695961420893669,
+        "n_chunks": 384
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.9983384993456027,
+        "gini_coefficient": 0.07927022150953378,
+        "chunk_importance_cv": 0.14168495000361675,
+        "top_50pct_concentration": 0.5558723974728363,
+        "n_chunks": 384
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9997356749577789,
+        "gini_coefficient": 0.031305009760746606,
+        "chunk_importance_cv": 0.056345179969613995,
+        "top_50pct_concentration": 0.5218243489479295,
+        "n_chunks": 384
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.9998453446336653,
+        "gini_coefficient": 0.0241195019171887,
+        "chunk_importance_cv": 0.043039722264255884,
+        "top_50pct_concentration": 0.5170206866066579,
+        "n_chunks": 384
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9956678513310485,
+        "gini_coefficient": 0.12780666861540685,
+        "chunk_importance_cv": 0.2303738162655461,
+        "top_50pct_concentration": 0.5906654152720291,
+        "n_chunks": 384
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9996891660729703,
+        "gini_coefficient": 0.03322046257820588,
+        "chunk_importance_cv": 0.06141781044440783,
+        "top_50pct_concentration": 0.5231542458396838,
+        "n_chunks": 384
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.9984513705256133,
+        "gini_coefficient": 0.07466601649502416,
+        "chunk_importance_cv": 0.1385411240646701,
+        "top_50pct_concentration": 0.5523623725357591,
+        "n_chunks": 384
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.9979983260036082,
+        "gini_coefficient": 0.08565630559566309,
+        "chunk_importance_cv": 0.15653977397438307,
+        "top_50pct_concentration": 0.5596740037186355,
+        "n_chunks": 384
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.9998605057874951,
+        "gini_coefficient": 0.021386899095507148,
+        "chunk_importance_cv": 0.04111318879371117,
+        "top_50pct_concentration": 0.514488569559398,
+        "n_chunks": 384
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.9996336712114147,
+        "gini_coefficient": 0.035832575310143715,
+        "chunk_importance_cv": 0.06637835291686224,
+        "top_50pct_concentration": 0.5245837433566379,
+        "n_chunks": 384
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.9999564446174809,
+        "gini_coefficient": 0.012821500625812879,
+        "chunk_importance_cv": 0.02276264193475077,
+        "top_50pct_concentration": 0.5090355217812825,
+        "n_chunks": 384
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.999918513064956,
+        "gini_coefficient": 0.017391798455787554,
+        "chunk_importance_cv": 0.031208789873072042,
+        "top_50pct_concentration": 0.5120672331348739,
+        "n_chunks": 384
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.9999294117132725,
+        "gini_coefficient": 0.01637696867437385,
+        "chunk_importance_cv": 0.029013917474257064,
+        "top_50pct_concentration": 0.5116697182915215,
+        "n_chunks": 384
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.9908267643747234,
+        "gini_coefficient": 0.1789320253641164,
+        "chunk_importance_cv": 0.7354062005251892,
+        "top_50pct_concentration": 0.7954287056071402,
+        "n_chunks": 384
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.9984987505839652,
+        "gini_coefficient": 0.07408844883132651,
+        "chunk_importance_cv": 0.13182205304384528,
+        "top_50pct_concentration": 0.5525131007328872,
+        "n_chunks": 384
+      },
+      "STS12": {
+        "normalized_entropy": 0.9871721371910277,
+        "gini_coefficient": 0.21079518097507682,
+        "chunk_importance_cv": 0.4263397862797693,
+        "top_50pct_concentration": 0.6700553018655071,
+        "n_chunks": 384
+      },
+      "STS13": {
+        "normalized_entropy": 0.9924736111265154,
+        "gini_coefficient": 0.16675537337328414,
+        "chunk_importance_cv": 0.29224870111111606,
+        "top_50pct_concentration": 0.6204104173200304,
+        "n_chunks": 384
+      },
+      "STS14": {
+        "normalized_entropy": 0.9966023346723346,
+        "gini_coefficient": 0.11267869373822555,
+        "chunk_importance_cv": 0.1984769985810079,
+        "top_50pct_concentration": 0.5807127715543912,
+        "n_chunks": 384
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.9973597244961876,
+      "std_entropy": 0.0037223827241061307,
+      "min_entropy": 0.9871721371910277,
+      "max_entropy": 0.9999564446174809,
+      "mean_gini": 0.077908006339748,
+      "mean_cv": 0.1588518389361003,
+      "mean_top50": 0.5627496994188678,
+      "n_tasks": 25
+    }
+  },
+  "bge-m3": {
+    "model_name": "bge-m3",
+    "model_dim": 1024,
+    "tasks": {
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.9996426005153111,
+        "gini_coefficient": 0.037726848642758895,
+        "chunk_importance_cv": 0.06711612624811834,
+        "top_50pct_concentration": 0.527045899447203,
+        "n_chunks": 512
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9989349919641953,
+        "gini_coefficient": 0.06457500931633087,
+        "chunk_importance_cv": 0.11683492926904453,
+        "top_50pct_concentration": 0.5457030344552145,
+        "n_chunks": 512
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.9980251852129511,
+        "gini_coefficient": 0.08611831850798525,
+        "chunk_importance_cv": 0.15368878778568087,
+        "top_50pct_concentration": 0.5610398771168211,
+        "n_chunks": 512
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.9970788395493019,
+        "gini_coefficient": 0.10759494029016013,
+        "chunk_importance_cv": 0.1942047026333637,
+        "top_50pct_concentration": 0.5760988765228651,
+        "n_chunks": 512
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.999316077121364,
+        "gini_coefficient": 0.051205059355206944,
+        "chunk_importance_cv": 0.09361718796237171,
+        "top_50pct_concentration": 0.5367054244434494,
+        "n_chunks": 512
+      },
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.998040870993965,
+        "gini_coefficient": 0.08836762838689849,
+        "chunk_importance_cv": 0.15720411270846937,
+        "top_50pct_concentration": 0.5624129671638769,
+        "n_chunks": 512
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.9739454062750753,
+        "gini_coefficient": 0.31636758030170187,
+        "chunk_importance_cv": 0.6088877502042699,
+        "top_50pct_concentration": 0.7189215231504612,
+        "n_chunks": 512
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9944204712976289,
+        "gini_coefficient": 0.14818692925068483,
+        "chunk_importance_cv": 0.2675443088730236,
+        "top_50pct_concentration": 0.6034689438996685,
+        "n_chunks": 512
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.9971291216777904,
+        "gini_coefficient": 0.10631285441653017,
+        "chunk_importance_cv": 0.1925065064568732,
+        "top_50pct_concentration": 0.5746971488484769,
+        "n_chunks": 512
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9997349761835324,
+        "gini_coefficient": 0.03242260063330248,
+        "chunk_importance_cv": 0.05769249899013375,
+        "top_50pct_concentration": 0.5229328552819869,
+        "n_chunks": 512
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.9996381599093829,
+        "gini_coefficient": 0.03743656217117591,
+        "chunk_importance_cv": 0.06773826583765201,
+        "top_50pct_concentration": 0.5265620176877689,
+        "n_chunks": 512
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9974676788980358,
+        "gini_coefficient": 0.09940302690911185,
+        "chunk_importance_cv": 0.18108612510970967,
+        "top_50pct_concentration": 0.5710623915022431,
+        "n_chunks": 512
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9998117004609841,
+        "gini_coefficient": 0.02628457235127919,
+        "chunk_importance_cv": 0.0489266140786877,
+        "top_50pct_concentration": 0.5183538688777471,
+        "n_chunks": 512
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.9988018905721022,
+        "gini_coefficient": 0.06760970577453257,
+        "chunk_importance_cv": 0.12434586475623942,
+        "top_50pct_concentration": 0.5478999825598299,
+        "n_chunks": 512
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.9978165340631323,
+        "gini_coefficient": 0.09232626834653697,
+        "chunk_importance_cv": 0.16381167291453974,
+        "top_50pct_concentration": 0.5653806080387227,
+        "n_chunks": 512
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.999941569038454,
+        "gini_coefficient": 0.015154744627897091,
+        "chunk_importance_cv": 0.027025791375881153,
+        "top_50pct_concentration": 0.510702578285614,
+        "n_chunks": 512
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.999948937191964,
+        "gini_coefficient": 0.013764328982009046,
+        "chunk_importance_cv": 0.025168482549192687,
+        "top_50pct_concentration": 0.5094582150063214,
+        "n_chunks": 512
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.9999589799060055,
+        "gini_coefficient": 0.012897546313712026,
+        "chunk_importance_cv": 0.022635982916012046,
+        "top_50pct_concentration": 0.5093009074337425,
+        "n_chunks": 512
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.997202999490621,
+      "std_entropy": 0.005813098598791073,
+      "min_entropy": 0.9739454062750753,
+      "max_entropy": 0.9999589799060055,
+      "mean_gini": 0.07798636247654527,
+      "mean_cv": 0.14277976170384796,
+      "mean_top50": 0.5548748399845562,
+      "n_tasks": 18
+    }
+  },
+  "gte-large-en-v1.5": {
+    "model_name": "gte-large-en-v1.5",
+    "model_dim": 1024,
+    "tasks": {
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.9997302330815003,
+        "gini_coefficient": 0.03262489569826449,
+        "chunk_importance_cv": 0.05829371546664569,
+        "top_50pct_concentration": 0.5230271826105233,
+        "n_chunks": 512
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9991716828187742,
+        "gini_coefficient": 0.05753418570999937,
+        "chunk_importance_cv": 0.10248778562955477,
+        "top_50pct_concentration": 0.5410412074590102,
+        "n_chunks": 512
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.999021578562983,
+        "gini_coefficient": 0.06243253666343172,
+        "chunk_importance_cv": 0.11059398580382636,
+        "top_50pct_concentration": 0.5440842087230076,
+        "n_chunks": 512
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.9980778813204181,
+        "gini_coefficient": 0.08649825388046242,
+        "chunk_importance_cv": 0.15718897280535124,
+        "top_50pct_concentration": 0.5602255279495727,
+        "n_chunks": 512
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.9986859387325739,
+        "gini_coefficient": 0.07342756737535715,
+        "chunk_importance_cv": 0.1287373854659298,
+        "top_50pct_concentration": 0.5541182978629121,
+        "n_chunks": 512
+      },
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.9983440671349223,
+        "gini_coefficient": 0.08178420805133381,
+        "chunk_importance_cv": 0.14407032271006293,
+        "top_50pct_concentration": 0.5583626821337119,
+        "n_chunks": 512
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.9889139770357972,
+        "gini_coefficient": 0.20525956539611395,
+        "chunk_importance_cv": 0.3899979005195835,
+        "top_50pct_concentration": 0.6408062853266487,
+        "n_chunks": 512
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9973021568306579,
+        "gini_coefficient": 0.10278274879384026,
+        "chunk_importance_cv": 0.18558812562957286,
+        "top_50pct_concentration": 0.5715742234379362,
+        "n_chunks": 512
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.9979621409408893,
+        "gini_coefficient": 0.08944298469439341,
+        "chunk_importance_cv": 0.16156030261299079,
+        "top_50pct_concentration": 0.5630506217534176,
+        "n_chunks": 512
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9994138873742193,
+        "gini_coefficient": 0.0479177797243064,
+        "chunk_importance_cv": 0.08632457324722648,
+        "top_50pct_concentration": 0.5339215929290977,
+        "n_chunks": 512
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.9993901807234775,
+        "gini_coefficient": 0.04906875632251379,
+        "chunk_importance_cv": 0.08796433224375401,
+        "top_50pct_concentration": 0.5348656974175439,
+        "n_chunks": 512
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9966300788513931,
+        "gini_coefficient": 0.11554754090490232,
+        "chunk_importance_cv": 0.20724906514875674,
+        "top_50pct_concentration": 0.5818763019510083,
+        "n_chunks": 512
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9996465724903604,
+        "gini_coefficient": 0.03692885983149056,
+        "chunk_importance_cv": 0.06690784960111329,
+        "top_50pct_concentration": 0.5258067413557119,
+        "n_chunks": 512
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.9984389575780072,
+        "gini_coefficient": 0.07827224266223702,
+        "chunk_importance_cv": 0.14121195673686832,
+        "top_50pct_concentration": 0.5549962440047972,
+        "n_chunks": 512
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.9982295166748797,
+        "gini_coefficient": 0.08344113836870548,
+        "chunk_importance_cv": 0.1479998878740507,
+        "top_50pct_concentration": 0.5592058918430585,
+        "n_chunks": 512
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.9999426070329756,
+        "gini_coefficient": 0.015023588441265867,
+        "chunk_importance_cv": 0.02674194698468446,
+        "top_50pct_concentration": 0.510605205167305,
+        "n_chunks": 512
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.999968903459926,
+        "gini_coefficient": 0.010743101670837286,
+        "chunk_importance_cv": 0.01965873537352452,
+        "top_50pct_concentration": 0.5074840865852871,
+        "n_chunks": 512
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.9999567070224025,
+        "gini_coefficient": 0.013092549246362096,
+        "chunk_importance_cv": 0.023248284687193147,
+        "top_50pct_concentration": 0.5092133622844773,
+        "n_chunks": 512
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.9999237643500055,
+        "gini_coefficient": 0.01733329897370096,
+        "chunk_importance_cv": 0.030836325559511324,
+        "top_50pct_concentration": 0.5122866164731239,
+        "n_chunks": 512
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.9999485438058812,
+        "gini_coefficient": 0.01421011530919728,
+        "chunk_importance_cv": 0.02529774603812761,
+        "top_50pct_concentration": 0.5101069393448907,
+        "n_chunks": 512
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.981885207973414,
+        "gini_coefficient": 0.2656571935159556,
+        "chunk_importance_cv": 0.47759234538212225,
+        "top_50pct_concentration": 0.6880239588887249,
+        "n_chunks": 512
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.934833748417176,
+        "gini_coefficient": 0.4833715448085332,
+        "chunk_importance_cv": 0.8942696761675252,
+        "top_50pct_concentration": 0.843458220068549,
+        "n_chunks": 512
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9971353048529316,
+        "gini_coefficient": 0.10569846544076014,
+        "chunk_importance_cv": 0.18805158532171468,
+        "top_50pct_concentration": 0.5745103024763277,
+        "n_chunks": 512
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.9709565524486151,
+        "gini_coefficient": 0.32205383417658534,
+        "chunk_importance_cv": 0.5809696727497782,
+        "top_50pct_concentration": 0.7280441557466292,
+        "n_chunks": 512
+      },
+      "SciFact": {
+        "normalized_entropy": 0.9414119141610363,
+        "gini_coefficient": 0.4516381681864368,
+        "chunk_importance_cv": 0.82879303449391,
+        "top_50pct_concentration": 0.8201106306251233,
+        "n_chunks": 512
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.9944563121641257,
+        "gini_coefficient": 0.1447867471543924,
+        "chunk_importance_cv": 0.3457292067408954,
+        "top_50pct_concentration": 0.6395631929840891,
+        "n_chunks": 512
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.999672163111687,
+        "gini_coefficient": 0.03545344037130043,
+        "chunk_importance_cv": 0.06349786704664954,
+        "top_50pct_concentration": 0.5250868709918519,
+        "n_chunks": 512
+      },
+      "STS12": {
+        "normalized_entropy": 0.9991655036328014,
+        "gini_coefficient": 0.05595018100075436,
+        "chunk_importance_cv": 0.101146634301111,
+        "top_50pct_concentration": 0.5388759208388404,
+        "n_chunks": 512
+      },
+      "STS13": {
+        "normalized_entropy": 0.9987045613549306,
+        "gini_coefficient": 0.06956618917015531,
+        "chunk_importance_cv": 0.12480770679212003,
+        "top_50pct_concentration": 0.5490941469477678,
+        "n_chunks": 512
+      },
+      "STS14": {
+        "normalized_entropy": 0.9994245691408374,
+        "gini_coefficient": 0.04719198182029454,
+        "chunk_importance_cv": 0.08403034020383773,
+        "top_50pct_concentration": 0.533370187304439,
+        "n_chunks": 512
+      },
+      "STS15": {
+        "normalized_entropy": 0.9991797541858634,
+        "gini_coefficient": 0.05677370087304455,
+        "chunk_importance_cv": 0.1007358068613119,
+        "top_50pct_concentration": 0.539825493198667,
+        "n_chunks": 512
+      },
+      "STS16": {
+        "normalized_entropy": 0.9995470877743986,
+        "gini_coefficient": 0.0425354526986165,
+        "chunk_importance_cv": 0.07501234216575471,
+        "top_50pct_concentration": 0.530181663286942,
+        "n_chunks": 512
+      },
+      "STS17": {
+        "normalized_entropy": 0.9832876674156323,
+        "gini_coefficient": 0.24550478082865415,
+        "chunk_importance_cv": 15.585114235798981,
+        "top_50pct_concentration": 6.795772470700591,
+        "n_chunks": 512
+      },
+      "STS22": {
+        "normalized_entropy": 0.999722374616922,
+        "gini_coefficient": 0.02970456226957907,
+        "chunk_importance_cv": 0.0518897551241654,
+        "top_50pct_concentration": 0.5215068746313501,
+        "n_chunks": 128
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9993704707282891,
+        "gini_coefficient": 0.04949480446862054,
+        "chunk_importance_cv": 0.0880622154700217,
+        "top_50pct_concentration": 0.5351510667873625,
+        "n_chunks": 512
+      },
+      "SummEval": {
+        "normalized_entropy": 0.9995568229075583,
+        "gini_coefficient": 0.04130254698034954,
+        "chunk_importance_cv": 0.07403456241234903,
+        "top_50pct_concentration": 0.5291471540232603,
+        "n_chunks": 512
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.993528038630785,
+      "std_entropy": 0.014745583916149293,
+      "min_entropy": 0.934833748417176,
+      "max_entropy": 0.999968903459926,
+      "mean_gini": 0.10333470865229857,
+      "mean_cv": 0.6101582274214049,
+      "mean_top50": 0.7441217007253766,
+      "n_tasks": 36
+    }
+  },
+  "instructor-large": {
+    "model_name": "instructor-large",
+    "model_dim": 768,
+    "tasks": {
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.9995489103290066,
+        "gini_coefficient": 0.04145680773860535,
+        "chunk_importance_cv": 0.0733864147301674,
+        "top_50pct_concentration": 0.5295707774347054,
+        "n_chunks": 384
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9991177821272176,
+        "gini_coefficient": 0.05797001062253585,
+        "chunk_importance_cv": 0.10336764705818893,
+        "top_50pct_concentration": 0.5419129979218387,
+        "n_chunks": 384
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.9953807003890514,
+        "gini_coefficient": 0.1323103902797373,
+        "chunk_importance_cv": 0.23039965923955566,
+        "top_50pct_concentration": 0.5980604747690361,
+        "n_chunks": 384
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.9973896481134487,
+        "gini_coefficient": 0.09937180772219542,
+        "chunk_importance_cv": 0.17842683393090727,
+        "top_50pct_concentration": 0.5697683739058867,
+        "n_chunks": 384
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.9992060039882974,
+        "gini_coefficient": 0.0540575777986047,
+        "chunk_importance_cv": 0.09851576667137096,
+        "top_50pct_concentration": 0.5390171612183835,
+        "n_chunks": 384
+      },
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.998321422815784,
+        "gini_coefficient": 0.07964399343934894,
+        "chunk_importance_cv": 0.14212309311676202,
+        "top_50pct_concentration": 0.5564043540248156,
+        "n_chunks": 384
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.966348622711328,
+        "gini_coefficient": 0.3500076450696749,
+        "chunk_importance_cv": 0.6843733058319912,
+        "top_50pct_concentration": 0.7404130260675197,
+        "n_chunks": 384
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9946460394374619,
+        "gini_coefficient": 0.14081235003696502,
+        "chunk_importance_cv": 0.25453201677782894,
+        "top_50pct_concentration": 0.5986789972065928,
+        "n_chunks": 384
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.9973075377685842,
+        "gini_coefficient": 0.09888942682795827,
+        "chunk_importance_cv": 0.18277379357622264,
+        "top_50pct_concentration": 0.5688689044275669,
+        "n_chunks": 384
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9996544530366214,
+        "gini_coefficient": 0.03570814800310435,
+        "chunk_importance_cv": 0.06406131236156913,
+        "top_50pct_concentration": 0.5248703175787611,
+        "n_chunks": 384
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.9997722154639901,
+        "gini_coefficient": 0.029276394277669517,
+        "chunk_importance_cv": 0.052319770502583976,
+        "top_50pct_concentration": 0.5207199862278197,
+        "n_chunks": 384
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9955047477785499,
+        "gini_coefficient": 0.12840502060519537,
+        "chunk_importance_cv": 0.2372889142363372,
+        "top_50pct_concentration": 0.5894887842273703,
+        "n_chunks": 384
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9995017086110399,
+        "gini_coefficient": 0.043024327666380105,
+        "chunk_importance_cv": 0.07770546475364275,
+        "top_50pct_concentration": 0.5304611966747095,
+        "n_chunks": 384
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.9981147820573528,
+        "gini_coefficient": 0.08472082758854471,
+        "chunk_importance_cv": 0.15136258986996928,
+        "top_50pct_concentration": 0.5597263340636789,
+        "n_chunks": 384
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.9983162324328331,
+        "gini_coefficient": 0.07955625450678183,
+        "chunk_importance_cv": 0.14185520072111146,
+        "top_50pct_concentration": 0.5557726740739694,
+        "n_chunks": 384
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.9999437608308129,
+        "gini_coefficient": 0.01458611703503463,
+        "chunk_importance_cv": 0.02588108770226987,
+        "top_50pct_concentration": 0.5103624728549803,
+        "n_chunks": 384
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.9999735361834421,
+        "gini_coefficient": 0.009983236960881244,
+        "chunk_importance_cv": 0.017723074750792173,
+        "top_50pct_concentration": 0.5071020106750029,
+        "n_chunks": 384
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.9999509080322884,
+        "gini_coefficient": 0.013580061632419975,
+        "chunk_importance_cv": 0.024182134575823067,
+        "top_50pct_concentration": 0.5094398609260373,
+        "n_chunks": 384
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.9998945979539687,
+        "gini_coefficient": 0.0195191923851942,
+        "chunk_importance_cv": 0.03559946915655682,
+        "top_50pct_concentration": 0.5137023037239689,
+        "n_chunks": 384
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.999913978813025,
+        "gini_coefficient": 0.01794072372281291,
+        "chunk_importance_cv": 0.03207798875940641,
+        "top_50pct_concentration": 0.5125516943822239,
+        "n_chunks": 384
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.9891368371364866,
+        "gini_coefficient": 0.19346612917985684,
+        "chunk_importance_cv": 0.5763956454296645,
+        "top_50pct_concentration": 0.7267126727190885,
+        "n_chunks": 384
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.9997308931450531,
+        "gini_coefficient": 0.03204246713029959,
+        "chunk_importance_cv": 0.05650262530901733,
+        "top_50pct_concentration": 0.5228093893132613,
+        "n_chunks": 384
+      },
+      "STS12": {
+        "normalized_entropy": 0.9984843308577789,
+        "gini_coefficient": 0.07487722264419469,
+        "chunk_importance_cv": 0.13300731043204775,
+        "top_50pct_concentration": 0.5524199946938998,
+        "n_chunks": 384
+      },
+      "STS13": {
+        "normalized_entropy": 0.998824025806002,
+        "gini_coefficient": 0.06622181622119733,
+        "chunk_importance_cv": 0.11798807671347142,
+        "top_50pct_concentration": 0.5464903878043307,
+        "n_chunks": 384
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.9968326531591426,
+      "std_entropy": 0.006797495723776616,
+      "min_entropy": 0.966348622711328,
+      "max_entropy": 0.9999735361834421,
+      "mean_gini": 0.07905949787896638,
+      "mean_cv": 0.15382704984196907,
+      "mean_top50": 0.5593885477881436,
+      "n_tasks": 24
+    }
+  },
+  "roberta-large-InBedder": {
+    "model_name": "roberta-large-InBedder",
+    "model_dim": 1024,
+    "tasks": {
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.9996864003162875,
+        "gini_coefficient": 0.03533430145886921,
+        "chunk_importance_cv": 0.06288609240462917,
+        "top_50pct_concentration": 0.5251490335335001,
+        "n_chunks": 512
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9995548580200229,
+        "gini_coefficient": 0.039793961534681524,
+        "chunk_importance_cv": 0.07574682737683494,
+        "top_50pct_concentration": 0.5277752782266611,
+        "n_chunks": 512
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.9991944640080384,
+        "gini_coefficient": 0.0560564166866461,
+        "chunk_importance_cv": 0.10037584592189489,
+        "top_50pct_concentration": 0.5395784773869029,
+        "n_chunks": 512
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.9986039063322393,
+        "gini_coefficient": 0.07256835267681062,
+        "chunk_importance_cv": 0.13418277212855015,
+        "top_50pct_concentration": 0.5504361519542792,
+        "n_chunks": 512
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.9996613127631819,
+        "gini_coefficient": 0.03549459658402915,
+        "chunk_importance_cv": 0.06574713113256905,
+        "top_50pct_concentration": 0.5254260944913383,
+        "n_chunks": 512
+      },
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.9985288753954124,
+        "gini_coefficient": 0.07607985556112606,
+        "chunk_importance_cv": 0.13588843473460221,
+        "top_50pct_concentration": 0.5531948057105416,
+        "n_chunks": 512
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.9710928893375864,
+        "gini_coefficient": 0.33308262385326676,
+        "chunk_importance_cv": 0.6420668891376613,
+        "top_50pct_concentration": 0.7291582725224224,
+        "n_chunks": 512
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9957883554654356,
+        "gini_coefficient": 0.127602107981576,
+        "chunk_importance_cv": 0.23442806278425032,
+        "top_50pct_concentration": 0.5889839856544048,
+        "n_chunks": 512
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.9978279096389406,
+        "gini_coefficient": 0.0923669936204763,
+        "chunk_importance_cv": 0.16686355295783256,
+        "top_50pct_concentration": 0.5649926084099868,
+        "n_chunks": 512
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9997649182686918,
+        "gini_coefficient": 0.030556524197646092,
+        "chunk_importance_cv": 0.05432024719263705,
+        "top_50pct_concentration": 0.5216290550546326,
+        "n_chunks": 512
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.9998396737777685,
+        "gini_coefficient": 0.025226427322739938,
+        "chunk_importance_cv": 0.04485749428393209,
+        "top_50pct_concentration": 0.5178402426071034,
+        "n_chunks": 512
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9960556358957741,
+        "gini_coefficient": 0.12504351685140128,
+        "chunk_importance_cv": 0.22481809403511102,
+        "top_50pct_concentration": 0.5884832090673029,
+        "n_chunks": 512
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9995722602189266,
+        "gini_coefficient": 0.04088514793540915,
+        "chunk_importance_cv": 0.07355731722159098,
+        "top_50pct_concentration": 0.5286833907365057,
+        "n_chunks": 512
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.998718113879397,
+        "gini_coefficient": 0.06944017308954184,
+        "chunk_importance_cv": 0.12895911583411182,
+        "top_50pct_concentration": 0.5484190211501577,
+        "n_chunks": 512
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.9981085077984942,
+        "gini_coefficient": 0.08519377402454724,
+        "chunk_importance_cv": 0.15555346788461347,
+        "top_50pct_concentration": 0.5594423712451057,
+        "n_chunks": 512
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.9998003491522444,
+        "gini_coefficient": 0.023960627158850258,
+        "chunk_importance_cv": 0.05083146999911291,
+        "top_50pct_concentration": 0.5157205620319094,
+        "n_chunks": 512
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.9998872156224066,
+        "gini_coefficient": 0.020650074160490396,
+        "chunk_importance_cv": 0.037522082746499395,
+        "top_50pct_concentration": 0.5143519373124478,
+        "n_chunks": 512
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.9999603665766821,
+        "gini_coefficient": 0.012514565086462032,
+        "chunk_importance_cv": 0.02223946730576018,
+        "top_50pct_concentration": 0.5088517265286546,
+        "n_chunks": 512
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.9999265860091177,
+        "gini_coefficient": 0.017041529940592267,
+        "chunk_importance_cv": 0.03029708918284617,
+        "top_50pct_concentration": 0.5120357273444642,
+        "n_chunks": 512
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.9999341303796498,
+        "gini_coefficient": 0.015750459661260055,
+        "chunk_importance_cv": 0.028620369737983008,
+        "top_50pct_concentration": 0.5111096142036501,
+        "n_chunks": 512
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.994752325051262,
+        "gini_coefficient": 0.1414146260942676,
+        "chunk_importance_cv": 0.7034431619643385,
+        "top_50pct_concentration": 0.7855593597663766,
+        "n_chunks": 512
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.9992849410783111,
+        "gini_coefficient": 0.053188831319737714,
+        "chunk_importance_cv": 0.09396729338517501,
+        "top_50pct_concentration": 0.5379840868195997,
+        "n_chunks": 512
+      },
+      "STS12": {
+        "normalized_entropy": 0.9936379691882179,
+        "gini_coefficient": 0.15421410084864492,
+        "chunk_importance_cv": 0.2728879705294196,
+        "top_50pct_concentration": 0.6108529454502614,
+        "n_chunks": 512
+      },
+      "STS13": {
+        "normalized_entropy": 0.996084472060104,
+        "gini_coefficient": 0.12272253523198091,
+        "chunk_importance_cv": 0.21605672199562995,
+        "top_50pct_concentration": 0.5882398632724275,
+        "n_chunks": 512
+      },
+      "STS14": {
+        "normalized_entropy": 0.9983054218486925,
+        "gini_coefficient": 0.08145777426474368,
+        "chunk_importance_cv": 0.14413073420936331,
+        "top_50pct_concentration": 0.5585402606525606,
+        "n_chunks": 512
+      },
+      "STS15": {
+        "normalized_entropy": 0.9969117284095326,
+        "gini_coefficient": 0.1077856337096852,
+        "chunk_importance_cv": 0.19184198660195897,
+        "top_50pct_concentration": 0.575721487407009,
+        "n_chunks": 512
+      },
+      "STS16": {
+        "normalized_entropy": 0.9984272783266941,
+        "gini_coefficient": 0.0788207572832051,
+        "chunk_importance_cv": 0.1394237459649706,
+        "top_50pct_concentration": 0.5561021470490727,
+        "n_chunks": 512
+      },
+      "STS17": {
+        "normalized_entropy": 0.9911039463106426,
+        "gini_coefficient": 0.18393863354665674,
+        "chunk_importance_cv": 0.0,
+        "top_50pct_concentration": -19.615710840528354,
+        "n_chunks": 512
+      },
+      "STS22": {
+        "normalized_entropy": 0.9992436686190344,
+        "gini_coefficient": 0.04840610608627985,
+        "chunk_importance_cv": 0.08536774448637034,
+        "top_50pct_concentration": 0.5342832650652349,
+        "n_chunks": 128
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9972119362690989,
+        "gini_coefficient": 0.10404840079151487,
+        "chunk_importance_cv": 0.18367388950550212,
+        "top_50pct_concentration": 0.5744548656087537,
+        "n_chunks": 512
+      },
+      "SummEval": {
+        "normalized_entropy": 0.9995214952816455,
+        "gini_coefficient": 0.04317880899863693,
+        "chunk_importance_cv": 0.07700449785914275,
+        "top_50pct_concentration": 0.5300416097382435,
+        "n_chunks": 512
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.9695383281186574,
+        "gini_coefficient": 0.33377700124616894,
+        "chunk_importance_cv": 0.5929527573219602,
+        "top_50pct_concentration": 0.7398809314122664,
+        "n_chunks": 512
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.9060020670652525,
+        "gini_coefficient": 0.5697120519652816,
+        "chunk_importance_cv": 1.1010714278786606,
+        "top_50pct_concentration": 0.9081669364993716,
+        "n_chunks": 512
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9962123599455889,
+        "gini_coefficient": 0.1224561590554558,
+        "chunk_importance_cv": 0.2166939091948639,
+        "top_50pct_concentration": 0.5868672385282431,
+        "n_chunks": 512
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.9588928586656843,
+        "gini_coefficient": 0.3824935236505096,
+        "chunk_importance_cv": 0.6931186197107193,
+        "top_50pct_concentration": 0.7693472872486907,
+        "n_chunks": 512
+      },
+      "SciFact": {
+        "normalized_entropy": 0.8974408917350958,
+        "gini_coefficient": 0.5825079703894238,
+        "chunk_importance_cv": 1.1282262277030861,
+        "top_50pct_concentration": 0.9131331170962959,
+        "n_chunks": 512
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.9901132893563838,
+      "std_entropy": 0.023296372514612793,
+      "min_entropy": 0.8974408917350958,
+      "max_entropy": 0.9999603665766821,
+      "mean_gini": 0.12346569288523931,
+      "mean_cv": 0.23082284756428287,
+      "mean_top50": 0.030131281284945157,
+      "n_tasks": 36
+    }
+  },
+  "stella_en_400M_v5": {
+    "model_name": "stella_en_400M_v5",
+    "model_dim": 1024,
+    "tasks": {
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.9981034904916076,
+        "gini_coefficient": 0.08710615952347481,
+        "chunk_importance_cv": 0.15443883718147774,
+        "top_50pct_concentration": 0.5621834357428557,
+        "n_chunks": 512
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.9863603354724328,
+        "gini_coefficient": 0.2307526284817522,
+        "chunk_importance_cv": 0.4323770531654705,
+        "top_50pct_concentration": 0.6614037535452444,
+        "n_chunks": 512
+      },
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.9996652051112426,
+        "gini_coefficient": 0.036099680637879536,
+        "chunk_importance_cv": 0.0651186844658113,
+        "top_50pct_concentration": 0.5254849804411179,
+        "n_chunks": 512
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9991884013977111,
+        "gini_coefficient": 0.05648712355447258,
+        "chunk_importance_cv": 0.10178931090027467,
+        "top_50pct_concentration": 0.5405585425291681,
+        "n_chunks": 512
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.9990015035659692,
+        "gini_coefficient": 0.0622374412418342,
+        "chunk_importance_cv": 0.11169858015319396,
+        "top_50pct_concentration": 0.5440418656836615,
+        "n_chunks": 512
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.998246695784337,
+        "gini_coefficient": 0.0832762655056047,
+        "chunk_importance_cv": 0.14970673614337018,
+        "top_50pct_concentration": 0.558684359351429,
+        "n_chunks": 512
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.9993424950599814,
+        "gini_coefficient": 0.05058125455842435,
+        "chunk_importance_cv": 0.09163845476594742,
+        "top_50pct_concentration": 0.5366289671418182,
+        "n_chunks": 512
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9972604376586978,
+        "gini_coefficient": 0.1042089069983683,
+        "chunk_importance_cv": 0.18705831176024137,
+        "top_50pct_concentration": 0.5739116187460839,
+        "n_chunks": 512
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.9978737059078561,
+        "gini_coefficient": 0.09170495056911611,
+        "chunk_importance_cv": 0.16483132611903273,
+        "top_50pct_concentration": 0.5653622905653641,
+        "n_chunks": 512
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9997596158342937,
+        "gini_coefficient": 0.03050446914912843,
+        "chunk_importance_cv": 0.055048815922095845,
+        "top_50pct_concentration": 0.5213299843372198,
+        "n_chunks": 512
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.999734746337965,
+        "gini_coefficient": 0.032419777764769675,
+        "chunk_importance_cv": 0.057841462026669864,
+        "top_50pct_concentration": 0.5231006875369775,
+        "n_chunks": 512
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9957843079630965,
+        "gini_coefficient": 0.12961533306395986,
+        "chunk_importance_cv": 0.23253559517485886,
+        "top_50pct_concentration": 0.5917665322123746,
+        "n_chunks": 512
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9995233168298121,
+        "gini_coefficient": 0.04348948716404447,
+        "chunk_importance_cv": 0.07755446909877468,
+        "top_50pct_concentration": 0.5304647891729519,
+        "n_chunks": 512
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.9984431174482236,
+        "gini_coefficient": 0.07852079160338386,
+        "chunk_importance_cv": 0.14040351131682988,
+        "top_50pct_concentration": 0.5556577635646782,
+        "n_chunks": 512
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.9967483232505566,
+        "gini_coefficient": 0.11374226464894929,
+        "chunk_importance_cv": 0.2017971281695076,
+        "top_50pct_concentration": 0.5798939252211408,
+        "n_chunks": 512
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.9999469053102804,
+        "gini_coefficient": 0.014517762512974916,
+        "chunk_importance_cv": 0.02574074910509173,
+        "top_50pct_concentration": 0.5103127837935326,
+        "n_chunks": 512
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.9999617803793769,
+        "gini_coefficient": 0.012190523704679079,
+        "chunk_importance_cv": 0.021826419643127624,
+        "top_50pct_concentration": 0.5086280624489719,
+        "n_chunks": 512
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.999958062424306,
+        "gini_coefficient": 0.012966328239134819,
+        "chunk_importance_cv": 0.022891998335935176,
+        "top_50pct_concentration": 0.5091815280496595,
+        "n_chunks": 512
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.999857587732331,
+        "gini_coefficient": 0.023768132306588335,
+        "chunk_importance_cv": 0.04217931065099708,
+        "top_50pct_concentration": 0.5168483871726355,
+        "n_chunks": 512
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.9999201184617463,
+        "gini_coefficient": 0.017858202205622294,
+        "chunk_importance_cv": 0.03152398425990517,
+        "top_50pct_concentration": 0.5127715710177582,
+        "n_chunks": 512
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.9765321679966862,
+        "gini_coefficient": 0.2919443577121504,
+        "chunk_importance_cv": 0.5218674650509277,
+        "top_50pct_concentration": 0.7054395469766677,
+        "n_chunks": 512
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.9277000612562915,
+        "gini_coefficient": 0.5031763811893663,
+        "chunk_importance_cv": 0.9472060134450212,
+        "top_50pct_concentration": 0.855801940279703,
+        "n_chunks": 512
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9971727644712856,
+        "gini_coefficient": 0.10534950564641855,
+        "chunk_importance_cv": 0.1881907219116552,
+        "top_50pct_concentration": 0.5745863059730697,
+        "n_chunks": 512
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.9709853748891201,
+        "gini_coefficient": 0.3284551751659941,
+        "chunk_importance_cv": 0.5919385469815869,
+        "top_50pct_concentration": 0.7322216772927896,
+        "n_chunks": 512
+      },
+      "SciFact": {
+        "normalized_entropy": 0.9405876081060516,
+        "gini_coefficient": 0.45223703045502034,
+        "chunk_importance_cv": 0.828883920780787,
+        "top_50pct_concentration": 0.8223834656074178,
+        "n_chunks": 512
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.9887083806012082,
+        "gini_coefficient": 0.2017161635154739,
+        "chunk_importance_cv": 0.3986593306842803,
+        "top_50pct_concentration": 0.659216543552379,
+        "n_chunks": 512
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.9996352873035911,
+        "gini_coefficient": 0.03763026360494219,
+        "chunk_importance_cv": 0.06708040013780879,
+        "top_50pct_concentration": 0.5269358850188335,
+        "n_chunks": 512
+      },
+      "STS12": {
+        "normalized_entropy": 0.9982048389538178,
+        "gini_coefficient": 0.08255417663428034,
+        "chunk_importance_cv": 0.14747677334758313,
+        "top_50pct_concentration": 0.5583302331402182,
+        "n_chunks": 512
+      },
+      "STS13": {
+        "normalized_entropy": 0.9987764980602607,
+        "gini_coefficient": 0.06924531864603704,
+        "chunk_importance_cv": 0.12220673948274954,
+        "top_50pct_concentration": 0.5496908969131582,
+        "n_chunks": 512
+      },
+      "STS14": {
+        "normalized_entropy": 0.999292221391049,
+        "gini_coefficient": 0.05297335621003994,
+        "chunk_importance_cv": 0.09363127919543232,
+        "top_50pct_concentration": 0.5374938227749915,
+        "n_chunks": 512
+      },
+      "STS15": {
+        "normalized_entropy": 0.9990650864372227,
+        "gini_coefficient": 0.060262867767801556,
+        "chunk_importance_cv": 0.10741050618321141,
+        "top_50pct_concentration": 0.5421993894575726,
+        "n_chunks": 512
+      },
+      "STS16": {
+        "normalized_entropy": 0.9994859675449332,
+        "gini_coefficient": 0.04523886813031864,
+        "chunk_importance_cv": 0.07988598425578915,
+        "top_50pct_concentration": 0.5320208589739173,
+        "n_chunks": 512
+      },
+      "STS17": {
+        "normalized_entropy": 0.9893320762766135,
+        "gini_coefficient": 0.19752290921593949,
+        "chunk_importance_cv": 7.140297892417648,
+        "top_50pct_concentration": 3.3263128707543075,
+        "n_chunks": 512
+      },
+      "STS22": {
+        "normalized_entropy": 0.9996364126728007,
+        "gini_coefficient": 0.033082032555633405,
+        "chunk_importance_cv": 0.05920450250379549,
+        "top_50pct_concentration": 0.5231243793627539,
+        "n_chunks": 128
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9990730923039612,
+        "gini_coefficient": 0.059648765508126755,
+        "chunk_importance_cv": 0.10654193504866404,
+        "top_50pct_concentration": 0.541950110403998,
+        "n_chunks": 512
+      },
+      "SummEval": {
+        "normalized_entropy": 0.9995886654045607,
+        "gini_coefficient": 0.04014978044031665,
+        "chunk_importance_cv": 0.07147921052264476,
+        "top_50pct_concentration": 0.528450468681681,
+        "n_chunks": 512
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.9930126848914242,
+      "std_entropy": 0.015711933233840833,
+      "min_entropy": 0.9277000612562915,
+      "max_entropy": 0.9999617803793769,
+      "mean_gini": 0.10758984543977838,
+      "mean_cv": 0.3844433877863389,
+      "mean_top50": 0.6512326173177251,
+      "n_tasks": 36
+    }
+  }
+}

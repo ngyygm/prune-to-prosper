@@ -1,0 +1,18 @@
+Cross-Model Entropy-Gap Correlation Analysis
+=============================================
+Date: 2026-04-02
+
+Model                          Entropy    Gini    Gap%
+gte-large-en-v1.5              0.9935    0.1033    2.41
+stella_en_400M_v5              0.9930    0.1076    3.22
+roberta-large-InBedder         0.9901    0.1235    8.19
+bge-m3                         0.9972    0.0780    4.62
+bart-base                      0.9974    0.0779   10.08
+instructor-large               0.9968    0.0791    2.89
+
+Spearman entropy vs gap: rho=0.26, p=0.62 (NOT significant)
+Pearson entropy vs gap:  r=-0.01, p=0.98 (NOT significant)
+
+Interpretation: Entropy does NOT predict the optimized-random gap across models.
+The gap appears to depend more on training paradigm (contrastive vs non-contrastive)
+than on uniformity metrics. This is an honest negative result.

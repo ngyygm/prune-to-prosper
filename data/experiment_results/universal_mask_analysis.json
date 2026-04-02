@@ -1,0 +1,953 @@
+{
+  "gte-large": {
+    "train": [
+      "AmazonCounterfactualClassification",
+      "AmazonReviewsClassification",
+      "ArguAna",
+      "AskUbuntuDupQuestions",
+      "BIOSSES",
+      "Banking77Classification",
+      "BiorxivClusteringS2S",
+      "CQADupstackEnglishRetrieval",
+      "EmotionClassification",
+      "ImdbClassification",
+      "MTOPDomainClassification",
+      "MassiveIntentClassification",
+      "MassiveScenarioClassification",
+      "MedrxivClusteringS2S",
+      "NFCorpus",
+      "SCIDOCS",
+      "SICK-R",
+      "STS12",
+      "STS13",
+      "STS14",
+      "STS15",
+      "STS16",
+      "SciDocsRR",
+      "TweetSentimentExtractionClassification",
+      "TwitterURLCorpus"
+    ],
+    "test": [
+      "STS17",
+      "STS22",
+      "STSBenchmark",
+      "SciFact",
+      "TwentyNewsgroupsClustering",
+      "ToxicConversationsClassification",
+      "MTOPIntentClassification",
+      "TwitterSemEval2015",
+      "SprintDuplicateQuestions",
+      "SummEval",
+      "StackOverflowDupQuestions"
+    ],
+    "budgets": {
+      "64": {
+        "k": 64,
+        "mean_oracle": 0.204,
+        "mean_universal": 0.1277,
+        "mean_sequential": 0.1239,
+        "mean_random": 0.1251,
+        "mean_uni_oracle_gap": 0.0763,
+        "mean_uni_random_gap": 0.0026,
+        "per_task": {
+          "STS17": {
+            "oracle": 0.4917,
+            "universal": 0.1192,
+            "sequential": 0.1193,
+            "random": 0.1233,
+            "uni_oracle_gap": 0.3725,
+            "uni_random_gap": -0.0041
+          },
+          "STSBenchmark": {
+            "oracle": 0.1419,
+            "universal": 0.1258,
+            "sequential": 0.1234,
+            "random": 0.1249,
+            "uni_oracle_gap": 0.0161,
+            "uni_random_gap": 0.0009
+          },
+          "SciFact": {
+            "oracle": 0.3254,
+            "universal": 0.1373,
+            "sequential": 0.1218,
+            "random": 0.1285,
+            "uni_oracle_gap": 0.188,
+            "uni_random_gap": 0.0088
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.158,
+            "universal": 0.1267,
+            "sequential": 0.1274,
+            "random": 0.1248,
+            "uni_oracle_gap": 0.0314,
+            "uni_random_gap": 0.0018
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.1457,
+            "universal": 0.1242,
+            "sequential": 0.1257,
+            "random": 0.1252,
+            "uni_oracle_gap": 0.0215,
+            "uni_random_gap": -0.001
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.2214,
+            "universal": 0.1364,
+            "sequential": 0.1235,
+            "random": 0.1238,
+            "uni_oracle_gap": 0.085,
+            "uni_random_gap": 0.0126
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.1303,
+            "universal": 0.1253,
+            "sequential": 0.1245,
+            "random": 0.1249,
+            "uni_oracle_gap": 0.005,
+            "uni_random_gap": 0.0004
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.156,
+            "universal": 0.1298,
+            "sequential": 0.1221,
+            "random": 0.1251,
+            "uni_oracle_gap": 0.0262,
+            "uni_random_gap": 0.0047
+          },
+          "SummEval": {
+            "oracle": 0.1396,
+            "universal": 0.1277,
+            "sequential": 0.1259,
+            "random": 0.1254,
+            "uni_oracle_gap": 0.012,
+            "uni_random_gap": 0.0023
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.1299,
+            "universal": 0.1244,
+            "sequential": 0.1251,
+            "random": 0.125,
+            "uni_oracle_gap": 0.0055,
+            "uni_random_gap": -0.0005
+          }
+        }
+      },
+      "128": {
+        "k": 128,
+        "mean_oracle": 0.3631,
+        "mean_universal": 0.2534,
+        "mean_sequential": 0.2501,
+        "mean_random": 0.2493,
+        "mean_uni_oracle_gap": 0.1097,
+        "mean_uni_random_gap": 0.0041,
+        "per_task": {
+          "STS17": {
+            "oracle": 0.7658,
+            "universal": 0.2486,
+            "sequential": 0.2708,
+            "random": 0.2378,
+            "uni_oracle_gap": 0.5172,
+            "uni_random_gap": 0.0108
+          },
+          "STSBenchmark": {
+            "oracle": 0.2764,
+            "universal": 0.2523,
+            "sequential": 0.2478,
+            "random": 0.2503,
+            "uni_oracle_gap": 0.0241,
+            "uni_random_gap": 0.002
+          },
+          "SciFact": {
+            "oracle": 0.5406,
+            "universal": 0.2577,
+            "sequential": 0.2309,
+            "random": 0.2536,
+            "uni_oracle_gap": 0.2828,
+            "uni_random_gap": 0.0041
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.2977,
+            "universal": 0.2553,
+            "sequential": 0.2516,
+            "random": 0.2497,
+            "uni_oracle_gap": 0.0423,
+            "uni_random_gap": 0.0057
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.2806,
+            "universal": 0.2497,
+            "sequential": 0.2519,
+            "random": 0.2499,
+            "uni_oracle_gap": 0.031,
+            "uni_random_gap": -0.0003
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.3839,
+            "universal": 0.2634,
+            "sequential": 0.2489,
+            "random": 0.2524,
+            "uni_oracle_gap": 0.1205,
+            "uni_random_gap": 0.011
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.2582,
+            "universal": 0.2507,
+            "sequential": 0.2498,
+            "random": 0.25,
+            "uni_oracle_gap": 0.0076,
+            "uni_random_gap": 0.0007
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.2972,
+            "universal": 0.2545,
+            "sequential": 0.2495,
+            "random": 0.249,
+            "uni_oracle_gap": 0.0427,
+            "uni_random_gap": 0.0054
+          },
+          "SummEval": {
+            "oracle": 0.2726,
+            "universal": 0.2518,
+            "sequential": 0.2497,
+            "random": 0.25,
+            "uni_oracle_gap": 0.0208,
+            "uni_random_gap": 0.0018
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.2578,
+            "universal": 0.2496,
+            "sequential": 0.2501,
+            "random": 0.2501,
+            "uni_oracle_gap": 0.0082,
+            "uni_random_gap": -0.0005
+          }
+        }
+      },
+      "256": {
+        "k": 256,
+        "mean_oracle": 0.6192,
+        "mean_universal": 0.5039,
+        "mean_sequential": 0.5012,
+        "mean_random": 0.502,
+        "mean_uni_oracle_gap": 0.1152,
+        "mean_uni_random_gap": 0.002,
+        "per_task": {
+          "STS17": {
+            "oracle": 0.9975,
+            "universal": 0.4668,
+            "sequential": 0.5274,
+            "random": 0.5112,
+            "uni_oracle_gap": 0.5308,
+            "uni_random_gap": -0.0445
+          },
+          "STSBenchmark": {
+            "oracle": 0.5352,
+            "universal": 0.5037,
+            "sequential": 0.4989,
+            "random": 0.4996,
+            "uni_oracle_gap": 0.0314,
+            "uni_random_gap": 0.0041
+          },
+          "SciFact": {
+            "oracle": 0.8201,
+            "universal": 0.5265,
+            "sequential": 0.4823,
+            "random": 0.506,
+            "uni_oracle_gap": 0.2936,
+            "uni_random_gap": 0.0205
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.555,
+            "universal": 0.5027,
+            "sequential": 0.5032,
+            "random": 0.501,
+            "uni_oracle_gap": 0.0523,
+            "uni_random_gap": 0.0017
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.5339,
+            "universal": 0.4981,
+            "sequential": 0.5023,
+            "random": 0.4996,
+            "uni_oracle_gap": 0.0359,
+            "uni_random_gap": -0.0015
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.6408,
+            "universal": 0.5348,
+            "sequential": 0.5012,
+            "random": 0.5024,
+            "uni_oracle_gap": 0.106,
+            "uni_random_gap": 0.0325
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.5106,
+            "universal": 0.5013,
+            "sequential": 0.5,
+            "random": 0.5,
+            "uni_oracle_gap": 0.0093,
+            "uni_random_gap": 0.0013
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.5592,
+            "universal": 0.503,
+            "sequential": 0.4976,
+            "random": 0.4997,
+            "uni_oracle_gap": 0.0562,
+            "uni_random_gap": 0.0033
+          },
+          "SummEval": {
+            "oracle": 0.5291,
+            "universal": 0.5019,
+            "sequential": 0.4991,
+            "random": 0.5006,
+            "uni_oracle_gap": 0.0272,
+            "uni_random_gap": 0.0013
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.5101,
+            "universal": 0.5006,
+            "sequential": 0.5002,
+            "random": 0.4997,
+            "uni_oracle_gap": 0.0095,
+            "uni_random_gap": 0.0009
+          }
+        }
+      }
+    }
+  },
+  "stella": {
+    "train": [
+      "AmazonCounterfactualClassification",
+      "AmazonReviewsClassification",
+      "ArguAna",
+      "AskUbuntuDupQuestions",
+      "BIOSSES",
+      "Banking77Classification",
+      "BiorxivClusteringS2S",
+      "CQADupstackEnglishRetrieval",
+      "EmotionClassification",
+      "ImdbClassification",
+      "MTOPDomainClassification",
+      "MassiveIntentClassification",
+      "MassiveScenarioClassification",
+      "MedrxivClusteringS2S",
+      "NFCorpus",
+      "SCIDOCS",
+      "SICK-R",
+      "STS12",
+      "STS13",
+      "STS14",
+      "STS15",
+      "STS16",
+      "SciDocsRR",
+      "TweetSentimentExtractionClassification",
+      "TwitterURLCorpus"
+    ],
+    "test": [
+      "STS17",
+      "STS22",
+      "STSBenchmark",
+      "SciFact",
+      "TwentyNewsgroupsClustering",
+      "ToxicConversationsClassification",
+      "MTOPIntentClassification",
+      "TwitterSemEval2015",
+      "SprintDuplicateQuestions",
+      "SummEval",
+      "StackOverflowDupQuestions"
+    ],
+    "budgets": {
+      "64": {
+        "k": 64,
+        "mean_oracle": 0.2043,
+        "mean_universal": 0.1281,
+        "mean_sequential": 0.1263,
+        "mean_random": 0.1255,
+        "mean_uni_oracle_gap": 0.0763,
+        "mean_uni_random_gap": 0.0026,
+        "per_task": {
+          "STS17": {
+            "oracle": 0.4742,
+            "universal": 0.1155,
+            "sequential": 0.136,
+            "random": 0.1322,
+            "uni_oracle_gap": 0.3587,
+            "uni_random_gap": -0.0168
+          },
+          "STSBenchmark": {
+            "oracle": 0.1461,
+            "universal": 0.1288,
+            "sequential": 0.124,
+            "random": 0.1248,
+            "uni_oracle_gap": 0.0173,
+            "uni_random_gap": 0.004
+          },
+          "SciFact": {
+            "oracle": 0.3227,
+            "universal": 0.1357,
+            "sequential": 0.1316,
+            "random": 0.1233,
+            "uni_oracle_gap": 0.187,
+            "uni_random_gap": 0.0124
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.1565,
+            "universal": 0.1311,
+            "sequential": 0.1236,
+            "random": 0.1247,
+            "uni_oracle_gap": 0.0253,
+            "uni_random_gap": 0.0065
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.1378,
+            "universal": 0.124,
+            "sequential": 0.1248,
+            "random": 0.1252,
+            "uni_oracle_gap": 0.0138,
+            "uni_random_gap": -0.0012
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.2358,
+            "universal": 0.1429,
+            "sequential": 0.1299,
+            "random": 0.1248,
+            "uni_oracle_gap": 0.0929,
+            "uni_random_gap": 0.0182
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.1304,
+            "universal": 0.1257,
+            "sequential": 0.1247,
+            "random": 0.1249,
+            "uni_oracle_gap": 0.0047,
+            "uni_random_gap": 0.0008
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.1693,
+            "universal": 0.1259,
+            "sequential": 0.1208,
+            "random": 0.125,
+            "uni_oracle_gap": 0.0434,
+            "uni_random_gap": 0.0009
+          },
+          "SummEval": {
+            "oracle": 0.1397,
+            "universal": 0.1257,
+            "sequential": 0.1227,
+            "random": 0.125,
+            "uni_oracle_gap": 0.014,
+            "uni_random_gap": 0.0007
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.131,
+            "universal": 0.1256,
+            "sequential": 0.125,
+            "random": 0.1251,
+            "uni_oracle_gap": 0.0054,
+            "uni_random_gap": 0.0005
+          }
+        }
+      },
+      "128": {
+        "k": 128,
+        "mean_oracle": 0.3646,
+        "mean_universal": 0.254,
+        "mean_sequential": 0.2475,
+        "mean_random": 0.2498,
+        "mean_uni_oracle_gap": 0.1107,
+        "mean_uni_random_gap": 0.0042,
+        "per_task": {
+          "STS17": {
+            "oracle": 0.7532,
+            "universal": 0.2402,
+            "sequential": 0.2558,
+            "random": 0.2443,
+            "uni_oracle_gap": 0.5131,
+            "uni_random_gap": -0.0041
+          },
+          "STSBenchmark": {
+            "oracle": 0.2825,
+            "universal": 0.2573,
+            "sequential": 0.2467,
+            "random": 0.2509,
+            "uni_oracle_gap": 0.0251,
+            "uni_random_gap": 0.0064
+          },
+          "SciFact": {
+            "oracle": 0.5357,
+            "universal": 0.2565,
+            "sequential": 0.2337,
+            "random": 0.2524,
+            "uni_oracle_gap": 0.2792,
+            "uni_random_gap": 0.004
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.2964,
+            "universal": 0.2528,
+            "sequential": 0.246,
+            "random": 0.2499,
+            "uni_oracle_gap": 0.0435,
+            "uni_random_gap": 0.0029
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.2683,
+            "universal": 0.2493,
+            "sequential": 0.2496,
+            "random": 0.2503,
+            "uni_oracle_gap": 0.019,
+            "uni_random_gap": -0.001
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.4023,
+            "universal": 0.2767,
+            "sequential": 0.2533,
+            "random": 0.2504,
+            "uni_oracle_gap": 0.1256,
+            "uni_random_gap": 0.0263
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.2582,
+            "universal": 0.2507,
+            "sequential": 0.2495,
+            "random": 0.2501,
+            "uni_oracle_gap": 0.0075,
+            "uni_random_gap": 0.0006
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.3176,
+            "universal": 0.2544,
+            "sequential": 0.2437,
+            "random": 0.2488,
+            "uni_oracle_gap": 0.0632,
+            "uni_random_gap": 0.0056
+          },
+          "SummEval": {
+            "oracle": 0.2725,
+            "universal": 0.2513,
+            "sequential": 0.2469,
+            "random": 0.2503,
+            "uni_oracle_gap": 0.0211,
+            "uni_random_gap": 0.0011
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.2597,
+            "universal": 0.2505,
+            "sequential": 0.2494,
+            "random": 0.2501,
+            "uni_oracle_gap": 0.0091,
+            "uni_random_gap": 0.0004
+          }
+        }
+      },
+      "256": {
+        "k": 256,
+        "mean_oracle": 0.6228,
+        "mean_universal": 0.5009,
+        "mean_sequential": 0.4927,
+        "mean_random": 0.4998,
+        "mean_uni_oracle_gap": 0.1219,
+        "mean_uni_random_gap": 0.0011,
+        "per_task": {
+          "STS17": {
+            "oracle": 0.994,
+            "universal": 0.4823,
+            "sequential": 0.4641,
+            "random": 0.4995,
+            "uni_oracle_gap": 0.5117,
+            "uni_random_gap": -0.0172
+          },
+          "STSBenchmark": {
+            "oracle": 0.542,
+            "universal": 0.5104,
+            "sequential": 0.498,
+            "random": 0.4999,
+            "uni_oracle_gap": 0.0315,
+            "uni_random_gap": 0.0105
+          },
+          "SciFact": {
+            "oracle": 0.8224,
+            "universal": 0.4836,
+            "sequential": 0.4683,
+            "random": 0.5007,
+            "uni_oracle_gap": 0.3388,
+            "uni_random_gap": -0.0171
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.5557,
+            "universal": 0.5052,
+            "sequential": 0.4966,
+            "random": 0.4999,
+            "uni_oracle_gap": 0.0504,
+            "uni_random_gap": 0.0054
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.5213,
+            "universal": 0.4989,
+            "sequential": 0.4989,
+            "random": 0.4999,
+            "uni_oracle_gap": 0.0224,
+            "uni_random_gap": -0.001
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.6614,
+            "universal": 0.5225,
+            "sequential": 0.5068,
+            "random": 0.4975,
+            "uni_oracle_gap": 0.1389,
+            "uni_random_gap": 0.0249
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.5103,
+            "universal": 0.5015,
+            "sequential": 0.5,
+            "random": 0.4999,
+            "uni_oracle_gap": 0.0088,
+            "uni_random_gap": 0.0016
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.5799,
+            "universal": 0.5028,
+            "sequential": 0.4964,
+            "random": 0.5005,
+            "uni_oracle_gap": 0.0771,
+            "uni_random_gap": 0.0023
+          },
+          "SummEval": {
+            "oracle": 0.5285,
+            "universal": 0.5004,
+            "sequential": 0.498,
+            "random": 0.5004,
+            "uni_oracle_gap": 0.028,
+            "uni_random_gap": -0.0
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.5128,
+            "universal": 0.5014,
+            "sequential": 0.5003,
+            "random": 0.4999,
+            "uni_oracle_gap": 0.0114,
+            "uni_random_gap": 0.0015
+          }
+        }
+      }
+    }
+  },
+  "inbedder": {
+    "train": [
+      "AmazonCounterfactualClassification",
+      "AmazonReviewsClassification",
+      "ArguAna",
+      "AskUbuntuDupQuestions",
+      "BIOSSES",
+      "Banking77Classification",
+      "BiorxivClusteringS2S",
+      "CQADupstackEnglishRetrieval",
+      "EmotionClassification",
+      "ImdbClassification",
+      "MTOPDomainClassification",
+      "MassiveIntentClassification",
+      "MassiveScenarioClassification",
+      "MedrxivClusteringS2S",
+      "NFCorpus",
+      "SCIDOCS",
+      "SICK-R",
+      "STS12",
+      "STS13",
+      "STS14",
+      "STS15",
+      "STS16",
+      "SciDocsRR",
+      "TweetSentimentExtractionClassification",
+      "TwitterURLCorpus"
+    ],
+    "test": [
+      "STS17",
+      "STS22",
+      "STSBenchmark",
+      "SciFact",
+      "TwentyNewsgroupsClustering",
+      "ToxicConversationsClassification",
+      "MTOPIntentClassification",
+      "TwitterSemEval2015",
+      "SprintDuplicateQuestions",
+      "SummEval",
+      "StackOverflowDupQuestions"
+    ],
+    "budgets": {
+      "64": {
+        "k": 64,
+        "mean_oracle": 0.2248,
+        "mean_universal": 0.1249,
+        "mean_sequential": 0.123,
+        "mean_random": 0.1257,
+        "mean_uni_oracle_gap": 0.0999,
+        "mean_uni_random_gap": -0.0008,
+        "per_task": {
+          "STS17": {
+            "oracle": 0.5197,
+            "universal": 0.1115,
+            "sequential": 0.1285,
+            "random": 0.1236,
+            "uni_oracle_gap": 0.4082,
+            "uni_random_gap": -0.0121
+          },
+          "STSBenchmark": {
+            "oracle": 0.1603,
+            "universal": 0.1337,
+            "sequential": 0.1279,
+            "random": 0.125,
+            "uni_oracle_gap": 0.0266,
+            "uni_random_gap": 0.0087
+          },
+          "SciFact": {
+            "oracle": 0.4119,
+            "universal": 0.1234,
+            "sequential": 0.11,
+            "random": 0.1359,
+            "uni_oracle_gap": 0.2884,
+            "uni_random_gap": -0.0125
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.1562,
+            "universal": 0.1243,
+            "sequential": 0.1264,
+            "random": 0.1246,
+            "uni_oracle_gap": 0.032,
+            "uni_random_gap": -0.0003
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.1371,
+            "universal": 0.1252,
+            "sequential": 0.125,
+            "random": 0.125,
+            "uni_oracle_gap": 0.0119,
+            "uni_random_gap": 0.0002
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.2925,
+            "universal": 0.1311,
+            "sequential": 0.1133,
+            "random": 0.1237,
+            "uni_oracle_gap": 0.1614,
+            "uni_random_gap": 0.0074
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.1385,
+            "universal": 0.126,
+            "sequential": 0.1256,
+            "random": 0.1249,
+            "uni_oracle_gap": 0.0125,
+            "uni_random_gap": 0.0011
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.1605,
+            "universal": 0.1257,
+            "sequential": 0.1269,
+            "random": 0.1242,
+            "uni_oracle_gap": 0.0347,
+            "uni_random_gap": 0.0015
+          },
+          "SummEval": {
+            "oracle": 0.1406,
+            "universal": 0.1224,
+            "sequential": 0.1218,
+            "random": 0.1251,
+            "uni_oracle_gap": 0.0182,
+            "uni_random_gap": -0.0027
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.1308,
+            "universal": 0.1257,
+            "sequential": 0.1248,
+            "random": 0.125,
+            "uni_oracle_gap": 0.0051,
+            "uni_random_gap": 0.0006
+          }
+        }
+      },
+      "128": {
+        "k": 128,
+        "mean_oracle": 0.39,
+        "mean_universal": 0.2534,
+        "mean_sequential": 0.2491,
+        "mean_random": 0.2498,
+        "mean_uni_oracle_gap": 0.1366,
+        "mean_uni_random_gap": 0.0036,
+        "per_task": {
+          "STS17": {
+            "oracle": 0.8048,
+            "universal": 0.2541,
+            "sequential": 0.2591,
+            "random": 0.2513,
+            "uni_oracle_gap": 0.5507,
+            "uni_random_gap": 0.0028
+          },
+          "STSBenchmark": {
+            "oracle": 0.3067,
+            "universal": 0.2636,
+            "sequential": 0.2521,
+            "random": 0.2497,
+            "uni_oracle_gap": 0.0431,
+            "uni_random_gap": 0.0139
+          },
+          "SciFact": {
+            "oracle": 0.6504,
+            "universal": 0.254,
+            "sequential": 0.2591,
+            "random": 0.2478,
+            "uni_oracle_gap": 0.3964,
+            "uni_random_gap": 0.0062
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.2939,
+            "universal": 0.2491,
+            "sequential": 0.2517,
+            "random": 0.2508,
+            "uni_oracle_gap": 0.0449,
+            "uni_random_gap": -0.0017
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.2681,
+            "universal": 0.2507,
+            "sequential": 0.2499,
+            "random": 0.2495,
+            "uni_oracle_gap": 0.0174,
+            "uni_random_gap": 0.0012
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.4758,
+            "universal": 0.2587,
+            "sequential": 0.2211,
+            "random": 0.2481,
+            "uni_oracle_gap": 0.2171,
+            "uni_random_gap": 0.0107
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.2663,
+            "universal": 0.2514,
+            "sequential": 0.2503,
+            "random": 0.2502,
+            "uni_oracle_gap": 0.0149,
+            "uni_random_gap": 0.0013
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.3009,
+            "universal": 0.2538,
+            "sequential": 0.2522,
+            "random": 0.2505,
+            "uni_oracle_gap": 0.0472,
+            "uni_random_gap": 0.0032
+          },
+          "SummEval": {
+            "oracle": 0.2741,
+            "universal": 0.2472,
+            "sequential": 0.2458,
+            "random": 0.2498,
+            "uni_oracle_gap": 0.027,
+            "uni_random_gap": -0.0027
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.2588,
+            "universal": 0.2511,
+            "sequential": 0.25,
+            "random": 0.2499,
+            "uni_oracle_gap": 0.0077,
+            "uni_random_gap": 0.0013
+          }
+        }
+      },
+      "256": {
+        "k": 256,
+        "mean_oracle": 0.6403,
+        "mean_universal": 0.5031,
+        "mean_sequential": 0.4996,
+        "mean_random": 0.4978,
+        "mean_uni_oracle_gap": 0.1372,
+        "mean_uni_random_gap": 0.0052,
+        "per_task": {
+          "STS17": {
+            "oracle": 1.0,
+            "universal": 0.4983,
+            "sequential": 0.5057,
+            "random": 0.4865,
+            "uni_oracle_gap": 0.5017,
+            "uni_random_gap": 0.0118
+          },
+          "STSBenchmark": {
+            "oracle": 0.5745,
+            "universal": 0.5194,
+            "sequential": 0.504,
+            "random": 0.5006,
+            "uni_oracle_gap": 0.0551,
+            "uni_random_gap": 0.0188
+          },
+          "SciFact": {
+            "oracle": 0.9131,
+            "universal": 0.4792,
+            "sequential": 0.5071,
+            "random": 0.4925,
+            "uni_oracle_gap": 0.4339,
+            "uni_random_gap": -0.0132
+          },
+          "TwentyNewsgroupsClustering": {
+            "oracle": 0.5484,
+            "universal": 0.5031,
+            "sequential": 0.5031,
+            "random": 0.4996,
+            "uni_oracle_gap": 0.0453,
+            "uni_random_gap": 0.0035
+          },
+          "ToxicConversationsClassification": {
+            "oracle": 0.5216,
+            "universal": 0.501,
+            "sequential": 0.5004,
+            "random": 0.5003,
+            "uni_oracle_gap": 0.0206,
+            "uni_random_gap": 0.0008
+          },
+          "MTOPIntentClassification": {
+            "oracle": 0.7292,
+            "universal": 0.5171,
+            "sequential": 0.477,
+            "random": 0.4992,
+            "uni_oracle_gap": 0.212,
+            "uni_random_gap": 0.0179
+          },
+          "TwitterSemEval2015": {
+            "oracle": 0.5157,
+            "universal": 0.5013,
+            "sequential": 0.4987,
+            "random": 0.5,
+            "uni_oracle_gap": 0.0145,
+            "uni_random_gap": 0.0012
+          },
+          "SprintDuplicateQuestions": {
+            "oracle": 0.5594,
+            "universal": 0.5095,
+            "sequential": 0.5029,
+            "random": 0.5,
+            "uni_oracle_gap": 0.0499,
+            "uni_random_gap": 0.0096
+          },
+          "SummEval": {
+            "oracle": 0.53,
+            "universal": 0.5002,
+            "sequential": 0.4968,
+            "random": 0.4996,
+            "uni_oracle_gap": 0.0298,
+            "uni_random_gap": 0.0006
+          },
+          "StackOverflowDupQuestions": {
+            "oracle": 0.5111,
+            "universal": 0.5016,
+            "sequential": 0.5004,
+            "random": 0.5,
+            "uni_oracle_gap": 0.0095,
+            "uni_random_gap": 0.0016
+          }
+        }
+      }
+    }
+  }
+}

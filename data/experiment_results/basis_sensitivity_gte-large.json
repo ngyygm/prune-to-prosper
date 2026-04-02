@@ -1,0 +1,113 @@
+{
+  "model": "gte-large",
+  "D": 1024,
+  "target_dim": 256,
+  "n_sentences": 500,
+  "spectral_info": {
+    "pca_top10_eigenvalues": [
+      25.978836059570312,
+      21.038679122924805,
+      19.428680419921875,
+      17.821971893310547,
+      16.420406341552734,
+      15.623926162719727,
+      14.848235130310059,
+      14.283526420593262,
+      12.61365795135498,
+      11.237101554870605
+    ],
+    "pca_eigenvalue_ratio_top1_to_last": 259788360595.70312,
+    "pca_cumulative_variance_256": 1.0000008344650269,
+    "pca_cumulative_variance_512": 1.000001072883606,
+    "whiten_eigenvalue_range": [
+      9.999999974752427e-07,
+      25.978836059570312
+    ]
+  },
+  "basis_results": {
+    "original": {
+      "dim_variance_cv": 0.45535752059989953,
+      "dim_variance_entropy": 0.9861995644981207,
+      "seq_variance_retention": 0.9542219613945131,
+      "random_variance_retention": 1.0132002455952362,
+      "oracle_variance_retention": 1.618316665824507,
+      "anti_variance_retention": 0.5253842724550232,
+      "seq_cosine_correlation": 0.9382833711863438,
+      "random_cosine_correlation": 0.9456428660770271,
+      "seq_nn_overlap": 0.8519999999999998,
+      "random_nn_overlap": 0.05600000000000001,
+      "seq_vs_random_cos_corr_gap": -0.007359494890683327,
+      "variance_concentration_top256": 0.404579222202301
+    },
+    "random_ortho_seed42": {
+      "dim_variance_cv": 0.3397535508127804,
+      "dim_variance_entropy": 0.9918338108822873,
+      "seq_variance_retention": 0.9867463061235636,
+      "random_variance_retention": 1.0087852560264399,
+      "oracle_variance_retention": 1.4616640124673002,
+      "anti_variance_retention": 0.6123284287834474,
+      "seq_cosine_correlation": 0.9578445012016655,
+      "random_cosine_correlation": 0.9607924142276503,
+      "seq_nn_overlap": 0.8599999999999998,
+      "random_nn_overlap": 0.05733333333333334,
+      "seq_vs_random_cos_corr_gap": -0.0029479130259847386,
+      "variance_concentration_top256": 0.365416003116825
+    },
+    "random_ortho_seed123": {
+      "dim_variance_cv": 0.35327330074649466,
+      "dim_variance_entropy": 0.9914263213765013,
+      "seq_variance_retention": 0.9852427964701536,
+      "random_variance_retention": 1.0029852161374948,
+      "oracle_variance_retention": 1.485025031186262,
+      "anti_variance_retention": 0.6113089999162308,
+      "seq_cosine_correlation": 0.957510337476841,
+      "random_cosine_correlation": 0.9634216837566371,
+      "seq_nn_overlap": 0.8399999999999997,
+      "random_nn_overlap": 0.060000000000000005,
+      "seq_vs_random_cos_corr_gap": -0.005911346279796059,
+      "variance_concentration_top256": 0.3712562577965655
+    },
+    "random_ortho_seed456": {
+      "dim_variance_cv": 0.35944460148668333,
+      "dim_variance_entropy": 0.9910567382410351,
+      "seq_variance_retention": 1.0149308577193237,
+      "random_variance_retention": 0.9983388614735608,
+      "oracle_variance_retention": 1.47866875923303,
+      "anti_variance_retention": 0.5953081610813851,
+      "seq_cosine_correlation": 0.9637384467910076,
+      "random_cosine_correlation": 0.9670561096116911,
+      "seq_nn_overlap": 0.8319999999999997,
+      "random_nn_overlap": 0.05600000000000001,
+      "seq_vs_random_cos_corr_gap": -0.0033176628206834646,
+      "variance_concentration_top256": 0.3696671898082575
+    },
+    "pca": {
+      "dim_variance_cv": 0.35600734272499385,
+      "dim_variance_entropy": 0.991172064485987,
+      "seq_variance_retention": 0.9862966420852758,
+      "random_variance_retention": 1.0024411592154983,
+      "oracle_variance_retention": 1.47767223270103,
+      "anti_variance_retention": 0.5999596898833593,
+      "seq_cosine_correlation": 0.9763923895619626,
+      "random_cosine_correlation": 0.9728325949099341,
+      "seq_nn_overlap": 0.8279999999999998,
+      "random_nn_overlap": 0.06266666666666665,
+      "seq_vs_random_cos_corr_gap": 0.0035597946520284918,
+      "variance_concentration_top256": 0.36941808462142944
+    },
+    "whitened": {
+      "dim_variance_cv": 0.41363923216443266,
+      "dim_variance_entropy": 0.9883038754210177,
+      "seq_variance_retention": 0.9677174171443992,
+      "random_variance_retention": 1.0140733548948775,
+      "oracle_variance_retention": 1.564308563525706,
+      "anti_variance_retention": 0.5521427487193985,
+      "seq_cosine_correlation": 0.9696074411871195,
+      "random_cosine_correlation": 0.9667211379366293,
+      "seq_nn_overlap": 0.7999999999999997,
+      "random_nn_overlap": 0.054666666666666655,
+      "seq_vs_random_cos_corr_gap": 0.0028863032504902186,
+      "variance_concentration_top256": 0.39107710123062134
+    }
+  }
+}

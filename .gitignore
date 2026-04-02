@@ -20,8 +20,8 @@ build/
 *.fdb_latexmk
 *.fls
 
-# Data (too large for GitHub)
-data/
+# Data
+# data/ now tracked - experiment results are small enough for GitHub
 
 # Models
 models/
