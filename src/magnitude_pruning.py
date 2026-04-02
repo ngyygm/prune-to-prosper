@@ -256,9 +256,9 @@ def run_magnitude_mteb(model_path, magnitude_data, target_dim=256, win_size=2, b
 def main():
     parser = argparse.ArgumentParser(description="Magnitude-based pruning baseline")
     parser.add_argument("--analyze_dir", type=str,
-                        default="/home/linkco/exa/llm-usefulEeb/Useful-Embedding/Useful-Embedding/data/analyze")
+                        default="/home/linkco/exa/llm-usefulEeb/data/analyze")
     parser.add_argument("--output_dir", type=str,
-                        default="/home/linkco/exa/llm-usefulEeb/experiments/analysis_output")
+                        default="/home/linkco/exa/llm-usefulEeb/data/experiment_results")
     parser.add_argument("--models_dir", type=str,
                         default="/home/linkco/exa/models")
     parser.add_argument("--run_mteb", action="store_true",
@@ -283,6 +283,8 @@ def main():
         "mxbai-embed-large-v1": "mxbai-embed-large-v1",
         "bart-base": "bart-base",
         "roberta-large": "roberta-large",
+        "Qwen3-Embedding-0.6B": "Qwen3-Embedding-0.6B",
+        "gte-Qwen2-1.5B-instruct": "gte-Qwen2-1.5B-instruct",
     }
 
     # Load existing analyze data
@@ -329,13 +331,19 @@ def main():
 
         # Compare with task rankings
         if model_name in analyze_data:
-            comp = compare_magnitude_with_task_rankings(mag_data, analyze_data, model_name)
-            if comp:
-                comparison_results[model_name] = comp
-                print(f"  Magnitude vs Task ranking correlation:")
-                print(f"    Mean rho = {comp['summary']['mean_rho']:.4f} ± {comp['summary']['std_rho']:.4f}")
-                print(f"    Range: [{comp['summary']['min_rho']:.4f}, {comp['summary']['max_rho']:.4f}]")
-                print(f"    Significant (p<0.05): {comp['summary']['n_significant']}/{comp['summary']['n_tasks']}")
+            model_analyze = analyze_data[model_name]
+            analyze_dim = model_analyze.get("model_dim", 0)
+            mag_dim = mag_data["model_dim"]
+            if analyze_dim != mag_dim:
+                print(f"  Skipping comparison: dimension mismatch (magnitude={mag_dim}, analyze={analyze_dim})")
+            else:
+                comp = compare_magnitude_with_task_rankings(mag_data, analyze_data, model_name)
+                if comp:
+                    comparison_results[model_name] = comp
+                    print(f"  Magnitude vs Task ranking correlation:")
+                    print(f"    Mean rho = {comp['summary']['mean_rho']:.4f} ± {comp['summary']['std_rho']:.4f}")
+                    print(f"    Range: [{comp['summary']['min_rho']:.4f}, {comp['summary']['max_rho']:.4f}]")
+                    print(f"    Significant (p<0.05): {comp['summary']['n_significant']}/{comp['summary']['n_tasks']}")
         else:
             print(f"  No analyze data for {model_name}, skipping comparison")
 

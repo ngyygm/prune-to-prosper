@@ -12,9 +12,9 @@
 
 ## Overview
 
-Modern text embedding models produce high-dimensional vectors (768–4096 dimensions) where **dimensions are highly interchangeable**: randomly removing up to 75% of dimensions causes only minor performance degradation, and no intelligent selection strategy significantly outperforms random.
+Modern text embedding models produce high-dimensional vectors (768--4096 dimensions) where **dimensions are highly interchangeable**: randomly removing up to 75% of dimensions causes only minor performance degradation. Even the task-optimized oracle---with full access to task-specific evaluation data---provides only a modest improvement over random (+2--5% for general-purpose models).
 
-We systematically evaluate **5 pruning strategies** across **13 models** and **35 MTEB tasks**, finding that task-optimized selection provides only +2–5% improvement over random—despite being an oracle with full task-specific knowledge.
+We systematically evaluate **5 pruning strategies** across **12 models** and **35 MTEB tasks**, finding that task-optimized oracle selection provides only +2--5% improvement over random for general-purpose models (all $p < 0.001$, Cohen's $d < 1.1$)---despite having full access to task-specific evaluation data.
 
 <p align="center">
   <img src="paper/figures/fig_method_framework.png" alt="Method Framework" width="90%">
@@ -159,22 +159,22 @@ All 11 models cluster near the diagonal with optimized slightly above random.
 
 ## Models Evaluated
 
-We evaluate **13 models** spanning diverse architectures:
+We evaluate **12 models** spanning diverse architectures:
 
 | Model | Dims | Training | Detailed Analysis |
 |-------|------|----------|:-:|
 | GTE-Large | 1024 | Contrastive | ✓ |
 | Stella EN 400M | 1024 | Contrastive | ✓ |
 | Roberta-Large-InBedder | 1024 | Task-specific fine-tuning | ✓ |
-| BGE-M3 | 1024 | Multi-lingual contrastive | |
-| GTE-Qwen2 | 1536 | Contrastive | |
-| Qwen3-Embedding | 1024 | Contrastive | |
-| MxBai-Embed-Large | 1024 | Contrastive | |
-| Instructor-Large | 768 | Instruction-tuned | |
-| GTE-Base | 768 | Contrastive | |
-| GTR-T5-Large | 768 | Contrastive | |
-| Roberta-Large | 1024 | MLM only | |
-| BART-Base | 768 | Denoising autoencoder | |
+| BGE-M3 | 1024 | Multi-lingual contrastive | ✓ |
+| GTE-Qwen2 | 1536 | Contrastive | ✓ |
+| Qwen3-Embedding | 1024 | Contrastive | ✓ |
+| MxBai-Embed-Large | 1024 | Contrastive | ✓ |
+| Instructor-Large | 768 | Instruction-tuned | ✓ |
+| GTE-Base | 768 | Contrastive | ✓ |
+| GTR-T5-Large | 768 | Contrastive | ✓ |
+| Roberta-Large | 1024 | MLM only | ✓ |
+| BART-Base | 768 | Denoising autoencoder | ✓ |
 
 All models are evaluated on **35 MTEB tasks** across 6 categories: Classification, Clustering, Retrieval, Reranking, STS, and Pair Classification.
 

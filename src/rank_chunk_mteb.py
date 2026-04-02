@@ -493,7 +493,7 @@ if __name__ == "__main__":
         
         model_name = model_path.replace('/home/linkco/exa/models/', '').replace('/', '-')
 
-        analyze_path = "/home/linkco/exa/Useful-Embedding/data/analyze"
+        analyze_path = "/home/linkco/exa/llm-usefulEeb/data/analyze"
         print(f"Model: {model_name}", analyze_path + "/{}.json".format(model_name))
 
         if os.path.exists(analyze_path + "/{}.json".format(model_name)):
@@ -623,7 +623,8 @@ if __name__ == "__main__":
                 print("out_result_json[task_name][dataset_name][sort_score]", out_result_json["task_name"][dataset_name]["sort_score"].keys())
 
                 print("已经处理过的win_size:\n", "\n".join(out_result_json["task_name"][dataset_name]["split_win_size"].keys()), "\n==========================")
-                for win_size in size_list:
+                # Only run win_size=2 for speed (used for entropy/chunk analysis)
+                for win_size in [2]:
 
                     print("当前win_size：", win_size)
                     if str(win_size) in [str(it) for it in out_result_json["task_name"][dataset_name]["split_win_size"].keys()]:

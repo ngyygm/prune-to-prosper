@@ -35,11 +35,27 @@ def get_model_path(model_name):
         "gte-large": "/home/linkco/exa/models/gte-large-en-v1.5",
         "stella": "/home/linkco/exa/models/stella_en_400M_v5",
         "inbedder": "/home/linkco/exa/models/roberta-large-InBedder",
+        "bge-m3": "/home/linkco/exa/models/bge-m3",
+        "instructor-large": "/home/linkco/exa/models/instructor-large",
+        "bart-base": "/home/linkco/exa/models/bart-base",
+        "roberta-large": "/home/linkco/exa/models/roberta-large",
+        "gte-base": "/home/linkco/exa/models/gte-base",
+        "gtr-t5-large": "/home/linkco/exa/models/gtr-t5-large",
+        "mxbai-embed-large-v1": "/home/linkco/exa/models/mxbai-embed-large-v1",
+        "qwen3-embedding": "/home/linkco/exa/models/Qwen3-Embedding-0.6B",
+        "gte-qwen2": "/home/linkco/exa/models/gte-Qwen2-1.5B-instruct",
     }
     return paths.get(model_name)
 
 def get_model_dim(model_name):
-    return {"gte-large": 1024, "stella": 1024, "inbedder": 1024}[model_name]
+    dims = {
+        "gte-large": 1024, "stella": 1024, "inbedder": 1024,
+        "bge-m3": 1024, "instructor-large": 768, "bart-base": 768,
+        "roberta-large": 1024, "gte-base": 768, "gtr-t5-large": 768,
+        "mxbai-embed-large-v1": 1024, "qwen3-embedding": 1024,
+        "gte-qwen2": 1536,
+    }
+    return dims.get(model_name, 1024)
 
 def random_orthogonal_matrix(n, seed=42):
     """Generate random orthogonal matrix using QR decomposition."""
@@ -331,11 +347,15 @@ def run_experiment_for_model(model_name, gpu_id, output_dir):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", type=str, required=True, choices=["gte-large", "stella", "inbedder"])
+    parser.add_argument("--model", type=str, required=True,
+                        choices=["gte-large", "stella", "inbedder", "bge-m3", "instructor-large",
+                                 "bart-base", "roberta-large", "gte-base", "gtr-t5-large",
+                                 "mxbai-embed-large-v1", "qwen3-embedding", "gte-qwen2",
+                                 "gte-large", "stella", "inbedder"])
     parser.add_argument("--gpu", type=int, default=0)
     args = parser.parse_args()
 
-    output_dir = "/home/linkco/exa/llm-usefulEeb/experiments/analysis_output"
+    output_dir = "/home/linkco/exa/llm-usefulEeb/data/experiment_results"
     run_experiment_for_model(args.model, args.gpu, output_dir)
 
 
