@@ -21,8 +21,8 @@ from matplotlib.colors import LinearSegmentedColormap
 from collections import defaultdict
 
 
-def load_results(output_dir):
-    path = os.path.join(output_dir, "analysis_results.json")
+def load_results(data_dir):
+    path = os.path.join(data_dir, "analysis_results.json")
     with open(path, "r") as f:
         return json.load(f)
 
@@ -347,10 +347,12 @@ def fig5_category_transfer(results, output_dir):
 def main():
     parser = argparse.ArgumentParser(description="Generate figures")
     parser.add_argument("--output_dir", type=str,
-                        default="/home/linkco/exa/llm-usefulEeb/experiments/analysis_output")
+                        default="/home/linkco/exa/llm-usefulEeb/paper/figures")
+    parser.add_argument("--data_dir", type=str,
+                        default="/home/linkco/exa/llm-usefulEeb/data/experiment_results")
     args = parser.parse_args()
 
-    results = load_results(args.output_dir)
+    results = load_results(args.data_dir)
 
     print("Generating figures...")
     fig1_optimized_vs_random(results, args.output_dir)

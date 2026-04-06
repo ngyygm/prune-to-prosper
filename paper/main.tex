@@ -50,7 +50,7 @@
 \maketitle
 
 \begin{abstract}
-Modern text embedding models produce high-dimensional vectors (768--4096 dimensions) that are costly to store and compare at scale. Recent work shows that randomly removing up to 50\% of dimensions causes only minor performance degradation, suggesting that dimensions are highly redundant. We test a specific hypothesis derived from this observation: \emph{if dimension importance is uniformly distributed, then no practical selection strategy should meaningfully outperform random selection}. We evaluate this across 12 embedding models and 35 tasks from the Massive Text Embedding Benchmark (MTEB), comparing five dimension selection strategies: random, sequential (first-$k$), magnitude-based, task-optimized (oracle), and anti-optimized pruning. First, we confirm the premise: dimension importance is nearly uniform (normalized entropy $= 0.988$--$0.997$ across 6 models). Second, we find that the hypothesis is approximately but not exactly correct: even the task-optimized \emph{oracle}---which has full access to task-specific evaluation data---provides only a modest improvement over random at 75\% dimension reduction ($\Delta = +2.2\%$--$+5.0\%$ across 9 general-purpose embedding models; all $p_{\text{holm}} < 0.001$, Cohen's $d < 1.1$), while magnitude-based selection is significantly \emph{worse} than random (GTE-Large: $p = 0.002$, $d = -0.27$). Third, cross-task dimension importance transfer retains 95--100\% of performance despite zero ranking correlation ($\rho \approx 0.001$), confirming that any reasonable subset of dimensions preserves most information. These results demonstrate that embedding dimensions are highly---but not perfectly---interchangeable, and that random selection is a practical equivalence baseline for compression.
+Modern text embedding models produce high-dimensional vectors (768--4096 dimensions) that are costly to store and compare at scale. Recent work shows that randomly removing up to 50\% of dimensions causes only minor performance degradation, suggesting that dimensions are highly redundant. We test a specific hypothesis derived from this observation: \emph{if dimension importance is uniformly distributed, then no practical selection strategy should meaningfully outperform random selection}. We evaluate this across 12 embedding models and 35 tasks from the Massive Text Embedding Benchmark (MTEB), comparing five dimension selection strategies: random, sequential (first-$k$), magnitude-based, task-optimized (oracle), and anti-optimized pruning. First, we confirm the premise: dimension importance is nearly uniform (normalized entropy $= 0.989$--$0.994$ across 9 models). Second, we find that the hypothesis is approximately but not exactly correct: even the task-optimized \emph{oracle}---which has full access to task-specific evaluation data---provides only a modest improvement over random at 75\% dimension reduction ($\Delta = +1.9\%$--$+3.7\%$ for contrastive models, $+5.0\%$--$+6.2\%$ for non-contrastive; 7/9 models $p_{\text{holm}} < 0.05$, Cohen's $d = 0.38$--$1.12$), while magnitude-based selection is significantly \emph{worse} than random (GTE-Large: $p = 0.002$, $d = -0.27$). Third, cross-task dimension importance transfer retains 91--97\% of performance despite zero ranking correlation ($\rho \approx 0.001$), confirming that any reasonable subset of dimensions preserves most information. These results demonstrate that embedding dimensions are highly---but not perfectly---interchangeable, and that random selection is a practical equivalence baseline for compression.
 \end{abstract}
 
 \section{Introduction}
@@ -64,12 +64,12 @@ This observation leads to a testable hypothesis. If dimension importance is trul
 We test this hypothesis systematically across 12 models and 35 MTEB tasks. We compare five strategies: \textbf{Random} (uniformly sample $k$ dimensions, 10 trials), \textbf{Sequential} (retain the first $k$ dimensions as ordered by the model), \textbf{Magnitude} (rank by L2 norm of embedding weights), \textbf{Optimized/Oracle} (rank by task-specific contribution), and \textbf{Anti-optimized} (select the least important dimensions).
 
 \paragraph{Our findings largely support the uniform-importance hypothesis, with one important boundary condition:}
-Dimension importance is nearly uniform across all tested models (normalized entropy $= 0.988$--$0.997$ across 6 models, Gini $= 0.078$--$0.124$), with the top 50\% of chunks capturing only 51--56\% of total importance.
-For strong, general-purpose models (GTE-Large, Stella), task-optimized selection provides only a modest improvement over random at 75\% reduction: the gap is $+2.4$--$3.2\%$ at dim=256 ($p < 0.001$, Cohen's $d = 0.85$--$1.00$), while sequential--random has $|d| < 0.02$, holding across all pruning ratios from 1\% to 75\%.
+Dimension importance is nearly uniform across all tested models (normalized entropy $= 0.989$--$0.994$ across 9 models, Gini $= 0.104$--$0.133$), with the top 50\% of chunks capturing only 51--59\% of total importance.
+For general-purpose models (GTE-Large, Stella, BGE-M3, MxBai, Instructor, Qwen3), task-optimized selection provides only a modest improvement over random at 75\% reduction: the gap is $+1.9$--$+3.7\%$ at dim=256 (Cohen's $d = 0.38$--$1.12$), while sequential--random has $|d| < 0.15$ for 7/9 models, holding across all pruning ratios from 1\% to 75\%.
 Surprisingly, magnitude-based selection---the most intuitive heuristic---is significantly \emph{worse} than random for GTE-Large ($p = 0.002$, $d = -0.28$), with top-128 magnitude chunks overlapping top-128 task-important chunks by only 18.8\% (Jaccard $= 0.10$).
-The boundary condition is Roberta-Large-InBedder, a task-specifically fine-tuned model, which shows a larger optimized--random gap ($+7.8\%$, $d = 1.72$), higher chunk importance variance (CV $= 0.039$ vs.\ $0.030$), and higher cross-task disagreement (CV $= 0.85$ vs.\ $0.77$), confirming that training specialization creates exploitable dimension structure.
+Non-contrastively trained models (BART-Base, Roberta-Large) show larger gaps ($+5.0\%$--$+6.2\%$, $d = 0.91$--$1.01$), confirming that training paradigm influences dimension structure.
 
-These results establish a clear principle: \textbf{for general-purpose embedding models trained on diverse data, dimensions are highly interchangeable}, and random selection is a strong, zero-cost compression baseline. The boundary condition---task-specifically fine-tuned models---suggests that the uniform-importance property is a consequence of diverse training data, not an inherent limitation of the embedding space.
+These results establish a clear principle: \textbf{for general-purpose embedding models trained on diverse data, dimensions are highly interchangeable}, and random selection is a strong, zero-cost compression baseline. The boundary condition---models trained without contrastive objectives (e.g., encoder-only models like BART-Base and Roberta-Large)---shows that the uniform-importance property is a consequence of non-diverse training data, but the contrastive fine-tuning (as in InBedder) can partially restore it more democratic representation.
 
 Figure~\ref{fig:concept_overview} provides a visual overview of our core finding: the three selection strategies produce dramatically different outcomes only when one deliberately selects the \emph{worst} dimensions (anti-optimized). Between random and optimized selection, the gap is a mere +2.4\%, despite the optimized method having full access to task-specific evaluation data.
 
@@ -414,27 +414,24 @@ To understand why InBedder differs, we compare its dimension importance distribu
 
 \begin{table}[t]
     \centering
-    \caption{Dimension importance distribution comparison across all models. Roberta-InBedder shows consistently lower entropy and higher concentration, confirming that task-specific fine-tuning reduces dimension uniformity. Metrics computed at win\_size=2 (512 chunks) averaged across tasks.}
+    \caption{Dimension importance distribution comparison across representative models. Non-contrastive models (BART-Base, Roberta-Large) show lower entropy and higher Gini, while contrastive models cluster together. Metrics computed at win\_size=2 (512 chunks for 1024-dim models, or 384 for 768-dim models) averaged across tasks.}
     \label{tab:inbedder_mechanism}
     \small
     \resizebox{\columnwidth}{!}{%
     \begin{tabular}{lccc}
         \toprule
-        Metric & GTE-Large & Stella & InBedder \\
+        Metric & GTE-Large & Stella & InBedder & BART-Base & Roberta-Large \\
         \midrule
-        Normalized entropy & 0.993 & 0.992 & 0.988 \\
-        Gini coefficient & 0.017 & 0.017 & 0.022 \\
-        Chunk importance CV & 0.029 & 0.030 & 0.039 \\
-        Top-50\% concentration & 0.512 & 0.512 & 0.515 \\
+        Normalized entropy & 0.994 & 0.993 & 0.990 & 0.989 & 0.989 \\
+        Gini coefficient & 0.103 & 0.108 & 0.124 & 0.132 & 0.133 \\
         \midrule
-        Opt.--random gap & +2.41\% & +3.22\% & +7.77\% \\
-        Cross-task retention & 97.5\% & 97.4\% & 99.2\% \\
+        Opt.--random gap & +2.58\% & +1.90\% & +3.71\% & +5.01\% & +6.20\% \\
         \bottomrule
     \end{tabular}%
     }
 \end{table}
 
-We attribute this to Roberta-InBedder's training procedure. Unlike general-purpose embedding models trained on diverse data covering many task types, InBedder is fine-tuned specifically for retrieval tasks using interaction-based training \citep{inbedder}. This narrow training distribution creates more specialized dimension patterns: some dimensions become highly tuned for retrieval-specific features while others carry task-irrelevant noise. The result is a less uniform importance distribution where task-aware selection can exploit the non-uniformity.
+We attribute this difference to training paradigm. General-purpose contrastive models (GTE-Large, Stella, BGE-M3, trained with diverse data develop democratic representations. Non-contrastive encoder models (BART-Base, Roberta-Large) trained without contrastive objectives show the less uniform importance distribution, Roberta-InBedder, fine-tuned for retrieval with contrastive training) falls between between---it partially inherits the democratic property from contrastive models while its retains the less uniform than pure encoder-only models,
 
 \paragraph{Pruning as implicit regularization.}
 For Roberta-InBedder, pruning actually \emph{improves} performance on many tasks at dim=256. This is consistent with the well-established phenomenon in deep learning where removing parameters can act as implicit regularization \citep{han2015pruning,lottery-ticket}, reducing overfitting by eliminating dimensions that encode task-irrelevant noise. The slightly higher importance variance in InBedder (CV $= 0.039$ vs.\ $0.030$ for general-purpose models) means that optimized selection can better separate useful from noisy dimensions. This provides a practical diagnostic: if a model shows large gaps between optimized and random selection, it may be overparameterized for its intended use case, and pruning could serve as a simple regularization strategy.

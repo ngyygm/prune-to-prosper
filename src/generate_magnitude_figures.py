@@ -400,8 +400,8 @@ def fig11_magnitude_scatter(output_dir, analyze_dir, mag_results_dir):
 
 
 def main():
-    output_dir = "/home/linkco/exa/llm-usefulEeb/experiments/analysis_output"
-    analyze_dir = "/home/linkco/exa/llm-usefulEeb/Useful-Embedding/Useful-Embedding/data/analyze"
+    output_dir = "/home/linkco/exa/llm-usefulEeb/data/experiment_results"
+    analyze_dir = "/home/linkco/exa/llm-usefulEeb/data/analyze"
     mag_results_dir = output_dir
 
     print("Generating magnitude comparison figures...")

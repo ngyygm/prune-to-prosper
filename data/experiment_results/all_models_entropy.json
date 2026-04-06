@@ -1,4 +1,265 @@
 {
+  "Qwen3-Embedding-0.6B": {
+    "model_name": "Qwen3-Embedding-0.6B",
+    "model_dim": 1024,
+    "tasks": {
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.9996470073846291,
+        "gini_coefficient": 0.037483923258030453,
+        "chunk_importance_cv": 0.0666845253302375,
+        "top_50pct_concentration": 0.5268249108490494,
+        "n_chunks": 512
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9994235984484795,
+        "gini_coefficient": 0.04626276201595925,
+        "chunk_importance_cv": 0.0861087205925601,
+        "top_50pct_concentration": 0.5329793643452637,
+        "n_chunks": 512
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.9982620397330135,
+        "gini_coefficient": 0.0796052797651211,
+        "chunk_importance_cv": 0.1442121672618472,
+        "top_50pct_concentration": 0.5551557059258356,
+        "n_chunks": 512
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.9980048766413344,
+        "gini_coefficient": 0.0874468493079155,
+        "chunk_importance_cv": 0.1608393295455222,
+        "top_50pct_concentration": 0.5611289237419507,
+        "n_chunks": 512
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.9996578150262755,
+        "gini_coefficient": 0.03411145346028399,
+        "chunk_importance_cv": 0.06646124918037327,
+        "top_50pct_concentration": 0.5237776266312228,
+        "n_chunks": 512
+      },
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.9983600361961459,
+        "gini_coefficient": 0.0809542474112081,
+        "chunk_importance_cv": 0.14382655586280416,
+        "top_50pct_concentration": 0.5574827175730807,
+        "n_chunks": 512
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.9699387954740641,
+        "gini_coefficient": 0.3400450131009625,
+        "chunk_importance_cv": 0.6560993952434183,
+        "top_50pct_concentration": 0.7361791562840849,
+        "n_chunks": 512
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9947828011578836,
+        "gini_coefficient": 0.14105856116901727,
+        "chunk_importance_cv": 0.2605147927870662,
+        "top_50pct_concentration": 0.5982327148579134,
+        "n_chunks": 512
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.9971004287650685,
+        "gini_coefficient": 0.10656952856332243,
+        "chunk_importance_cv": 0.19242880009981886,
+        "top_50pct_concentration": 0.5750773960848437,
+        "n_chunks": 512
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9997624646725561,
+        "gini_coefficient": 0.03019979934329332,
+        "chunk_importance_cv": 0.05453638680915244,
+        "top_50pct_concentration": 0.5212681365342817,
+        "n_chunks": 512
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.9997906745632031,
+        "gini_coefficient": 0.02820939328520086,
+        "chunk_importance_cv": 0.05147293593646109,
+        "top_50pct_concentration": 0.5197964801713901,
+        "n_chunks": 512
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9947294946823324,
+        "gini_coefficient": 0.14390493609187566,
+        "chunk_importance_cv": 0.2634335169060619,
+        "top_50pct_concentration": 0.6011340914353289,
+        "n_chunks": 512
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9994173317319898,
+        "gini_coefficient": 0.04653109351068171,
+        "chunk_importance_cv": 0.0865325259187199,
+        "top_50pct_concentration": 0.5325249543017011,
+        "n_chunks": 512
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.9981563260328884,
+        "gini_coefficient": 0.08170794832210851,
+        "chunk_importance_cv": 0.15672661724074258,
+        "top_50pct_concentration": 0.5570011919141556,
+        "n_chunks": 512
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.9978165525804606,
+        "gini_coefficient": 0.0918743924912753,
+        "chunk_importance_cv": 0.16374938931495064,
+        "top_50pct_concentration": 0.564664287356601,
+        "n_chunks": 512
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.9999363593069703,
+        "gini_coefficient": 0.015232724692596109,
+        "chunk_importance_cv": 0.028276233444970253,
+        "top_50pct_concentration": 0.5105436444656103,
+        "n_chunks": 512
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.9999355475576149,
+        "gini_coefficient": 0.014728656528341034,
+        "chunk_importance_cv": 0.02824780697616386,
+        "top_50pct_concentration": 0.5099667395773467,
+        "n_chunks": 512
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.9999555134638641,
+        "gini_coefficient": 0.013336899534450641,
+        "chunk_importance_cv": 0.02356506230367312,
+        "top_50pct_concentration": 0.5094716386333706,
+        "n_chunks": 512
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.9998095861818617,
+        "gini_coefficient": 0.02705576579855439,
+        "chunk_importance_cv": 0.048979337378041554,
+        "top_50pct_concentration": 0.5190016399024454,
+        "n_chunks": 512
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.999930046280239,
+        "gini_coefficient": 0.0165197528922556,
+        "chunk_importance_cv": 0.029533567384409133,
+        "top_50pct_concentration": 0.5116095857857281,
+        "n_chunks": 512
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.9918921317255823,
+        "gini_coefficient": 0.1745308937595212,
+        "chunk_importance_cv": 0.4042101303100601,
+        "top_50pct_concentration": 0.6633183644718855,
+        "n_chunks": 512
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.9996260952355682,
+        "gini_coefficient": 0.03776337454275223,
+        "chunk_importance_cv": 0.06777729736131241,
+        "top_50pct_concentration": 0.5267058919910367,
+        "n_chunks": 512
+      },
+      "STS12": {
+        "normalized_entropy": 0.9986684149783797,
+        "gini_coefficient": 0.07032970433728711,
+        "chunk_importance_cv": 0.12690636867643443,
+        "top_50pct_concentration": 0.5494745399655111,
+        "n_chunks": 512
+      },
+      "STS13": {
+        "normalized_entropy": 0.9977941334899809,
+        "gini_coefficient": 0.09291171706902186,
+        "chunk_importance_cv": 0.16356808374286794,
+        "top_50pct_concentration": 0.5666540467615878,
+        "n_chunks": 512
+      },
+      "STS14": {
+        "normalized_entropy": 0.9990150449826974,
+        "gini_coefficient": 0.06215568123008277,
+        "chunk_importance_cv": 0.1101158979564512,
+        "top_50pct_concentration": 0.5438343986122246,
+        "n_chunks": 512
+      },
+      "STS15": {
+        "normalized_entropy": 0.9989882574176049,
+        "gini_coefficient": 0.06190294656943618,
+        "chunk_importance_cv": 0.11091955161955715,
+        "top_50pct_concentration": 0.5432435423003983,
+        "n_chunks": 512
+      },
+      "STS16": {
+        "normalized_entropy": 0.9991845702186318,
+        "gini_coefficient": 0.05667787197998672,
+        "chunk_importance_cv": 0.10031484966744807,
+        "top_50pct_concentration": 0.5402934630545713,
+        "n_chunks": 512
+      },
+      "STS17": {
+        "normalized_entropy": 0.9874768609231442,
+        "gini_coefficient": 0.2136490884801173,
+        "chunk_importance_cv": 0.5262240815490099,
+        "top_50pct_concentration": 0.7109654429594847,
+        "n_chunks": 512
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9991437514414672,
+        "gini_coefficient": 0.0582832878952953,
+        "chunk_importance_cv": 0.10276759707957941,
+        "top_50pct_concentration": 0.5416812826415366,
+        "n_chunks": 512
+      },
+      "SummEval": {
+        "normalized_entropy": 0.9995183740309679,
+        "gini_coefficient": 0.04373925269223984,
+        "chunk_importance_cv": 0.07726428957167789,
+        "top_50pct_concentration": 0.531274769491301,
+        "n_chunks": 512
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.9766402742244379,
+        "gini_coefficient": 0.29727501413791674,
+        "chunk_importance_cv": 0.5367684810331365,
+        "top_50pct_concentration": 0.7102889339143468,
+        "n_chunks": 512
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.9288767131257624,
+        "gini_coefficient": 0.5015667100724243,
+        "chunk_importance_cv": 0.9341554881486154,
+        "top_50pct_concentration": 0.8576233953456437,
+        "n_chunks": 512
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9971204903000788,
+        "gini_coefficient": 0.10680240520824572,
+        "chunk_importance_cv": 0.18945741134259042,
+        "top_50pct_concentration": 0.5754621808301291,
+        "n_chunks": 512
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.9668486932353851,
+        "gini_coefficient": 0.3461608912318597,
+        "chunk_importance_cv": 0.6143381231542524,
+        "top_50pct_concentration": 0.7487207449039502,
+        "n_chunks": 512
+      },
+      "SciFact": {
+        "normalized_entropy": 0.9301567582661074,
+        "gini_coefficient": 0.48855400072698724,
+        "chunk_importance_cv": 0.9139604106572843,
+        "top_50pct_concentration": 0.8449380688166683,
+        "n_chunks": 512
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.9918676531279049,
+      "std_entropy": 0.01731541236773393,
+      "min_entropy": 0.9288767131257624,
+      "max_entropy": 0.9999555134638641,
+      "mean_gini": 0.11643262344216081,
+      "mean_cv": 0.21974219935392206,
+      "mean_top50": 0.5850942849266136,
+      "n_tasks": 35
+    }
+  },
   "bart-base": {
     "model_name": "bart-base",
     "model_dim": 768,
@@ -177,17 +438,87 @@
         "chunk_importance_cv": 0.1984769985810079,
         "top_50pct_concentration": 0.5807127715543912,
         "n_chunks": 384
+      },
+      "STS15": {
+        "normalized_entropy": 0.9961913077436242,
+        "gini_coefficient": 0.11583795545043327,
+        "chunk_importance_cv": 0.20640044290939336,
+        "top_50pct_concentration": 0.5822430721098452,
+        "n_chunks": 384
+      },
+      "STS16": {
+        "normalized_entropy": 0.9976564906259884,
+        "gini_coefficient": 0.09245061642799128,
+        "chunk_importance_cv": 0.1657611152705988,
+        "top_50pct_concentration": 0.5644883127437235,
+        "n_chunks": 384
+      },
+      "STS17": {
+        "normalized_entropy": 0.9897023497446559,
+        "gini_coefficient": 0.1876779957569087,
+        "chunk_importance_cv": 76.86775284596247,
+        "top_50pct_concentration": 30.838159772542895,
+        "n_chunks": 384
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9922508693270882,
+        "gini_coefficient": 0.16699731569648793,
+        "chunk_importance_cv": 0.2944118946945361,
+        "top_50pct_concentration": 0.6193632246892758,
+        "n_chunks": 384
+      },
+      "SummEval": {
+        "normalized_entropy": 0.999377273964226,
+        "gini_coefficient": 0.04807931351200411,
+        "chunk_importance_cv": 0.08555888128240609,
+        "top_50pct_concentration": 0.5343374554094866,
+        "n_chunks": 384
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.9669487161339486,
+        "gini_coefficient": 0.3402247175582229,
+        "chunk_importance_cv": 0.619994932549601,
+        "top_50pct_concentration": 0.7399801105483479,
+        "n_chunks": 384
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.8974501457230132,
+        "gini_coefficient": 0.5800304615331587,
+        "chunk_importance_cv": 1.1215171764595202,
+        "top_50pct_concentration": 0.9131393905969953,
+        "n_chunks": 384
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9956914016875117,
+        "gini_coefficient": 0.12583267546040747,
+        "chunk_importance_cv": 0.22744694175487384,
+        "top_50pct_concentration": 0.5878885076333976,
+        "n_chunks": 384
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.9545257374150622,
+        "gini_coefficient": 0.39445025601679,
+        "chunk_importance_cv": 0.7195406386069054,
+        "top_50pct_concentration": 0.7765614123900532,
+        "n_chunks": 384
+      },
+      "SciFact": {
+        "normalized_entropy": 0.8836396842861133,
+        "gini_coefficient": 0.6057476518606939,
+        "chunk_importance_cv": 1.1425439031999949,
+        "top_50pct_concentration": 0.9442326194633504,
+        "n_chunks": 384
       }
     },
     "summary": {
-      "mean_entropy": 0.9973597244961876,
-      "std_entropy": 0.0037223827241061307,
-      "min_entropy": 0.9871721371910277,
+      "mean_entropy": 0.9887836311158834,
+      "std_entropy": 0.025933414368920455,
+      "min_entropy": 0.8836396842861133,
       "max_entropy": 0.9999564446174809,
-      "mean_gini": 0.077908006339748,
-      "mean_cv": 0.1588518389361003,
-      "mean_top50": 0.5627496994188678,
-      "n_tasks": 25
+      "mean_gini": 0.1315722605076228,
+      "mean_cv": 2.4406349927455087,
+      "mean_top50": 1.4619753246742588,
+      "n_tasks": 35
     }
   },
   "bge-m3": {
@@ -319,17 +650,136 @@
         "chunk_importance_cv": 0.022635982916012046,
         "top_50pct_concentration": 0.5093009074337425,
         "n_chunks": 512
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.9999475791901169,
+        "gini_coefficient": 0.014403258118389587,
+        "chunk_importance_cv": 0.025597559789025573,
+        "top_50pct_concentration": 0.5101654321466206,
+        "n_chunks": 512
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.999941228177438,
+        "gini_coefficient": 0.015302696184474527,
+        "chunk_importance_cv": 0.027079319889535745,
+        "top_50pct_concentration": 0.5108387800767779,
+        "n_chunks": 512
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.9904676740481722,
+        "gini_coefficient": 0.18322637250325186,
+        "chunk_importance_cv": 0.5468560851733534,
+        "top_50pct_concentration": 0.7135893255559864,
+        "n_chunks": 512
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.9995867925790244,
+        "gini_coefficient": 0.040113355005860114,
+        "chunk_importance_cv": 0.07133375784637982,
+        "top_50pct_concentration": 0.5285276579981105,
+        "n_chunks": 512
+      },
+      "STS12": {
+        "normalized_entropy": 0.9981940185804586,
+        "gini_coefficient": 0.0823262723131099,
+        "chunk_importance_cv": 0.14718860837811276,
+        "top_50pct_concentration": 0.5579152053624448,
+        "n_chunks": 512
+      },
+      "STS13": {
+        "normalized_entropy": 0.9967330912226294,
+        "gini_coefficient": 0.1119681731372249,
+        "chunk_importance_cv": 0.19769470729223912,
+        "top_50pct_concentration": 0.5804780699703164,
+        "n_chunks": 512
+      },
+      "STS14": {
+        "normalized_entropy": 0.9989963077031256,
+        "gini_coefficient": 0.0629083263464732,
+        "chunk_importance_cv": 0.11123810911059277,
+        "top_50pct_concentration": 0.5448102368648661,
+        "n_chunks": 512
+      },
+      "STS15": {
+        "normalized_entropy": 0.9989415531143536,
+        "gini_coefficient": 0.062458876829415894,
+        "chunk_importance_cv": 0.1127443517570199,
+        "top_50pct_concentration": 0.5440496293203657,
+        "n_chunks": 512
+      },
+      "STS16": {
+        "normalized_entropy": 0.999354200991236,
+        "gini_coefficient": 0.05029097444566715,
+        "chunk_importance_cv": 0.08933664650935347,
+        "top_50pct_concentration": 0.5353979886560218,
+        "n_chunks": 512
+      },
+      "STS17": {
+        "normalized_entropy": 0.9918087258854071,
+        "gini_coefficient": 0.17330788716425996,
+        "chunk_importance_cv": 0.3393937033167908,
+        "top_50pct_concentration": 0.636002367837474,
+        "n_chunks": 512
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9989012586065004,
+        "gini_coefficient": 0.06528183117641077,
+        "chunk_importance_cv": 0.11574650569620429,
+        "top_50pct_concentration": 0.5465626315160745,
+        "n_chunks": 512
+      },
+      "SummEval": {
+        "normalized_entropy": 0.9995607038908132,
+        "gini_coefficient": 0.041406288767550425,
+        "chunk_importance_cv": 0.07363621961629409,
+        "top_50pct_concentration": 0.5290677993470322,
+        "n_chunks": 512
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.9729735747623783,
+        "gini_coefficient": 0.31702258063703775,
+        "chunk_importance_cv": 0.5766225254700865,
+        "top_50pct_concentration": 0.7243774679667986,
+        "n_chunks": 512
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.9174867393389674,
+        "gini_coefficient": 0.5365269254952036,
+        "chunk_importance_cv": 1.0179777374093981,
+        "top_50pct_concentration": 0.8794353895344305,
+        "n_chunks": 512
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9972321326822713,
+        "gini_coefficient": 0.10450299315420722,
+        "chunk_importance_cv": 0.18562442854334896,
+        "top_50pct_concentration": 0.5732153114586492,
+        "n_chunks": 512
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.963815802854638,
+        "gini_coefficient": 0.36048094305056766,
+        "chunk_importance_cv": 0.6449690406750548,
+        "top_50pct_concentration": 0.7580316412695322,
+        "n_chunks": 512
+      },
+      "SciFact": {
+        "normalized_entropy": 0.9143779027801183,
+        "gini_coefficient": 0.5357167613022417,
+        "chunk_importance_cv": 1.0085249779666077,
+        "top_50pct_concentration": 0.8810195579354305,
+        "n_chunks": 512
       }
     },
     "summary": {
-      "mean_entropy": 0.997202999490621,
-      "std_entropy": 0.005813098598791073,
-      "min_entropy": 0.9739454062750753,
+      "mean_entropy": 0.9910849507782521,
+      "std_entropy": 0.02023457245135042,
+      "min_entropy": 0.9143779027801183,
       "max_entropy": 0.9999589799060055,
-      "mean_gini": 0.07798636247654527,
-      "mean_cv": 0.14277976170384796,
-      "mean_top50": 0.5548748399845562,
-      "n_tasks": 18
+      "mean_gini": 0.11888568686311889,
+      "mean_cv": 0.22461714271739033,
+      "mean_top50": 0.5868923317868271,
+      "n_tasks": 35
     }
   },
   "gte-large-en-v1.5": {
@@ -771,17 +1221,355 @@
         "chunk_importance_cv": 0.11798807671347142,
         "top_50pct_concentration": 0.5464903878043307,
         "n_chunks": 384
+      },
+      "STS14": {
+        "normalized_entropy": 0.9995480024963164,
+        "gini_coefficient": 0.041631732944434556,
+        "chunk_importance_cv": 0.07347216310889383,
+        "top_50pct_concentration": 0.5295926309588949,
+        "n_chunks": 384
+      },
+      "STS15": {
+        "normalized_entropy": 0.9992172308822648,
+        "gini_coefficient": 0.05320282475477456,
+        "chunk_importance_cv": 0.0956106539427097,
+        "top_50pct_concentration": 0.5373366629608636,
+        "n_chunks": 384
+      },
+      "STS16": {
+        "normalized_entropy": 0.99942732720219,
+        "gini_coefficient": 0.04615841622459015,
+        "chunk_importance_cv": 0.08227890266153443,
+        "top_50pct_concentration": 0.5324969533011317,
+        "n_chunks": 384
+      },
+      "STS17": {
+        "normalized_entropy": 0.9912964096885685,
+        "gini_coefficient": 0.1740877352380485,
+        "chunk_importance_cv": 60.77878183019565,
+        "top_50pct_concentration": 24.562991090860972,
+        "n_chunks": 384
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9992437562607218,
+        "gini_coefficient": 0.053752263309690136,
+        "chunk_importance_cv": 0.09471865820706171,
+        "top_50pct_concentration": 0.5383319478734501,
+        "n_chunks": 384
+      },
+      "SummEval": {
+        "normalized_entropy": 0.9994446308153828,
+        "gini_coefficient": 0.045704865601141426,
+        "chunk_importance_cv": 0.08099494983420967,
+        "top_50pct_concentration": 0.5325285421292376,
+        "n_chunks": 384
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.9718363965454785,
+        "gini_coefficient": 0.31402287706553883,
+        "chunk_importance_cv": 0.5655421591825885,
+        "top_50pct_concentration": 0.719958968347011,
+        "n_chunks": 384
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.9275126748804753,
+        "gini_coefficient": 0.49422409986187493,
+        "chunk_importance_cv": 0.9356989380121107,
+        "top_50pct_concentration": 0.8494700772969948,
+        "n_chunks": 384
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9970334623133442,
+        "gini_coefficient": 0.10502797684385856,
+        "chunk_importance_cv": 0.1880093477177711,
+        "top_50pct_concentration": 0.5732256994866054,
+        "n_chunks": 384
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.9575219868858809,
+        "gini_coefficient": 0.3795658927403531,
+        "chunk_importance_cv": 0.6857609875220859,
+        "top_50pct_concentration": 0.768737737083061,
+        "n_chunks": 384
+      },
+      "SciFact": {
+        "normalized_entropy": 0.9087332845647883,
+        "gini_coefficient": 0.5420198447449405,
+        "chunk_importance_cv": 1.01947537094878,
+        "top_50pct_concentration": 0.8882333754059536,
+        "n_chunks": 384
       }
     },
     "summary": {
-      "mean_entropy": 0.9968326531591426,
-      "std_entropy": 0.006797495723776616,
-      "min_entropy": 0.966348622711328,
+      "mean_entropy": 0.9907085382387096,
+      "std_entropy": 0.020421482121166096,
+      "min_entropy": 0.9087332845647883,
       "max_entropy": 0.9999735361834421,
-      "mean_gini": 0.07905949787896638,
-      "mean_cv": 0.15382704984196907,
-      "mean_top50": 0.5593885477881436,
-      "n_tasks": 24
+      "mean_gini": 0.11848075652641253,
+      "mean_cv": 1.9512055187868758,
+      "mean_top50": 1.2702351095034177,
+      "n_tasks": 35
+    }
+  },
+  "mxbai-embed-large-v1": {
+    "model_name": "mxbai-embed-large-v1",
+    "model_dim": 1024,
+    "tasks": {
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.9996943953807857,
+        "gini_coefficient": 0.034538251568634395,
+        "chunk_importance_cv": 0.06216732847535095,
+        "top_50pct_concentration": 0.524275190802557,
+        "n_chunks": 512
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9990583701463941,
+        "gini_coefficient": 0.06111037259322738,
+        "chunk_importance_cv": 0.10958248928415122,
+        "top_50pct_concentration": 0.5437151257305813,
+        "n_chunks": 512
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.9989763517260575,
+        "gini_coefficient": 0.06325317496606446,
+        "chunk_importance_cv": 0.11365041779704192,
+        "top_50pct_concentration": 0.5445012002304151,
+        "n_chunks": 512
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.9977049161653603,
+        "gini_coefficient": 0.09615944063669232,
+        "chunk_importance_cv": 0.1704648172866771,
+        "top_50pct_concentration": 0.5693011185905614,
+        "n_chunks": 512
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.9983750313548779,
+        "gini_coefficient": 0.08176949577201863,
+        "chunk_importance_cv": 0.14218324622176462,
+        "top_50pct_concentration": 0.5603874555923692,
+        "n_chunks": 512
+      },
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.9983060385733857,
+        "gini_coefficient": 0.0821891093510862,
+        "chunk_importance_cv": 0.1461023468302148,
+        "top_50pct_concentration": 0.5581178594617363,
+        "n_chunks": 512
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.9859845093185606,
+        "gini_coefficient": 0.23154673034489373,
+        "chunk_importance_cv": 0.44360761112533703,
+        "top_50pct_concentration": 0.6604799251690895,
+        "n_chunks": 512
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9969362490287801,
+        "gini_coefficient": 0.11053362699372363,
+        "chunk_importance_cv": 0.1972558352719517,
+        "top_50pct_concentration": 0.5785455173605115,
+        "n_chunks": 512
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.997845369569689,
+        "gini_coefficient": 0.09198191894527948,
+        "chunk_importance_cv": 0.16598117845818472,
+        "top_50pct_concentration": 0.5643102095209124,
+        "n_chunks": 512
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9997513581139211,
+        "gini_coefficient": 0.031091379655000008,
+        "chunk_importance_cv": 0.05596249771419103,
+        "top_50pct_concentration": 0.5218880955915015,
+        "n_chunks": 512
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.9996227369960615,
+        "gini_coefficient": 0.03860455566102832,
+        "chunk_importance_cv": 0.06904766779085607,
+        "top_50pct_concentration": 0.527540390639945,
+        "n_chunks": 512
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9952972210497902,
+        "gini_coefficient": 0.13718087633995482,
+        "chunk_importance_cv": 0.2455977923630386,
+        "top_50pct_concentration": 0.5961170911453381,
+        "n_chunks": 512
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9995616253057015,
+        "gini_coefficient": 0.04126427251719271,
+        "chunk_importance_cv": 0.07456405015669382,
+        "top_50pct_concentration": 0.5291291599175917,
+        "n_chunks": 512
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.9982897329022938,
+        "gini_coefficient": 0.08202875216217445,
+        "chunk_importance_cv": 0.1477782769514358,
+        "top_50pct_concentration": 0.5578438467024309,
+        "n_chunks": 512
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.998294431833464,
+        "gini_coefficient": 0.08193004243558445,
+        "chunk_importance_cv": 0.1455091915333487,
+        "top_50pct_concentration": 0.5578821330983508,
+        "n_chunks": 512
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.9999458253876653,
+        "gini_coefficient": 0.014384035590144303,
+        "chunk_importance_cv": 0.0260069364468958,
+        "top_50pct_concentration": 0.5099938468334697,
+        "n_chunks": 512
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.9999771474134356,
+        "gini_coefficient": 0.009540586159620586,
+        "chunk_importance_cv": 0.016883196671086866,
+        "top_50pct_concentration": 0.5067203205000055,
+        "n_chunks": 512
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.9999567626458445,
+        "gini_coefficient": 0.013169747290747056,
+        "chunk_importance_cv": 0.023219756890116718,
+        "top_50pct_concentration": 0.5094178239288999,
+        "n_chunks": 512
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.9998564857276518,
+        "gini_coefficient": 0.023803548765698783,
+        "chunk_importance_cv": 0.04236685650703392,
+        "top_50pct_concentration": 0.516785550545385,
+        "n_chunks": 512
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.9999352461490214,
+        "gini_coefficient": 0.016106089910558175,
+        "chunk_importance_cv": 0.028392873900262086,
+        "top_50pct_concentration": 0.5114628880959582,
+        "n_chunks": 512
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.9896495667867148,
+        "gini_coefficient": 0.19571226631703367,
+        "chunk_importance_cv": 0.41540993693768213,
+        "top_50pct_concentration": 0.6658737416022567,
+        "n_chunks": 512
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.9997751499602945,
+        "gini_coefficient": 0.029759841317128864,
+        "chunk_importance_cv": 0.052766080955771476,
+        "top_50pct_concentration": 0.5210772126752039,
+        "n_chunks": 512
+      },
+      "STS12": {
+        "normalized_entropy": 0.9991964552934911,
+        "gini_coefficient": 0.05532139164327187,
+        "chunk_importance_cv": 0.09924206398715806,
+        "top_50pct_concentration": 0.538630805000559,
+        "n_chunks": 512
+      },
+      "STS13": {
+        "normalized_entropy": 0.9988285077923523,
+        "gini_coefficient": 0.06883568301540441,
+        "chunk_importance_cv": 0.12039320145950666,
+        "top_50pct_concentration": 0.549745158903065,
+        "n_chunks": 512
+      },
+      "STS14": {
+        "normalized_entropy": 0.9995617680318377,
+        "gini_coefficient": 0.04208024495467101,
+        "chunk_importance_cv": 0.07384010249209272,
+        "top_50pct_concentration": 0.5302901224318706,
+        "n_chunks": 512
+      },
+      "STS15": {
+        "normalized_entropy": 0.9991940288692945,
+        "gini_coefficient": 0.054857041026550514,
+        "chunk_importance_cv": 0.09900943800626617,
+        "top_50pct_concentration": 0.5383940050727678,
+        "n_chunks": 512
+      },
+      "STS16": {
+        "normalized_entropy": 0.9994826364131593,
+        "gini_coefficient": 0.045228408459255715,
+        "chunk_importance_cv": 0.08017681641474828,
+        "top_50pct_concentration": 0.5319351375774864,
+        "n_chunks": 512
+      },
+      "STS17": {
+        "normalized_entropy": 0.9912502390164347,
+        "gini_coefficient": 0.17889432412655354,
+        "chunk_importance_cv": 0.0,
+        "top_50pct_concentration": -43.40161561389145,
+        "n_chunks": 512
+      },
+      "SummEval": {
+        "normalized_entropy": 0.9995686772780163,
+        "gini_coefficient": 0.04153523741084932,
+        "chunk_importance_cv": 0.07321771839691094,
+        "top_50pct_concentration": 0.529837732271553,
+        "n_chunks": 512
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9994822208709633,
+        "gini_coefficient": 0.04476287188578715,
+        "chunk_importance_cv": 0.07981882471427382,
+        "top_50pct_concentration": 0.5318286501089401,
+        "n_chunks": 512
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.9783532859070196,
+        "gini_coefficient": 0.2859488491425236,
+        "chunk_importance_cv": 0.5082102309339308,
+        "top_50pct_concentration": 0.7027687852586427,
+        "n_chunks": 512
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9974349352436828,
+        "gini_coefficient": 0.10053285169849084,
+        "chunk_importance_cv": 0.17874120557448434,
+        "top_50pct_concentration": 0.5707336958737245,
+        "n_chunks": 512
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.9697072828037435,
+        "gini_coefficient": 0.33528115543999565,
+        "chunk_importance_cv": 0.5990893862228898,
+        "top_50pct_concentration": 0.7387431964374055,
+        "n_chunks": 512
+      },
+      "SciFact": {
+        "normalized_entropy": 0.9264983542699335,
+        "gini_coefficient": 0.4986950177056544,
+        "chunk_importance_cv": 0.9368819248326259,
+        "top_50pct_concentration": 0.8534701163103119,
+        "n_chunks": 512
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.9335078046701278,
+        "gini_coefficient": 0.4840867996556971,
+        "chunk_importance_cv": 0.8870328028234797,
+        "top_50pct_concentration": 0.8465390806653523,
+        "n_chunks": 512
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.9927103062284516,
+      "std_entropy": 0.016729436820186343,
+      "min_entropy": 0.9264983542699335,
+      "max_entropy": 0.9999771474134356,
+      "mean_gini": 0.10867765689880549,
+      "mean_cv": 0.1894329743264987,
+      "mean_top50": -0.6800952406927058,
+      "n_tasks": 35
     }
   },
   "roberta-large-InBedder": {
@@ -1050,6 +1838,267 @@
       "mean_cv": 0.23082284756428287,
       "mean_top50": 0.030131281284945157,
       "n_tasks": 36
+    }
+  },
+  "roberta-large": {
+    "model_name": "roberta-large",
+    "model_dim": 1024,
+    "tasks": {
+      "AmazonCounterfactualClassification": {
+        "normalized_entropy": 0.9996846854119131,
+        "gini_coefficient": 0.03550660940312042,
+        "chunk_importance_cv": 0.0630429477493823,
+        "top_50pct_concentration": 0.5255262733200363,
+        "n_chunks": 512
+      },
+      "AmazonReviewsClassification": {
+        "normalized_entropy": 0.9996514483099855,
+        "gini_coefficient": 0.03555100351411067,
+        "chunk_importance_cv": 0.06681581544755875,
+        "top_50pct_concentration": 0.5249699450308674,
+        "n_chunks": 512
+      },
+      "Banking77Classification": {
+        "normalized_entropy": 0.9990820144961305,
+        "gini_coefficient": 0.05946107312177461,
+        "chunk_importance_cv": 0.10659049741625062,
+        "top_50pct_concentration": 0.5422449412013979,
+        "n_chunks": 512
+      },
+      "EmotionClassification": {
+        "normalized_entropy": 0.9991243739751456,
+        "gini_coefficient": 0.05872751127842214,
+        "chunk_importance_cv": 0.10494343610752187,
+        "top_50pct_concentration": 0.5411961343133267,
+        "n_chunks": 512
+      },
+      "ImdbClassification": {
+        "normalized_entropy": 0.9997746811275233,
+        "gini_coefficient": 0.02890360767929075,
+        "chunk_importance_cv": 0.053521075579540785,
+        "top_50pct_concentration": 0.5206235561833159,
+        "n_chunks": 512
+      },
+      "MTOPDomainClassification": {
+        "normalized_entropy": 0.9986859963430541,
+        "gini_coefficient": 0.0726248706216981,
+        "chunk_importance_cv": 0.12837117155902256,
+        "top_50pct_concentration": 0.5519339445884858,
+        "n_chunks": 512
+      },
+      "MTOPIntentClassification": {
+        "normalized_entropy": 0.975470051180205,
+        "gini_coefficient": 0.30928866399348487,
+        "chunk_importance_cv": 0.5822127838444333,
+        "top_50pct_concentration": 0.7153456815138668,
+        "n_chunks": 512
+      },
+      "MassiveIntentClassification": {
+        "normalized_entropy": 0.9961235509407591,
+        "gini_coefficient": 0.12332297894032364,
+        "chunk_importance_cv": 0.22268252000950622,
+        "top_50pct_concentration": 0.5871293669931079,
+        "n_chunks": 512
+      },
+      "MassiveScenarioClassification": {
+        "normalized_entropy": 0.9980190423792296,
+        "gini_coefficient": 0.08907224590887823,
+        "chunk_importance_cv": 0.158719676896357,
+        "top_50pct_concentration": 0.5630331044527216,
+        "n_chunks": 512
+      },
+      "ToxicConversationsClassification": {
+        "normalized_entropy": 0.9998042356483374,
+        "gini_coefficient": 0.027614819179581862,
+        "chunk_importance_cv": 0.049578567463356225,
+        "top_50pct_concentration": 0.5193039345073618,
+        "n_chunks": 512
+      },
+      "TweetSentimentExtractionClassification": {
+        "normalized_entropy": 0.9998645071099921,
+        "gini_coefficient": 0.023274556417560516,
+        "chunk_importance_cv": 0.04123013663740723,
+        "top_50pct_concentration": 0.516749534104079,
+        "n_chunks": 512
+      },
+      "BiorxivClusteringS2S": {
+        "normalized_entropy": 0.9961158314601177,
+        "gini_coefficient": 0.12470082501055621,
+        "chunk_importance_cv": 0.2225330966252566,
+        "top_50pct_concentration": 0.5887463015625641,
+        "n_chunks": 512
+      },
+      "MedrxivClusteringS2S": {
+        "normalized_entropy": 0.9996079676375318,
+        "gini_coefficient": 0.03931675909258477,
+        "chunk_importance_cv": 0.07034352010441607,
+        "top_50pct_concentration": 0.5278516433762096,
+        "n_chunks": 512
+      },
+      "TwentyNewsgroupsClustering": {
+        "normalized_entropy": 0.9987636216507094,
+        "gini_coefficient": 0.06800384181023796,
+        "chunk_importance_cv": 0.12668423420294303,
+        "top_50pct_concentration": 0.547235842055677,
+        "n_chunks": 512
+      },
+      "SprintDuplicateQuestions": {
+        "normalized_entropy": 0.9983583906784962,
+        "gini_coefficient": 0.07906408581107842,
+        "chunk_importance_cv": 0.145390940530983,
+        "top_50pct_concentration": 0.5550791836551964,
+        "n_chunks": 512
+      },
+      "TwitterSemEval2015": {
+        "normalized_entropy": 0.999703311399272,
+        "gini_coefficient": 0.030785433083588026,
+        "chunk_importance_cv": 0.061937865893205234,
+        "top_50pct_concentration": 0.5207075230910851,
+        "n_chunks": 512
+      },
+      "TwitterURLCorpus": {
+        "normalized_entropy": 0.9998265256237188,
+        "gini_coefficient": 0.025370697120218312,
+        "chunk_importance_cv": 0.046807671349426504,
+        "top_50pct_concentration": 0.5176977674234207,
+        "n_chunks": 512
+      },
+      "AskUbuntuDupQuestions": {
+        "normalized_entropy": 0.9999620390518058,
+        "gini_coefficient": 0.012264514775457898,
+        "chunk_importance_cv": 0.021771100643343744,
+        "top_50pct_concentration": 0.5087991742931484,
+        "n_chunks": 512
+      },
+      "SciDocsRR": {
+        "normalized_entropy": 0.9999279814359279,
+        "gini_coefficient": 0.016806034777995672,
+        "chunk_importance_cv": 0.030023039826293698,
+        "top_50pct_concentration": 0.5117797578202476,
+        "n_chunks": 512
+      },
+      "StackOverflowDupQuestions": {
+        "normalized_entropy": 0.9999341918600363,
+        "gini_coefficient": 0.01571640159088036,
+        "chunk_importance_cv": 0.028540161616481204,
+        "top_50pct_concentration": 0.5110674211756421,
+        "n_chunks": 512
+      },
+      "BIOSSES": {
+        "normalized_entropy": 0.986396678056768,
+        "gini_coefficient": 0.22104639651520452,
+        "chunk_importance_cv": 0.7684834754841647,
+        "top_50pct_concentration": 0.8080863984889164,
+        "n_chunks": 512
+      },
+      "SICK-R": {
+        "normalized_entropy": 0.9989810085352226,
+        "gini_coefficient": 0.06352067318276926,
+        "chunk_importance_cv": 0.11199664382823724,
+        "top_50pct_concentration": 0.5455650770311516,
+        "n_chunks": 512
+      },
+      "STS12": {
+        "normalized_entropy": 0.9907954152381608,
+        "gini_coefficient": 0.1850767811728362,
+        "chunk_importance_cv": 0.38124791799070806,
+        "top_50pct_concentration": 0.6536632073310008,
+        "n_chunks": 512
+      },
+      "STS13": {
+        "normalized_entropy": 0.9933461833791815,
+        "gini_coefficient": 0.15830661427590467,
+        "chunk_importance_cv": 0.27796935060025585,
+        "top_50pct_concentration": 0.6143719017741582,
+        "n_chunks": 512
+      },
+      "STS14": {
+        "normalized_entropy": 0.9972154473673138,
+        "gini_coefficient": 0.10371072082827897,
+        "chunk_importance_cv": 0.18432993749045978,
+        "top_50pct_concentration": 0.5730553021324716,
+        "n_chunks": 512
+      },
+      "STS15": {
+        "normalized_entropy": 0.9969917378248526,
+        "gini_coefficient": 0.10777754501393469,
+        "chunk_importance_cv": 0.19038030657660518,
+        "top_50pct_concentration": 0.5774854521670963,
+        "n_chunks": 512
+      },
+      "STS16": {
+        "normalized_entropy": 0.9976848829887778,
+        "gini_coefficient": 0.09570924097107687,
+        "chunk_importance_cv": 0.16836938474940266,
+        "top_50pct_concentration": 0.5684776911221177,
+        "n_chunks": 512
+      },
+      "STS17": {
+        "normalized_entropy": 0.9892323884747722,
+        "gini_coefficient": 0.19944769754265976,
+        "chunk_importance_cv": 25.36496922414444,
+        "top_50pct_concentration": 10.607480640231003,
+        "n_chunks": 512
+      },
+      "STSBenchmark": {
+        "normalized_entropy": 0.9954848226048095,
+        "gini_coefficient": 0.1312717789277443,
+        "chunk_importance_cv": 0.2318706081357829,
+        "top_50pct_concentration": 0.5929069956823588,
+        "n_chunks": 512
+      },
+      "SummEval": {
+        "normalized_entropy": 0.9994094000470454,
+        "gini_coefficient": 0.04846249021763815,
+        "chunk_importance_cv": 0.08545106186521412,
+        "top_50pct_concentration": 0.5345791982894669,
+        "n_chunks": 512
+      },
+      "ArguAna": {
+        "normalized_entropy": 0.9650814920382095,
+        "gini_coefficient": 0.3585389596572853,
+        "chunk_importance_cv": 0.6475423425331136,
+        "top_50pct_concentration": 0.7538016341352707,
+        "n_chunks": 512
+      },
+      "CQADupstackEnglishRetrieval": {
+        "normalized_entropy": 0.8906719301998014,
+        "gini_coefficient": 0.6115905509032749,
+        "chunk_importance_cv": 1.2336925630376423,
+        "top_50pct_concentration": 0.9283966879939785,
+        "n_chunks": 512
+      },
+      "NFCorpus": {
+        "normalized_entropy": 0.9962077832329859,
+        "gini_coefficient": 0.12224615000248266,
+        "chunk_importance_cv": 0.2174116697407154,
+        "top_50pct_concentration": 0.5855522818478421,
+        "n_chunks": 512
+      },
+      "SCIDOCS": {
+        "normalized_entropy": 0.9584102223084634,
+        "gini_coefficient": 0.3857274255087208,
+        "chunk_importance_cv": 0.6972556882966876,
+        "top_50pct_concentration": 0.7725290697674408,
+        "n_chunks": 512
+      },
+      "SciFact": {
+        "normalized_entropy": 0.8954818060430194,
+        "gini_coefficient": 0.5866519052208904,
+        "chunk_importance_cv": 1.1339182168695923,
+        "top_50pct_concentration": 0.9213684423193483,
+        "n_chunks": 512
+      }
+    },
+    "summary": {
+      "mean_entropy": 0.9888250184588364,
+      "std_entropy": 0.025403665913461593,
+      "min_entropy": 0.8906719301998014,
+      "max_entropy": 0.9999620390518058,
+      "mean_gini": 0.13298461323061556,
+      "mean_cv": 0.972189390024163,
+      "mean_top50": 0.8838383145992966,
+      "n_tasks": 35
     }
   },
   "stella_en_400M_v5": {

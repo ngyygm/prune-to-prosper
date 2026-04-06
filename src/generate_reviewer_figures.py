@@ -222,7 +222,7 @@ def fig8_evidence_summary(results, output_dir):
 
 
 def main():
-    output_dir = "/home/linkco/exa/llm-usefulEeb/experiments/analysis_output"
+    output_dir = "/home/linkco/exa/llm-usefulEeb/paper/figures"
     results = load_results(output_dir)
 
     print("Generating reviewer response figures...")

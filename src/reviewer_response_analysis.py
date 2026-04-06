@@ -336,9 +336,9 @@ def analyze_interchangeability_evidence(analyze_data, task_similar_data):
 
 
 def main():
-    analyze_dir = "/home/linkco/exa/llm-usefulEeb/Useful-Embedding/Useful-Embedding/data/analyze"
-    task_similar_dir = "/home/linkco/exa/llm-usefulEeb/Useful-Embedding/Useful-Embedding/data/task_similar"
-    output_dir = "/home/linkco/exa/llm-usefulEeb/experiments/analysis_output"
+    analyze_dir = "/home/linkco/exa/llm-usefulEeb/data/analyze"
+    task_similar_dir = "/home/linkco/exa/llm-usefulEeb/data/task_similar"
+    output_dir = "/home/linkco/exa/llm-usefulEeb/data/experiment_results"
 
     print("Loading data...")
     analyze_data = load_analyze_data(analyze_dir)

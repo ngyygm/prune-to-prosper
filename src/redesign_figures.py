@@ -15,9 +15,9 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.lines import Line2D
 
-OUTPUT_DIR = "/home/linkco/exa/llm-usefulEeb/EACL__Prune_to_Prosper"
-ANALYSIS_DIR = "/home/linkco/exa/llm-usefulEeb/experiments/analysis_output"
-ANALYZE_DIR = "/home/linkco/exa/llm-usefulEeb/Useful-Embedding/data/analyze"
+OUTPUT_DIR = "/home/linkco/exa/llm-usefulEeb/paper/figures"
+ANALYSIS_DIR = "/home/linkco/exa/llm-usefulEeb/data/experiment_results"
+ANALYZE_DIR = "/home/linkco/exa/llm-usefulEeb/data/analyze"
 
 # Clean model display names
 MODEL_DISPLAY = {

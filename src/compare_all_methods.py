@@ -15,7 +15,7 @@ def compare_all_methods(output_dir):
     """Compare all pruning methods using analyze data + magnitude MTEB results."""
 
     # Load analyze data (original)
-    analyze_dir = "/home/linkco/exa/llm-usefulEeb/Useful-Embedding/Useful-Embedding/data/analyze"
+    analyze_dir = "/home/linkco/exa/llm-usefulEeb/data/analyze"
     analyze_data = {}
     for fname in os.listdir(analyze_dir):
         if fname.endswith('.json'):
@@ -195,5 +195,5 @@ def _print_stats(ref_vals, comp_vals, label):
 
 
 if __name__ == "__main__":
-    output_dir = "/home/linkco/exa/llm-usefulEeb/experiments/analysis_output"
+    output_dir = "/home/linkco/exa/llm-usefulEeb/data/experiment_results"
     compare_all_methods(output_dir)
