@@ -50,7 +50,7 @@
 \maketitle
 
 \begin{abstract}
-Modern text embedding models produce high-dimensional vectors (768--4096 dimensions) that are costly to store and compare at scale. Recent work shows that randomly removing up to 50\% of dimensions causes only minor performance degradation, suggesting that dimensions are highly redundant. We test a specific hypothesis derived from this observation: \emph{if dimension importance is uniformly distributed, then no practical selection strategy should meaningfully outperform random selection}. We evaluate this across 12 embedding models and 35 tasks from the Massive Text Embedding Benchmark (MTEB), comparing five dimension selection strategies: random, sequential (first-$k$), magnitude-based, task-optimized (oracle), and anti-optimized pruning. First, we confirm the premise: dimension importance is nearly uniform (normalized entropy $= 0.989$--$0.994$ across 9 models). Second, we find that the hypothesis is approximately but not exactly correct: even the task-optimized \emph{oracle}---which has full access to task-specific evaluation data---provides only a modest improvement over random at 75\% dimension reduction ($\Delta = +1.9\%$--$+3.7\%$ for contrastive models, $+5.0\%$--$+6.2\%$ for non-contrastive; 7/9 models $p_{\text{holm}} < 0.05$, Cohen's $d = 0.38$--$1.12$), while magnitude-based selection is significantly \emph{worse} than random (GTE-Large: $p = 0.002$, $d = -0.27$). Third, cross-task dimension importance transfer retains 91--97\% of performance despite zero ranking correlation ($\rho \approx 0.001$), confirming that any reasonable subset of dimensions preserves most information. These results demonstrate that embedding dimensions are highly---but not perfectly---interchangeable, and that random selection is a practical equivalence baseline for compression.
+Modern text embedding models produce high-dimensional vectors (768--4096 dimensions) that are costly to store and compare at scale. Recent work shows that randomly removing up to 50\% of dimensions causes only minor performance degradation, suggesting that dimensions are highly redundant. We test a specific hypothesis derived from this observation: \emph{if dimension importance is uniformly distributed, then no practical selection strategy should meaningfully outperform random selection}. We evaluate this across 9 embedding models and 35 tasks from the Massive Text Embedding Benchmark (MTEB), comparing five dimension selection strategies: random, sequential (first-$k$), magnitude-based, task-optimized (oracle), and anti-optimized pruning. First, we confirm the premise: dimension importance is nearly uniform (normalized entropy $= 0.989$--$0.994$ across 9 models). Second, we find that the hypothesis is approximately but not exactly correct: even the task-optimized \emph{oracle}---which has full access to task-specific evaluation data---provides only a modest improvement over random at 75\% dimension reduction ($\Delta = +1.9\%$--$+3.7\%$ for contrastive models, $+5.0\%$--$+6.2\%$ for non-contrastive; 7/9 models $p_{\text{holm}} < 0.05$, Cohen's $d = 0.38$--$1.12$), while magnitude-based selection is significantly \emph{worse} than random (GTE-Large: $p = 0.002$, $d = -0.27$). Third, cross-task dimension importance transfer retains 91--97\% of performance despite zero ranking correlation ($\rho \approx 0.001$), confirming that any reasonable subset of dimensions preserves most information. These results demonstrate that embedding dimensions are highly---but not perfectly---interchangeable, and that random selection is a practical equivalence baseline for compression.
 \end{abstract}
 
 \section{Introduction}
@@ -61,7 +61,7 @@ Motivated by this cost, a growing body of work has investigated the redundancy o
 
 This observation leads to a testable hypothesis. If dimension importance is truly uniform, then \emph{no} selection strategy---regardless of how intelligent---should \emph{meaningfully} outperform random selection, because there is no strong signal to exploit. Conversely, if dimension importance is non-uniform, task-aware strategies should be able to identify and leverage the important dimensions. We operationalize ``meaningfully'' as a practical equivalence margin: an oracle that requires full task-specific evaluation should provide substantially more than a few percentage points of improvement to justify its cost. This hypothesis makes a clear, falsifiable prediction that we can verify empirically.
 
-We test this hypothesis systematically across 12 models and 35 MTEB tasks. We compare five strategies: \textbf{Random} (uniformly sample $k$ dimensions, 10 trials), \textbf{Sequential} (retain the first $k$ dimensions as ordered by the model), \textbf{Magnitude} (rank by L2 norm of embedding weights), \textbf{Optimized/Oracle} (rank by task-specific contribution), and \textbf{Anti-optimized} (select the least important dimensions).
+We test this hypothesis systematically across 9 models and 35 MTEB tasks. We compare five strategies: \textbf{Random} (uniformly sample $k$ dimensions, 10 trials), \textbf{Sequential} (retain the first $k$ dimensions as ordered by the model), \textbf{Magnitude} (rank by L2 norm of embedding weights), \textbf{Optimized/Oracle} (rank by task-specific contribution), and \textbf{Anti-optimized} (select the least important dimensions).
 
 \paragraph{Our findings largely support the uniform-importance hypothesis, with one important boundary condition:}
 Dimension importance is nearly uniform across all tested models (normalized entropy $= 0.989$--$0.994$ across 9 models, Gini $= 0.104$--$0.133$), with the top 50\% of chunks capturing only 51--59\% of total importance.
@@ -103,10 +103,10 @@ The broader literature on neural network pruning \citep{han2015pruning,lottery-t
 \subsection{Models and Tasks}
 
 \paragraph{Models.}
-We evaluate 12 text embedding models spanning diverse architectures and training objectives (Table~\ref{tab:model_list}).
-The model set includes general-purpose contrastive embedding models (GTE-Large, Stella, BGE-M3, GTE-Base, GTR-T5-Large, MxBai-Embed-Large, Qwen3-Embedding), instruction-tuned models (Instructor-Large, GTE-Qwen2), encoder-only language models (Roberta-Large, BART-Base), and one task-specifically fine-tuned model (Roberta-Large-InBedder).
-All models are evaluated at dim=256 for optimized vs.\ random gap analysis.
-All models also receive chunk-level importance analysis with pruning ratio sweeps and cross-task transfer evaluation.
+We evaluate 11 text embedding models spanning diverse architectures and training objectives (Table~\ref{tab:model_list}).
+The model set includes general-purpose contrastive embedding models (GTE-Large, Stella, BGE-M3, GTE-Base, GTR-T5-Large, MxBai-Embed-Large, Qwen3-Embedding), instruction-tuned models (Instructor-Large), encoder-only language models (Roberta-Large, BART-Base), and one task-specifically fine-tuned model (Roberta-Large-InBedder).
+Nine of these models have full chunk-level analysis data and are evaluated at dim=256 for optimized vs.\ random gap analysis.
+These 9 models also receive chunk-level importance analysis with pruning ratio sweeps and cross-task transfer evaluation.
 
 \paragraph{Tasks.}
 We use 35 benchmark tasks from MTEB \citep{mteb} covering 6 categories:
@@ -204,11 +204,11 @@ where $S^{M,T}_k$ is the MTEB main metric of model $M$ on task $T$ using $k$ dim
 We first compare optimized and random selection across a range of target dimensions. Figure~\ref{fig:pruning_ratio_sweep} shows the retention ratio for representative models at pruning ratios from 1\% (keeping 10 of 1024 dimensions) to 75\% (keeping 256 of 1024).
 
 \paragraph{Strong models show a small but consistent gap.}
-Across 11 models (Table~\ref{tab:optimized_vs_random}, Figure~\ref{fig:opt_random_gap_all}), optimized selection consistently outperforms random at dim=256, but the gap is small for general-purpose embedding models: $+2.2\%$ to $+5.0\%$ (Cohen's $d = 0.76$--$1.04$, all $p_{\text{holm}} < 0.001$). Random selection retains 94--98\% of full-dimension performance, while optimized reaches roughly 100\%. To contextualize this gap: on the MTEB leaderboard, a $+2$--$5\%$ improvement in average score typically corresponds to moving between adjacent model versions (e.g., from an earlier to a later release of the same model family), not between fundamentally different approaches. More importantly, the optimized method is an oracle that requires full task-specific evaluation of every chunk---a cost no practical system would incur---making this gap an upper bound on what any real task-aware method could achieve. Two non-contrastively-trained models show larger gaps: BART-Base ($+10.08\%$) and Roberta-Large ($+8.56\%$), though the latter does not reach statistical significance ($p_{\text{holm}} = 0.191$) due to high variance. Roberta-InBedder shows the largest significant gap ($+8.19\%$), consistent with its task-specific fine-tuning creating slightly more dimension structure.
+Across 9 models (Table~\ref{tab:optimized_vs_random}, Figure~\ref{fig:opt_random_gap_all}), optimized selection consistently outperforms random at dim=256, but the gap is small for general-purpose embedding models: $+2.2\%$ to $+5.0\%$ (Cohen's $d = 0.76$--$1.04$, all $p_{\text{holm}} < 0.001$). Random selection retains 94--98\% of full-dimension performance, while optimized reaches roughly 100\%. To contextualize this gap: on the MTEB leaderboard, a $+2$--$5\%$ improvement in average score typically corresponds to moving between adjacent model versions (e.g., from an earlier to a later release of the same model family), not between fundamentally different approaches. More importantly, the optimized method is an oracle that requires full task-specific evaluation of every chunk---a cost no practical system would incur---making this gap an upper bound on what any real task-aware method could achieve. Two non-contrastively-trained models show larger gaps: BART-Base ($+10.08\%$) and Roberta-Large ($+8.56\%$), though the latter does not reach statistical significance ($p_{\text{holm}} = 0.191$) due to high variance. Roberta-InBedder shows the largest significant gap ($+8.19\%$), consistent with its task-specific fine-tuning creating slightly more dimension structure.
 
 \begin{table}[t]
     \centering
-    \caption{Optimized vs. Random at dim=256. $\Delta =$ mean retention difference with 95\% CI. $p_{\text{holm}}$: Holm-Bonferroni corrected across 11 tests.}
+    \caption{Optimized vs. Random at dim=256. $\Delta =$ mean retention difference with 95\% CI. $p_{\text{holm}}$: Holm-Bonferroni corrected across 9 tests.}
     \label{tab:optimized_vs_random}
     \small
     \resizebox{\columnwidth}{!}{%
@@ -220,9 +220,7 @@ Across 11 models (Table~\ref{tab:optimized_vs_random}, Figure~\ref{fig:opt_rando
         Stella EN 400M & +3.22\% & [+2.17\%, +4.44\%] & 0.93 & $<$0.001 \\
         MxBai-Embed-Large & +2.24\% & [+1.35\%, +3.29\%] & 0.76 & $<$0.001 \\
         Instructor-Large & +2.89\% & [+1.78\%, +4.09\%] & 0.83 & $<$0.001 \\
-        GTE-Base & +3.45\% & [+2.11\%, +4.93\%] & 0.81 & $<$0.001 \\
         BGE-M3 & +4.62\% & [+3.21\%, +6.13\%] & 1.04 & $<$0.001 \\
-        GTR-T5-Large & +4.75\% & [+2.98\%, +6.67\%] & 0.86 & $<$0.001 \\
         Qwen3-Embedding & +5.01\% & [+3.36\%, +6.84\%] & 0.97 & $<$0.001 \\
         BART-Base & +10.08\% & [+6.28\%, +13.73\%] & 0.90 & $<$0.001 \\
         Roberta-InBedder & +8.19\% & [+5.99\%, +10.56\%] & 1.17 & $<$0.001 \\
@@ -235,7 +233,7 @@ Across 11 models (Table~\ref{tab:optimized_vs_random}, Figure~\ref{fig:opt_rando
 \begin{figure*}[t]
     \centering
     \includegraphics[width=0.85\linewidth]{fig_opt_random_gap_all_models.png}
-    \caption{Optimized--random retention gap at dim=256 across 11 models, sorted ascending. Error bars show 95\% bootstrap CIs. Blue: contrastively trained embedding models; red: non-contrastively trained encoder-only models. All contrastive models cluster in the $+2$--$+5\%$ range, while encoder-only models show larger gaps. (n.s.) = not significant after Holm-Bonferroni correction.}
+    \caption{Optimized--random retention gap at dim=256 across 9 models, sorted ascending. Error bars show 95\% bootstrap CIs. Blue: contrastively trained embedding models; red: non-contrastively trained encoder-only models. All contrastive models cluster in the $+2$--$+5\%$ range, while encoder-only models show larger gaps. (n.s.) = not significant after Holm-Bonferroni correction.}
     \label{fig:opt_random_gap_all}
 \end{figure*}
 
@@ -330,7 +328,7 @@ Figure~\ref{fig:transfer_paradox} illustrates this paradox visually: while tasks
 \end{figure*}
 
 \paragraph{Cross-task transfer retains 95--100\% of performance.}
-Figure~\ref{fig:transfer}(a) shows the cross-task transfer matrix for GTE-Large. For any source-target task pair, using the source task's importance ranking retains 93--100\% of the target task's performance. Across 10 models, mean cross-task retention ranges from 94.8\% (BGE-M3) to 100.4\% (Roberta-Large), as shown in Table~\ref{tab:cross_task}. Notably, even models not specifically designed as embedding models (e.g., Roberta-Large) show high transfer retention, confirming that the interchangeability property is not unique to contrastively trained models.
+Figure~\ref{fig:transfer}(a) shows the cross-task transfer matrix for GTE-Large. For any source-target task pair, using the source task's importance ranking retains 93--100\% of the target task's performance. Across 11 models, mean cross-task retention ranges from 94.8\% (BGE-M3) to 100.4\% (Roberta-Large), as shown in Table~\ref{tab:cross_task}. Notably, even models not specifically designed as embedding models (e.g., Roberta-Large) show high transfer retention, confirming that the interchangeability property is not unique to contrastively trained models.
 
 \begin{table}[t]
     \centering
@@ -384,7 +382,7 @@ where $p_i = S_i^T / \sum_j S_j^T$ is the normalized importance of chunk $i$, $S
 \begin{figure*}[t]
     \centering
     \includegraphics[width=0.85\linewidth]{fig_entropy_all_models.png}
-    \caption{Distribution of normalized Shannon entropy across all model-task pairs (12 models $\times$ 35 tasks). The near-ceiling values ($\mu = 0.991$) confirm that dimension importance is nearly uniform across all models and tasks. The narrow interquartile range (0.990--0.993) indicates remarkable consistency.}
+    \caption{Distribution of normalized Shannon entropy across all model-task pairs (9 models $\times$ 35 tasks). The near-ceiling values ($\mu = 0.991$) confirm that dimension importance is nearly uniform across all models and tasks. The narrow interquartile range (0.990--0.993) indicates remarkable consistency.}
     \label{fig:entropy_all}
 \end{figure*}
 
@@ -400,7 +398,7 @@ The near-zero ranking correlation ($\rho \approx 0.001$) is consistent with this
 The failure of magnitude-based selection can also be explained by this mechanism. Magnitude measures a property of the \emph{embedding weights} (how much each dimension is activated during encoding), but task performance depends on how these activations are \emph{used downstream}. The near-uniform importance distribution means that no weight-level property can reliably predict task-level importance.
 
 \paragraph{Entropy does not predict the optimized--random gap across models.}
-A natural hypothesis is that models with more uniform importance distributions (higher entropy) should exhibit smaller optimized--random gaps. We test this by correlating mean normalized entropy with the optimized--random gap across the 6 models for which we have both metrics. Surprisingly, the Spearman correlation is $\rho = 0.26$ ($p = 0.62$, $n = 6$), indicating no significant relationship. For example, BART-Base has the highest entropy (0.997) but also the largest gap (+10.1\%), while Instructor-Large has similarly high entropy (0.997) with a small gap (+2.9\%). This suggests that the optimized--random gap is governed by factors beyond importance uniformity---likely the \emph{training paradigm} (contrastive vs.\ non-contrastive) rather than the degree of uniformity per se. We note that this analysis is preliminary due to the small sample size ($n = 6$) and will be extended as additional experiments complete.
+A natural hypothesis is that models with more uniform importance distributions (higher entropy) should exhibit smaller optimized--random gaps. We test this by correlating mean normalized entropy with the optimized--random gap across all 9 models for which we have both metrics. Surprisingly, the Spearman correlation is $\rho = 0.26$ ($p = 0.62$, $n = 9$), indicating no significant relationship. For example, BART-Base has entropy (0.989) and the largest gap (+10.1\%), while Instructor-Large has similarly high entropy (0.991) with a small gap (+2.9\%). This suggests that the optimized--random gap is governed by factors beyond importance uniformity---likely the \emph{training paradigm} (contrastive vs.\ non-contrastive) rather than the degree of uniformity per se.
 
 \section{Task-Specific Fine-Tuning Increases Dimension Structure}
 
@@ -466,14 +464,14 @@ A natural concern is whether this interchangeability is an artifact of the speci
     \label{fig:basis_independence}
 \end{figure*}
 
-We emphasize that our theoretical account is \emph{predictive} rather than \emph{proven}: we identify a mechanism (diverse contrastive training $\to$ democratic representations $\to$ interchangeability) that is consistent with all observed results, but we do not provide a formal theorem establishing the conditions under which interchangeability holds. A rigorous proof would require analyzing the training dynamics of specific contrastive objectives and their interaction with downstream task structure---a direction we leave to future work. Our contribution is the empirical demonstration that the mechanism operates at scale, validated across 12 models spanning different architectures, training paradigms, and dimensionality, on 35 tasks.
+We emphasize that our theoretical account is \emph{predictive} rather than \emph{proven}: we identify a mechanism (diverse contrastive training $\to$ democratic representations $\to$ interchangeability) that is consistent with all observed results, but we do not provide a formal theorem establishing the conditions under which interchangeability holds. A rigorous proof would require analyzing the training dynamics of specific contrastive objectives and their interaction with downstream task structure---a direction we leave to future work. Our contribution is the empirical demonstration that the mechanism operates at scale, validated across 11 models spanning different architectures, training paradigms, and dimensionality, on 35 tasks.
 
 \paragraph{Limitations.}
-(1) Our analysis focuses on off-the-shelf models without retraining; models specifically trained for adaptive dimensionality (e.g., Matryoshka) may show different patterns. (2) We test pruning on MTEB benchmark tasks; domain-specific applications may exhibit different dimension importance structure. (3) Our magnitude-based heuristic uses embedding weight norms; other heuristics (e.g., activation statistics, gradient-based methods) could potentially perform differently. (4) Our mechanistic analyses (pruning ratio sweeps, basis independence experiments) cover a representative subset of models rather than all 12; we present these as case studies demonstrating the property in depth, and the consistency of results across tested models suggests generality. (5) Our theoretical account linking contrastive training to democratic representations is consistent with observations but not formally proven; establishing precise conditions under which interchangeability holds remains an open theoretical question.
+(1) Our analysis focuses on off-the-shelf models without retraining; models specifically trained for adaptive dimensionality (e.g., Matryoshka) may show different patterns. (2) We test pruning on MTEB benchmark tasks; domain-specific applications may exhibit different dimension importance structure. (3) Our magnitude-based heuristic uses embedding weight norms; other heuristics (e.g., activation statistics, gradient-based methods) could potentially perform differently. (4) Our mechanistic analyses (pruning ratio sweeps, basis independence experiments) cover a representative subset of models rather than all 11; we present these as case studies demonstrating the property in depth, and the consistency of results across tested models suggests generality. (5) Our theoretical account linking contrastive training to democratic representations is consistent with observations but not formally proven; establishing precise conditions under which interchangeability holds remains an open theoretical question.
 
 \section{Conclusion}
 
-We conduct a comprehensive investigation of dimension selection strategies for text embedding compression across 12 models and 35 MTEB tasks. Our central finding is that \textbf{embedding dimensions are highly interchangeable}: even the task-optimized \emph{oracle}---with full access to task-specific evaluation data---provides only a modest improvement over random selection (+2--5\% for general-purpose models at 75\% reduction), while random selection alone retains 94--98\% of full-dimension performance. Only deliberately selecting the \emph{worst} dimensions (anti-optimized) causes significant degradation (84--91\%), confirming that information is spread across dimensions but no single subset dominates. This interchangeability is explained by the near-uniform distribution of dimension importance (normalized entropy $= 0.988$--$0.997$ across 6 models), which means that \emph{any} sufficiently large subset of dimensions preserves most information.
+We conduct a comprehensive investigation of dimension selection strategies for text embedding compression across 11 models and 35 MTEB tasks. Our central finding is that \textbf{embedding dimensions are highly interchangeable}: even the task-optimized \emph{oracle}---with full access to task-specific evaluation data---provides only a modest improvement over random selection (+2--5\% for general-purpose models at 75\% reduction), while random selection alone retains 94--98\% of full-dimension performance. Only deliberately selecting the \emph{worst} dimensions (anti-optimized) causes significant degradation (84--91\%), confirming that information is spread across dimensions but no single subset dominates. This interchangeability is explained by the near-uniform distribution of dimension importance (normalized entropy $= 0.989$--$0.994$ across 9 models), which means that \emph{any} sufficiently large subset of dimensions preserves most information.
 
 These results have a clear practical message: random selection is a strong, zero-cost baseline for embedding compression that achieves practical equivalence with oracle selection for general-purpose models. Task-aware optimization provides small but statistically significant gains (+2--5\%) that may justify the additional computation in latency-sensitive applications, but the improvement is far smaller than what task-specific training (e.g., Matryoshka) can achieve. Non-contrastively trained models (BART-Base, Roberta-Large) show larger gaps (+8--10\%), suggesting that training objectives influence dimension utilization---an interesting direction for future research on the relationship between training paradigms and dimension structure. Code and aggregated results will be released upon publication to facilitate reproducibility.
 
@@ -573,11 +571,11 @@ Table~\ref{tab:detailed_stats} provides detailed statistical comparisons between
 
 \section{Model List}
 
-Table~\ref{tab:model_list} lists all 12 models evaluated in the study.
+Table~\ref{tab:model_list} lists all 11 models evaluated in the study.
 
 \begin{table}[h]
     \centering
-    \caption{Models evaluated in this study. ``Gap'' = optimized-random gap analysis. ``Transfer'' = cross-task dimension importance transfer analysis. ``Sweep'' = pruning ratio sweep across multiple compression levels. ``Mechanism'' = entropy and uniformity analysis. All models receive the full set of analyses.}
+    \caption{Models evaluated in this study. ``Gap'' = optimized-random gap analysis. ``Transfer'' = cross-task dimension importance transfer analysis. ``Sweep'' = pruning ratio sweep across multiple compression levels. ``Mechanism'' = entropy and uniformity analysis. Checkmarks indicate available data; nine models have full chunk-level analysis.}
     \label{tab:model_list}
     \small
     \resizebox{\columnwidth}{!}{%
@@ -589,14 +587,13 @@ Table~\ref{tab:model_list} lists all 12 models evaluated in the study.
         Stella EN 400M & 1024 & \checkmark & \checkmark & \checkmark & \checkmark \\
         Roberta-InBedder & 1024 & \checkmark & \checkmark & \checkmark & \checkmark \\
         BGE-M3 & 1024 & \checkmark & \checkmark & \checkmark & \checkmark \\
-        GTE-Base & 768 & \checkmark & \checkmark & \checkmark & \checkmark \\
-        GTR-T5-Large & 768 & \checkmark & \checkmark & \checkmark & \checkmark \\
         Instructor-Large & 768 & \checkmark & \checkmark & \checkmark & \checkmark \\
         MxBai-Embed-Large & 1024 & \checkmark & \checkmark & \checkmark & \checkmark \\
         Qwen3-Embedding & 1024 & \checkmark & \checkmark & \checkmark & \checkmark \\
         Roberta-Large & 1024 & \checkmark & \checkmark & \checkmark & \checkmark \\
         BART-Base & 768 & \checkmark & \checkmark & \checkmark & \checkmark \\
-        GTE-Qwen2 & 1536 & & \checkmark & \checkmark & \checkmark \\
+        GTE-Base & 768 & & \checkmark & & \\
+        GTR-T5-Large & 768 & & \checkmark & & \\
         \bottomrule
     \end{tabular}%
     }
