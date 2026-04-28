@@ -1,0 +1,680 @@
+{
+  "model": "gte-large-en-v1.5",
+  "model_dim": 1024,
+  "methods": {
+    "ImdbClassification": {
+      "baseline": 95.14,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 94.148,
+            "retention": 98.9573260458272
+          },
+          "magnitude": {
+            "score": 92.92,
+            "retention": 97.66659659449233
+          },
+          "gradient": {
+            "score": 94.34,
+            "retention": 99.15913390792517
+          },
+          "hard_concrete_mask": {
+            "score": 94.54,
+            "retention": 99.36935043094388
+          },
+          "sigmoid_mask": {
+            "score": 94.72,
+            "retention": 99.5585453016607
+          }
+        },
+        "128": {
+          "random": {
+            "score": 94.772,
+            "retention": 99.61320159764558
+          },
+          "magnitude": {
+            "score": 94.08,
+            "retention": 98.88585242800085
+          },
+          "gradient": {
+            "score": 94.76,
+            "retention": 99.60058860626447
+          },
+          "hard_concrete_mask": {
+            "score": 94.86,
+            "retention": 99.70569686777381
+          },
+          "sigmoid_mask": {
+            "score": 94.86,
+            "retention": 99.70569686777381
+          }
+        },
+        "256": {
+          "random": {
+            "score": 95.02799999999999,
+            "retention": 99.88227874710951
+          },
+          "magnitude": {
+            "score": 95.12,
+            "retention": 99.97897834769813
+          },
+          "gradient": {
+            "score": 94.78,
+            "retention": 99.62161025856634
+          },
+          "hard_concrete_mask": {
+            "score": 95.34,
+            "retention": 100.21021652301872
+          },
+          "sigmoid_mask": {
+            "score": 95.04,
+            "retention": 99.89489173849066
+          }
+        }
+      }
+    },
+    "Banking77Classification": {
+      "baseline": 90.9090909090909,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 89.02597402597402,
+            "retention": 97.92857142857143
+          },
+          "magnitude": {
+            "score": 89.12337662337663,
+            "retention": 98.03571428571429
+          },
+          "gradient": {
+            "score": 89.93506493506493,
+            "retention": 98.92857142857142
+          },
+          "hard_concrete_mask": {
+            "score": 90.25974025974025,
+            "retention": 99.28571428571429
+          },
+          "sigmoid_mask": {
+            "score": 88.47402597402598,
+            "retention": 97.32142857142858
+          }
+        },
+        "128": {
+          "random": {
+            "score": 90.09740259740259,
+            "retention": 99.10714285714285
+          },
+          "magnitude": {
+            "score": 90.74675324675324,
+            "retention": 99.82142857142857
+          },
+          "gradient": {
+            "score": 89.44805194805194,
+            "retention": 98.39285714285714
+          },
+          "hard_concrete_mask": {
+            "score": 90.42207792207793,
+            "retention": 99.46428571428572
+          },
+          "sigmoid_mask": {
+            "score": 90.25974025974025,
+            "retention": 99.28571428571429
+          }
+        },
+        "256": {
+          "random": {
+            "score": 90.9090909090909,
+            "retention": 100.0
+          },
+          "magnitude": {
+            "score": 90.74675324675324,
+            "retention": 99.82142857142857
+          },
+          "gradient": {
+            "score": 90.9090909090909,
+            "retention": 100.0
+          },
+          "hard_concrete_mask": {
+            "score": 92.20779220779221,
+            "retention": 101.42857142857142
+          },
+          "sigmoid_mask": {
+            "score": 89.77272727272727,
+            "retention": 98.75
+          }
+        }
+      }
+    },
+    "TwentyNewsgroupsClustering": {
+      "baseline": 52.55567347500073,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 34.17250549637781,
+            "retention": 65.02153475900697
+          },
+          "magnitude": {
+            "score": 37.54714086181622,
+            "retention": 71.442602442677
+          },
+          "gradient": {
+            "score": 38.844242981768595,
+            "retention": 73.91065590710339
+          },
+          "hard_concrete_mask": {
+            "score": 40.89982517929508,
+            "retention": 77.82190289836166
+          },
+          "sigmoid_mask": {
+            "score": 41.45045467863989,
+            "retention": 78.86960995439763
+          }
+        },
+        "128": {
+          "random": {
+            "score": 45.25101961426882,
+            "retention": 86.10111263400225
+          },
+          "magnitude": {
+            "score": 46.553766558901,
+            "retention": 88.57990675553864
+          },
+          "gradient": {
+            "score": 48.59686325465409,
+            "retention": 92.46739703139806
+          },
+          "hard_concrete_mask": {
+            "score": 48.72485739434346,
+            "retention": 92.71093713130803
+          },
+          "sigmoid_mask": {
+            "score": 47.27875687399651,
+            "retention": 89.95937783289124
+          }
+        },
+        "256": {
+          "random": {
+            "score": 50.96032670132389,
+            "retention": 96.96446326687126
+          },
+          "magnitude": {
+            "score": 51.8351922277005,
+            "retention": 98.62910852499503
+          },
+          "gradient": {
+            "score": 52.642066609212016,
+            "retention": 100.16438403030337
+          },
+          "hard_concrete_mask": {
+            "score": 49.06252850145122,
+            "retention": 93.35343885335024
+          },
+          "sigmoid_mask": {
+            "score": 49.68226525873305,
+            "retention": 94.5326393398146
+          }
+        }
+      }
+    },
+    "MedrxivClusteringS2S": {
+      "baseline": 28.767588592828037,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 26.320286857460083,
+            "retention": 91.49285061738513
+          },
+          "magnitude": {
+            "score": 26.637494611729046,
+            "retention": 92.5955073563933
+          },
+          "gradient": {
+            "score": 27.311043345077497,
+            "retention": 94.93685317748994
+          }
+        },
+        "128": {
+          "random": {
+            "score": 28.291736778284058,
+            "retention": 98.34587520949665
+          },
+          "magnitude": {
+            "score": 28.210775671697558,
+            "retention": 98.06444353396621
+          },
+          "gradient": {
+            "score": 28.632581953850817,
+            "retention": 99.53069879826188
+          }
+        },
+        "256": {
+          "random": {
+            "score": 29.203746784701007,
+            "retention": 101.51614442922654
+          },
+          "magnitude": {
+            "score": 28.966024864281785,
+            "retention": 100.68979111966034
+          },
+          "gradient": {
+            "score": 28.820166360510164,
+            "retention": 100.18276737903307
+          }
+        }
+      }
+    },
+    "NFCorpus": {
+      "baseline": 35.23001777602102,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 24.280117347461633,
+            "retention": 68.91883365437207
+          },
+          "magnitude": {
+            "score": 21.018581666500243,
+            "retention": 59.661002160510805
+          },
+          "hard_concrete_mask": {
+            "score": 19.429022712673767,
+            "retention": 55.149057364081
+          },
+          "sigmoid_mask": {
+            "score": 17.88037971789455,
+            "retention": 50.75325204651091
+          }
+        },
+        "128": {
+          "random": {
+            "score": 29.442476833401066,
+            "retention": 83.57213164235418
+          },
+          "magnitude": {
+            "score": 26.074349270349106,
+            "retention": 74.01174031792958
+          },
+          "hard_concrete_mask": {
+            "score": 25.13789448670773,
+            "retention": 71.3536241920877
+          },
+          "sigmoid_mask": {
+            "score": 24.841718280530415,
+            "retention": 70.51293143950298
+          }
+        },
+        "256": {
+          "random": {
+            "score": 32.664394978501875,
+            "retention": 92.71750921662772
+          },
+          "magnitude": {
+            "score": 30.38686310965551,
+            "retention": 86.25276121869584
+          },
+          "hard_concrete_mask": {
+            "score": 31.69963185445419,
+            "retention": 89.97904019233917
+          },
+          "sigmoid_mask": {
+            "score": 29.39586486018879,
+            "retention": 83.43982409284166
+          }
+        }
+      }
+    },
+    "ArguAna": {
+      "baseline": 52.81652159115994,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 47.38295637958206,
+            "retention": 89.71237588564085
+          },
+          "magnitude": {
+            "score": 48.343366063377964,
+            "retention": 91.53076463003829
+          },
+          "hard_concrete_mask": {
+            "score": 48.245556318249996,
+            "retention": 91.34557684753894
+          },
+          "sigmoid_mask": {
+            "score": 47.023869143141724,
+            "retention": 89.0324991621793
+          }
+        },
+        "128": {
+          "random": {
+            "score": 50.19005098420559,
+            "retention": 95.02717989025247
+          },
+          "magnitude": {
+            "score": 51.22814818328072,
+            "retention": 96.99265805466246
+          },
+          "hard_concrete_mask": {
+            "score": 50.58976510369381,
+            "retention": 95.78397739877131
+          },
+          "sigmoid_mask": {
+            "score": 50.34895946696366,
+            "retention": 95.32804878121833
+          }
+        },
+        "256": {
+          "random": {
+            "score": 51.78436283402507,
+            "retention": 98.04576536651814
+          },
+          "magnitude": {
+            "score": 52.55583679242227,
+            "retention": 99.50643323171569
+          },
+          "hard_concrete_mask": {
+            "score": 52.26797333391401,
+            "retention": 98.9614078308827
+          },
+          "sigmoid_mask": {
+            "score": 51.9447139693291,
+            "retention": 98.34936569928006
+          }
+        }
+      }
+    },
+    "SciDocsRR": {
+      "baseline": 100.0,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "magnitude": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "hard_concrete_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "sigmoid_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        },
+        "128": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "magnitude": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "hard_concrete_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "sigmoid_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        },
+        "256": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "magnitude": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "hard_concrete_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "sigmoid_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        }
+      }
+    },
+    "StackOverflowDupQuestions": {
+      "baseline": 100.0,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "magnitude": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "hard_concrete_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "sigmoid_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        },
+        "128": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "magnitude": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "hard_concrete_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "sigmoid_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        },
+        "256": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "magnitude": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "hard_concrete_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "sigmoid_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        }
+      }
+    },
+    "STSBenchmark": {
+      "baseline": 83.10561275928552,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 80.04057522222391,
+            "retention": 96.31187661663785
+          },
+          "magnitude": {
+            "score": 78.46571461520884,
+            "retention": 94.41686549196612
+          },
+          "hard_concrete_mask": {
+            "score": 79.1329614561768,
+            "retention": 95.21975571660188
+          },
+          "sigmoid_mask": {
+            "score": 80.67549992868426,
+            "retention": 97.07587399946132
+          }
+        },
+        "128": {
+          "random": {
+            "score": 81.60466996865085,
+            "retention": 98.1939333087139
+          },
+          "magnitude": {
+            "score": 80.67017928387531,
+            "retention": 97.06947173055036
+          },
+          "hard_concrete_mask": {
+            "score": 81.9617966786387,
+            "retention": 98.62365965105165
+          },
+          "sigmoid_mask": {
+            "score": 82.92583718057503,
+            "retention": 99.78367817438371
+          }
+        },
+        "256": {
+          "random": {
+            "score": 82.12618767484796,
+            "retention": 98.82146939067226
+          },
+          "magnitude": {
+            "score": 81.77253455997587,
+            "retention": 98.39592278421567
+          },
+          "hard_concrete_mask": {
+            "score": 82.42570298253708,
+            "retention": 99.18187261464783
+          },
+          "sigmoid_mask": {
+            "score": 82.71014661945739,
+            "retention": 99.52414027561099
+          }
+        }
+      }
+    },
+    "BIOSSES": {
+      "baseline": 85.18627837653882,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 78.52841582925063,
+            "retention": 92.18434861321299
+          },
+          "magnitude": {
+            "score": 80.7422012116114,
+            "retention": 94.78310679886285
+          },
+          "hard_concrete_mask": {
+            "score": 86.02967108778978,
+            "retention": 100.9900569989958
+          },
+          "sigmoid_mask": {
+            "score": 89.55926958437509,
+            "retention": 105.13344553979323
+          }
+        },
+        "128": {
+          "random": {
+            "score": 82.20018624001825,
+            "retention": 96.4946324766983
+          },
+          "magnitude": {
+            "score": 83.26816238180804,
+            "retention": 97.74832751085526
+          },
+          "hard_concrete_mask": {
+            "score": 88.53876440376143,
+            "retention": 103.93547657100832
+          },
+          "sigmoid_mask": {
+            "score": 87.10439437126959,
+            "retention": 102.25167248914472
+          }
+        },
+        "256": {
+          "random": {
+            "score": 84.07167466628417,
+            "retention": 98.69156895747
+          },
+          "magnitude": {
+            "score": 83.6416648682192,
+            "retention": 98.18678132469627
+          },
+          "hard_concrete_mask": {
+            "score": 89.70324876865294,
+            "retention": 105.30246241319323
+          },
+          "sigmoid_mask": {
+            "score": 87.95079919934645,
+            "retention": 103.24526540599408
+          }
+        }
+      }
+    },
+    "SciFact": {
+      "baseline": 81.83517924363409,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 65.22139197141298,
+            "retention": 79.69847756701348
+          },
+          "magnitude": {
+            "score": 64.26164587099409,
+            "retention": 78.52569819597844
+          },
+          "hard_concrete_mask": {
+            "score": 64.22337403438321,
+            "retention": 78.4789312224536
+          },
+          "sigmoid_mask": {
+            "score": 60.76887053867639,
+            "retention": 74.2576372415089
+          }
+        },
+        "128": {
+          "random": {
+            "score": 75.09768263391514,
+            "retention": 91.76699229843375
+          },
+          "magnitude": {
+            "score": 72.53698080781807,
+            "retention": 88.63789568037231
+          },
+          "hard_concrete_mask": {
+            "score": 73.30870772488143,
+            "retention": 89.5809215577469
+          },
+          "sigmoid_mask": {
+            "score": 69.38773535094901,
+            "retention": 84.78961736537853
+          }
+        },
+        "256": {
+          "random": {
+            "score": 79.04577297438405,
+            "retention": 96.59143378797326
+          },
+          "magnitude": {
+            "score": 78.14758724314473,
+            "retention": 95.49387924047808
+          },
+          "hard_concrete_mask": {
+            "score": 78.36418597275359,
+            "retention": 95.75855603548335
+          },
+          "sigmoid_mask": {
+            "score": 75.29257688188926,
+            "retention": 92.00514690355031
+          }
+        }
+      }
+    }
+  },
+  "total_time_s": 3131.607609987259
+}

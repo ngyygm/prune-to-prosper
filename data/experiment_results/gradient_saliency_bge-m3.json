@@ -1,0 +1,455 @@
+{
+  "model": "bge-m3",
+  "model_dim": 1024,
+  "methods": {
+    "ImdbClassification": {
+      "baseline": 92.62,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 87.56,
+            "retention": 94.53681710213776
+          },
+          "gradient": {
+            "score": 89.32,
+            "retention": 96.43705463182897
+          },
+          "activation_variance": {
+            "score": 90.92,
+            "retention": 98.16454329518463
+          },
+          "learned_mask": {
+            "score": 88.24,
+            "retention": 95.2709997840639
+          }
+        },
+        "128": {
+          "random": {
+            "score": 90.728,
+            "retention": 97.95724465558193
+          },
+          "gradient": {
+            "score": 91.75999999999999,
+            "retention": 99.07147484344632
+          },
+          "activation_variance": {
+            "score": 92.12,
+            "retention": 99.46015979270136
+          },
+          "learned_mask": {
+            "score": 90.4,
+            "retention": 97.60310947959404
+          }
+        },
+        "256": {
+          "random": {
+            "score": 91.812,
+            "retention": 99.12761822500539
+          },
+          "gradient": {
+            "score": 92.06,
+            "retention": 99.39537896782552
+          },
+          "activation_variance": {
+            "score": 92.7,
+            "retention": 100.08637443316779
+          },
+          "learned_mask": {
+            "score": 92.36,
+            "retention": 99.7192830922047
+          }
+        }
+      }
+    },
+    "Banking77Classification": {
+      "baseline": 90.25974025974025,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 85.87662337662339,
+            "retention": 95.14388489208635
+          },
+          "gradient": {
+            "score": 87.5,
+            "retention": 96.94244604316548
+          },
+          "activation_variance": {
+            "score": 86.85064935064936,
+            "retention": 96.22302158273384
+          },
+          "learned_mask": {
+            "score": 87.66233766233766,
+            "retention": 97.12230215827338
+          }
+        },
+        "128": {
+          "random": {
+            "score": 88.18181818181819,
+            "retention": 97.69784172661872
+          },
+          "gradient": {
+            "score": 88.63636363636364,
+            "retention": 98.20143884892087
+          },
+          "activation_variance": {
+            "score": 88.7987012987013,
+            "retention": 98.38129496402878
+          },
+          "learned_mask": {
+            "score": 88.47402597402598,
+            "retention": 98.02158273381296
+          }
+        },
+        "256": {
+          "random": {
+            "score": 89.12337662337663,
+            "retention": 98.74100719424462
+          },
+          "gradient": {
+            "score": 89.28571428571429,
+            "retention": 98.92086330935253
+          },
+          "activation_variance": {
+            "score": 88.63636363636364,
+            "retention": 98.20143884892087
+          },
+          "learned_mask": {
+            "score": 88.63636363636364,
+            "retention": 98.20143884892087
+          }
+        }
+      }
+    },
+    "TwentyNewsgroupsClustering": {
+      "baseline": 40.00690104429721,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 23.478761558277697,
+            "retention": 58.686778894174005
+          },
+          "gradient": {
+            "score": 28.71484502598824,
+            "retention": 71.77472955026943
+          },
+          "activation_variance": {
+            "score": 25.48052017258865,
+            "retention": 63.690312189828504
+          },
+          "learned_mask": {
+            "score": 25.996236241214277,
+            "retention": 64.97937996354736
+          }
+        },
+        "128": {
+          "random": {
+            "score": 29.950533472004185,
+            "retention": 74.86341778595093
+          },
+          "gradient": {
+            "score": 33.91308576257207,
+            "retention": 84.7680896978803
+          },
+          "activation_variance": {
+            "score": 30.839319177840153,
+            "retention": 77.08499876982137
+          },
+          "learned_mask": {
+            "score": 30.34961156851586,
+            "retention": 75.86094092844527
+          }
+        },
+        "256": {
+          "random": {
+            "score": 33.90493037329594,
+            "retention": 84.74770474162713
+          },
+          "gradient": {
+            "score": 37.143012951361214,
+            "retention": 92.84151479324784
+          },
+          "activation_variance": {
+            "score": 35.241240430610695,
+            "retention": 88.08790361340463
+          },
+          "learned_mask": {
+            "score": 32.10544439137756,
+            "retention": 80.24976579872846
+          }
+        }
+      }
+    },
+    "MedrxivClusteringS2S": {
+      "baseline": 23.999035252922685,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 16.53554711940573,
+            "retention": 68.9008826610727
+          },
+          "gradient": {
+            "score": 18.67533021215051,
+            "retention": 77.81700395592428
+          },
+          "activation_variance": {
+            "score": 18.833914102786323,
+            "retention": 78.47779672931921
+          },
+          "learned_mask": {
+            "score": 17.0355054028187,
+            "retention": 70.98412591707852
+          }
+        },
+        "128": {
+          "random": {
+            "score": 20.396060598601192,
+            "retention": 84.98700211758424
+          },
+          "gradient": {
+            "score": 21.77798265377807,
+            "retention": 90.74524214937296
+          },
+          "activation_variance": {
+            "score": 20.706711868184254,
+            "retention": 86.2814344408387
+          },
+          "learned_mask": {
+            "score": 19.341679936005267,
+            "retention": 80.59357275059534
+          }
+        },
+        "256": {
+          "random": {
+            "score": 22.720685357913034,
+            "retention": 94.6733279836573
+          },
+          "gradient": {
+            "score": 23.30357831561202,
+            "retention": 97.10214627387587
+          },
+          "activation_variance": {
+            "score": 23.989713729775694,
+            "retention": 99.96115875888863
+          },
+          "learned_mask": {
+            "score": 23.348970135986246,
+            "retention": 97.29128646178695
+          }
+        }
+      }
+    },
+    "SciDocsRR": {
+      "baseline": 100.0,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "activation_variance": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "learned_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        },
+        "128": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "activation_variance": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "learned_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        },
+        "256": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "activation_variance": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "learned_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        }
+      }
+    },
+    "StackOverflowDupQuestions": {
+      "baseline": 100.0,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "activation_variance": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "learned_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        },
+        "128": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "activation_variance": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "learned_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        },
+        "256": {
+          "random": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "activation_variance": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "learned_mask": {
+            "score": 100.0,
+            "retention": 100.0
+          }
+        }
+      }
+    },
+    "STSBenchmark": {
+      "baseline": 84.8468170635737,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 81.2965236116067,
+            "retention": 95.81564332660017
+          },
+          "gradient": {
+            "score": 81.17451877736264,
+            "retention": 95.67184908838773
+          },
+          "activation_variance": {
+            "score": 76.6474918828797,
+            "retention": 90.33631965881474
+          },
+          "learned_mask": {
+            "score": 81.35118516797341,
+            "retention": 95.88006714149208
+          }
+        },
+        "128": {
+          "random": {
+            "score": 83.31841656077503,
+            "retention": 98.19863542829961
+          },
+          "gradient": {
+            "score": 81.78301412508199,
+            "retention": 96.38901841633485
+          },
+          "activation_variance": {
+            "score": 79.85752575297182,
+            "retention": 94.11964822809615
+          },
+          "learned_mask": {
+            "score": 83.05689542629143,
+            "retention": 97.89040803270072
+          }
+        },
+        "256": {
+          "random": {
+            "score": 83.81552474270943,
+            "retention": 98.78452444469244
+          },
+          "gradient": {
+            "score": 83.91805646065247,
+            "retention": 98.90536777328332
+          },
+          "activation_variance": {
+            "score": 82.37658431619364,
+            "retention": 97.08859703537357
+          },
+          "learned_mask": {
+            "score": 84.16889598892602,
+            "retention": 99.20100588553638
+          }
+        }
+      }
+    },
+    "BIOSSES": {
+      "baseline": 83.37599616417513,
+      "budgets": {
+        "64": {
+          "random": {
+            "score": 76.85910068433891,
+            "retention": 92.18372699619223
+          },
+          "gradient": {
+            "score": 73.73601747457658,
+            "retention": 88.4379448125375
+          },
+          "activation_variance": {
+            "score": 76.01076810149348,
+            "retention": 91.16624879878037
+          },
+          "learned_mask": {
+            "score": 71.71729677786087,
+            "retention": 86.01671953237332
+          }
+        },
+        "128": {
+          "random": {
+            "score": 79.61277788657334,
+            "retention": 95.48644879733531
+          },
+          "gradient": {
+            "score": 77.57044219394258,
+            "retention": 93.03690002239868
+          },
+          "activation_variance": {
+            "score": 79.37409774928929,
+            "retention": 95.20017918945672
+          },
+          "learned_mask": {
+            "score": 80.61930684511483,
+            "retention": 96.6936655081972
+          }
+        },
+        "256": {
+          "random": {
+            "score": 81.80704475190225,
+            "retention": 98.11822168914964
+          },
+          "gradient": {
+            "score": 79.71024998705933,
+            "retention": 95.60335546708478
+          },
+          "activation_variance": {
+            "score": 80.98256813431793,
+            "retention": 97.129356001763
+          },
+          "learned_mask": {
+            "score": 80.57593236282192,
+            "retention": 96.6416427626968
+          }
+        }
+      }
+    }
+  },
+  "total_time_s": 1400.2560107707977
+}

@@ -10,10 +10,10 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
-def load_results(output_dir):
+def load_results(data_dir):
     paths = [
-        os.path.join(output_dir, "analysis_results.json"),
-        os.path.join(output_dir, "reviewer_response_analysis.json"),
+        os.path.join(data_dir, "analysis_results.json"),
+        os.path.join(data_dir, "reviewer_response_analysis.json"),
     ]
     results = {}
     for path in paths:
@@ -45,14 +45,18 @@ def fig6_pruning_ratio_sweep(results, output_dir):
     """Figure 6: Performance vs pruning ratio for sort vs random."""
     set_style()
     data = results.get("reviewer_response_analysis", {}).get("pruning_ratio_sweep", {})
+    n_models = len(data)
+    n_cols = min(n_models, 3)
+    n_rows = (n_models + n_cols - 1) // n_cols
 
-    fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(6 * n_cols, 4.5 * n_rows))
+    if n_rows == 1:
+        axes = [axes] if n_cols == 1 else axes
+    else:
+        axes = axes.flatten()
 
-    model_colors = {
-        'stella_en_400M_v5': '#4ECDC4',
-        'gte-large-en-v1.5': '#5B8DEE',
-        'roberta-large-InBedder': '#E74C3C',
-    }
+    cmap = plt.cm.tab10
+    model_colors = {name: cmap(i / max(n_models - 1, 1)) for i, name in enumerate(data)}
 
     for i, (model_name, model_data) in enumerate(data.items()):
         ax = axes[i]
@@ -80,10 +84,15 @@ def fig6_pruning_ratio_sweep(results, output_dir):
 
         ax.set_xlabel('Fraction of Dimensions Retained')
         ax.set_ylabel('Normalized Performance')
-        ax.set_title(f'{model_name}\n({model_data["model_dim"]}d)')
-        ax.legend(loc='lower right', fontsize=8)
+        short = model_name[:20]
+        ax.set_title(f'{short}\n({model_data["model_dim"]}d)', fontsize=9)
+        ax.legend(loc='lower right', fontsize=7)
         ax.set_xlim(0, 0.8)
         ax.set_ylim(0.15, 1.15)
+
+    # Hide unused axes
+    for j in range(i + 1, len(axes)):
+        axes[j].set_visible(False)
 
     plt.tight_layout()
     path = os.path.join(output_dir, "fig6_pruning_ratio_sweep.png")
@@ -99,18 +108,15 @@ def fig7_redundancy_mechanism(results, output_dir):
 
     fig, axes = plt.subplots(1, 3, figsize=(16, 5))
 
-    model_colors = {
-        'stella_en_400M_v5': '#4ECDC4',
-        'gte-large-en-v1.5': '#5B8DEE',
-        'roberta-large-InBedder': '#E74C3C',
-    }
+    cmap = plt.cm.tab10
+    model_colors = {name: cmap(i / max(len(data) - 1, 1)) for i, name in enumerate(data)}
 
     # (a) Normalized entropy distribution across tasks
     ax = axes[0]
     for model_name, model_data in data.items():
         entropies = [v["normalized_entropy"] for v in model_data["tasks"].values()]
         color = model_colors.get(model_name, '#333333')
-        ax.hist(entropies, bins=20, alpha=0.5, color=color, label=model_name[:15])
+        ax.hist(entropies, bins=20, alpha=0.5, color=color, label=model_name[:12])
     ax.axvline(x=1.0, color='red', linestyle='--', alpha=0.5, label='Maximum (uniform)')
     ax.set_xlabel('Normalized Entropy')
     ax.set_ylabel('Number of Tasks')
@@ -128,7 +134,7 @@ def fig7_redundancy_mechanism(results, output_dir):
                   summary['avg_top_25pct_concentration'],
                   summary['avg_top_50pct_concentration']]
         color = model_colors.get(model_name, '#333333')
-        ax.plot(x_labels, y_vals, 'o-', color=color, label=model_name[:15], markersize=8)
+        ax.plot(x_labels, y_vals, 'o-', color=color, label=model_name[:12], markersize=8)
 
     # Reference lines for comparison
     ax.axhline(y=0.1, color='gray', linestyle=':', alpha=0.3)
@@ -147,7 +153,7 @@ def fig7_redundancy_mechanism(results, output_dir):
             n_chunks = sorted([int(k) for k in gaps.keys()])
             gap_means = [gaps[str(k)]["mean"] for k in n_chunks]
             color = model_colors.get(model_name, '#333333')
-            ax.plot(n_chunks, gap_means, 'o-', color=color, label=model_name[:15], markersize=5)
+            ax.plot(n_chunks, gap_means, 'o-', color=color, label=model_name[:12], markersize=5)
 
     ax.axhline(y=0, color='black', linestyle='-', alpha=0.3)
     ax.set_xlabel('Number of Chunks Selected')
@@ -172,13 +178,13 @@ def fig8_evidence_summary(results, output_dir):
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
 
     model_names = sorted(models_data.keys())
-    short_names = [n[:15] for n in model_names]
+    short_names = [n[:12] for n in model_names]
     x = np.arange(len(model_names))
 
     # (a) Optimized-Random gap
     ax = axes[0]
-    gaps = [models_data[m]["optimized_random_gap"]["mean"] for m in model_names]
-    gap_stds = [models_data[m]["optimized_random_gap"]["std"] for m in model_names]
+    gaps = [(models_data[m]["optimized_random_gap"] or {}).get("mean", 0) for m in model_names]
+    gap_stds = [(models_data[m]["optimized_random_gap"] or {}).get("std", 0) for m in model_names]
     colors = ['#27AE60' if g <= 0 else '#E74C3C' for g in gaps]
     ax.barh(x, gaps, xerr=gap_stds, color=colors, alpha=0.7, capsize=3)
     ax.axvline(x=0, color='black', linewidth=0.8)
@@ -190,8 +196,8 @@ def fig8_evidence_summary(results, output_dir):
 
     # (b) Cross-task transfer retention
     ax = axes[1]
-    retentions = [models_data[m]["cross_task_transfer_retention"]["mean"] for m in model_names]
-    ret_stds = [models_data[m]["cross_task_transfer_retention"]["std"] for m in model_names]
+    retentions = [(models_data[m]["cross_task_transfer_retention"] or {}).get("mean", 0) for m in model_names]
+    ret_stds = [(models_data[m]["cross_task_transfer_retention"] or {}).get("std", 0) for m in model_names]
     ax.barh(x, retentions, xerr=ret_stds, color='#5B8DEE', alpha=0.7, capsize=3)
     ax.axvline(x=1.0, color='red', linestyle='--', alpha=0.5, label='Self-transfer')
     ax.set_yticks(x)
@@ -203,8 +209,8 @@ def fig8_evidence_summary(results, output_dir):
 
     # (c) Chunk entropy (uniformity of dimension importance)
     ax = axes[2]
-    entropies = [models_data[m]["chunk_entropy"]["mean"] for m in model_names]
-    ent_stds = [models_data[m]["chunk_entropy"]["std"] for m in model_names]
+    entropies = [(models_data[m]["chunk_entropy"] or {}).get("mean", 0) for m in model_names]
+    ent_stds = [(models_data[m]["chunk_entropy"] or {}).get("std", 0) for m in model_names]
     ax.barh(x, entropies, xerr=ent_stds, color='#9B59B6', alpha=0.7, capsize=3)
     ax.axvline(x=1.0, color='red', linestyle='--', alpha=0.5, label='Perfectly uniform')
     ax.set_yticks(x)
@@ -222,8 +228,9 @@ def fig8_evidence_summary(results, output_dir):
 
 
 def main():
+    data_dir = "/home/linkco/exa/llm-usefulEeb/data/experiment_results"
     output_dir = "/home/linkco/exa/llm-usefulEeb/paper/figures"
-    results = load_results(output_dir)
+    results = load_results(data_dir)
 
     print("Generating reviewer response figures...")
     fig6_pruning_ratio_sweep(results, output_dir)

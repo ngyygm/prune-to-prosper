@@ -1,0 +1,228 @@
+{
+  "model": "roberta-large-InBedder",
+  "model_dim": 1024,
+  "target_dims": [
+    64,
+    128,
+    256
+  ],
+  "methods": {
+    "ImdbClassification": {
+      "baseline": 87.5,
+      "dim_64": {
+        "pca_score": 79.5,
+        "pca_retention": 90.85714285714286,
+        "rp_mean_score": 79.40800000000002,
+        "rp_retention": 90.75200000000002,
+        "random_coord_score": 81.34,
+        "random_coord_retention": 92.96000000000001
+      },
+      "dim_128": {
+        "pca_score": 81.82000000000001,
+        "pca_retention": 93.50857142857144,
+        "rp_mean_score": 83.744,
+        "rp_retention": 95.70742857142858,
+        "random_coord_score": 84.26,
+        "random_coord_retention": 96.29714285714286
+      },
+      "dim_256": {
+        "pca_score": 85.9,
+        "pca_retention": 98.17142857142858,
+        "rp_mean_score": 84.75200000000001,
+        "rp_retention": 96.85942857142858,
+        "random_coord_score": 86.42,
+        "random_coord_retention": 98.7657142857143
+      }
+    },
+    "Banking77Classification": {
+      "baseline": 72.72727272727273,
+      "dim_64": {
+        "pca_score": 52.922077922077925,
+        "pca_retention": 72.76785714285714,
+        "rp_mean_score": 62.24025974025974,
+        "rp_retention": 85.58035714285714,
+        "random_coord_score": 66.07142857142857,
+        "random_coord_retention": 90.84821428571428
+      },
+      "dim_128": {
+        "pca_score": 59.41558441558441,
+        "pca_retention": 81.69642857142856,
+        "rp_mean_score": 66.65584415584415,
+        "rp_retention": 91.6517857142857,
+        "random_coord_score": 68.66883116883116,
+        "random_coord_retention": 94.41964285714283
+      },
+      "dim_256": {
+        "pca_score": 65.74675324675324,
+        "pca_retention": 90.4017857142857,
+        "rp_mean_score": 70.0,
+        "rp_retention": 96.24999999999999,
+        "random_coord_score": 70.61688311688312,
+        "random_coord_retention": 97.09821428571428
+      }
+    },
+    "TwentyNewsgroupsClustering": {
+      "baseline": 21.72161336454631,
+      "dim_64": {
+        "pca_score": 12.807024650751872,
+        "pca_retention": 58.95982234752094,
+        "rp_mean_score": 15.616626940218998,
+        "rp_retention": 71.8944153831051,
+        "random_coord_score": 18.988332238300462,
+        "random_coord_retention": 87.41676743631268
+      },
+      "dim_128": {
+        "pca_score": 13.340155970374468,
+        "pca_retention": 61.41420412236997,
+        "rp_mean_score": 17.818803171737493,
+        "rp_retention": 82.03259524368974,
+        "random_coord_score": 16.350975399462005,
+        "random_coord_retention": 75.2751424355514
+      },
+      "dim_256": {
+        "pca_score": 18.42922282691781,
+        "pca_retention": 84.84279007100693,
+        "rp_mean_score": 20.565100917753114,
+        "rp_retention": 94.67575254478639,
+        "random_coord_score": 19.488588203262804,
+        "random_coord_retention": 89.71980062526931
+      }
+    },
+    "MedrxivClusteringS2S": {
+      "baseline": 19.960177304768038,
+      "dim_64": {
+        "pca_score": 13.064690262366948,
+        "pca_retention": 65.4537786056945,
+        "rp_mean_score": 17.56795240115877,
+        "rp_retention": 88.01501175524218,
+        "random_coord_score": 17.366078622732957,
+        "random_coord_retention": 87.00362906387906
+      },
+      "dim_128": {
+        "pca_score": 16.257065688359067,
+        "pca_retention": 81.44750139306437,
+        "rp_mean_score": 18.82286537075684,
+        "rp_retention": 94.30209503329652,
+        "random_coord_score": 18.127429732841023,
+        "random_coord_retention": 90.817979500166
+      },
+      "dim_256": {
+        "pca_score": 17.90847727384846,
+        "pca_retention": 89.7210330369687,
+        "rp_mean_score": 19.96895471323341,
+        "rp_retention": 100.04397460168491,
+        "random_coord_score": 19.82384586539974,
+        "random_coord_retention": 99.31698282391645
+      }
+    },
+    "SciDocsRR": {
+      "baseline": 100.0,
+      "dim_64": {
+        "pca_score": 100.0,
+        "pca_retention": 100.0,
+        "rp_mean_score": 100.0,
+        "rp_retention": 100.0,
+        "random_coord_score": 100.0,
+        "random_coord_retention": 100.0
+      },
+      "dim_128": {
+        "pca_score": 100.0,
+        "pca_retention": 100.0,
+        "rp_mean_score": 100.0,
+        "rp_retention": 100.0,
+        "random_coord_score": 100.0,
+        "random_coord_retention": 100.0
+      },
+      "dim_256": {
+        "pca_score": 100.0,
+        "pca_retention": 100.0,
+        "rp_mean_score": 100.0,
+        "rp_retention": 100.0,
+        "random_coord_score": 100.0,
+        "random_coord_retention": 100.0
+      }
+    },
+    "StackOverflowDupQuestions": {
+      "baseline": 100.0,
+      "dim_64": {
+        "pca_score": 100.0,
+        "pca_retention": 100.0,
+        "rp_mean_score": 100.0,
+        "rp_retention": 100.0,
+        "random_coord_score": 100.0,
+        "random_coord_retention": 100.0
+      },
+      "dim_128": {
+        "pca_score": 100.0,
+        "pca_retention": 100.0,
+        "rp_mean_score": 100.0,
+        "rp_retention": 100.0,
+        "random_coord_score": 100.0,
+        "random_coord_retention": 100.0
+      },
+      "dim_256": {
+        "pca_score": 100.0,
+        "pca_retention": 100.0,
+        "rp_mean_score": 100.0,
+        "rp_retention": 100.0,
+        "random_coord_score": 100.0,
+        "random_coord_retention": 100.0
+      }
+    },
+    "STSBenchmark": {
+      "baseline": 59.72641092708897,
+      "dim_64": {
+        "pca_score": 44.703392461023455,
+        "pca_retention": 74.84694252864973,
+        "rp_mean_score": 57.28357152592059,
+        "rp_retention": 95.90995112003219,
+        "random_coord_score": 61.788510837939285,
+        "random_coord_retention": 103.4525763039196
+      },
+      "dim_128": {
+        "pca_score": 51.82433397795829,
+        "pca_retention": 86.76954327830423,
+        "rp_mean_score": 58.392654541711224,
+        "rp_retention": 97.76689011665889,
+        "random_coord_score": 58.70420188015883,
+        "random_coord_retention": 98.28851419152241
+      },
+      "dim_256": {
+        "pca_score": 58.62406042048395,
+        "pca_retention": 98.15433325141416,
+        "rp_mean_score": 59.43446634553303,
+        "rp_retention": 99.5111968440355,
+        "random_coord_score": 59.099912839272584,
+        "random_coord_retention": 98.95105351536829
+      }
+    },
+    "BIOSSES": {
+      "baseline": 58.53868324119931,
+      "dim_64": {
+        "pca_score": 49.02882799847948,
+        "pca_retention": 83.7545795085004,
+        "rp_mean_score": 53.307600192001715,
+        "rp_retention": 91.06388671633808,
+        "random_coord_score": 65.5924584240833,
+        "random_coord_retention": 112.04976742271438
+      },
+      "dim_128": {
+        "pca_score": 55.677774679963,
+        "pca_retention": 95.11278969250402,
+        "rp_mean_score": 56.055253160584336,
+        "rp_retention": 95.75762565348046,
+        "random_coord_score": 58.07602209674164,
+        "random_coord_retention": 99.20964887004487
+      },
+      "dim_256": {
+        "pca_score": 60.7122267427661,
+        "pca_retention": 103.71300374593505,
+        "rp_mean_score": 58.57627445918651,
+        "rp_retention": 100.06421602930888,
+        "random_coord_score": 58.68808423576378,
+        "random_coord_retention": 100.25521755238138
+      }
+    }
+  },
+  "total_time_s": 331.7791087627411
+}

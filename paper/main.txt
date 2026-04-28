@@ -1,0 +1,691 @@
+          Random Dimension Selection as a Strong Baseline: Training Paradigm
+                  Associates with the Value of Task-Aware Pruning
+
+
+                                              Anonymous ACL submission
+
+
+
+
+001                         Abstract                               these embeddings: Takeshita et al. (2025) show         044
+                                                                   that randomly removing 50% of dimensions causes        045
+002       Modern text embedding models produce high-               only minor performance drops, while Tsukagoshi         046
+003       dimensional vectors (768–4096 dimensions)
+                                                                   and Sasano (2025) find that keeping only 25% of        047
+004       that are costly to store and compare at scale.
+005       Prior work has shown that randomly remov-                dimensions often incurs negligible loss. These find-   048
+006       ing a large fraction of dimensions often causes          ings suggest dimension importance is broadly           049
+007       only moderate performance loss, suggesting               distributed—no small subset carries disproportion-     050
+008       substantial redundancy. We revisit this ob-              ately more information.                                051
+009       servation in the stricter setting of post-hoc               We revisit this observation with a narrower ques-   052
+010       compression of frozen, off-the-shelf embed-              tion: when, and by how much, does task-aware di-       053
+011       ding models, and ask a narrower question:
+                                                                   mension selection improve over random selection?       054
+012       when, and by how much, does task-aware di-
+013       mension selection improve over random selec-             Across 11 models and 35 MTEB tasks, we find the        055
+
+014       tion? Across 11 embedding models and 35                  answer depends critically on training paradigm:        056
+015       MTEB tasks, random selection is a strong base-           contrastive training produces near-uniform impor-      057
+016       line, especially for contrastively trained models,       tance where random is hard to beat, while non-         058
+017       where a task-aware oracle improves retention             contrastive models exhibit more exploitable struc-     059
+018       by only +2.2%–+5.0% at 256 dimensions (95–               ture.                                                  060
+019       98% retention). However, the gap is substan-
+                                                                      Our contributions are:                              061
+020       tially larger for non-contrastive models (BART-
+021       Base: +10.1%, Roberta-Large: +8.6%) and the
+022       task-specifically fine-tuned Roberta-InBedder                1. We show random dimension selection is a         062
+
+023       (+8.2%), showing that interchangeability is                     strong baseline for post-hoc compression of     063
+024       model-family dependent rather than univer-                      contrastive embedding models (+2.2–5.0%         064
+025       sal. Additional analyses reveal that the strength               oracle gain at dim=256), but substantially      065
+026       of this conclusion depends on compression ra-                   weaker for non-contrastive models (+8.2–        066
+027       tio, importance definition, and evaluation pro-                 10.1%).                                         067
+028       tocol: cross-task transfer degrades at aggres-
+029       sive pruning (dim ≤ 64), Shapley-based impor-                2. We demonstrate that conclusions about inter-    068
+030       tance reveals more structure than standalone
+                                                                          changeability depend on compression ratio,      069
+031       scoring, and random selection is also more ro-
+032       bust under domain shift. We conclude that ran-                  importance definition, and evaluation proto-    070
+
+033       dom selection should be the default baseline                    col.                                            071
+034       for post-hoc embedding compression, but its
+035       adequacy depends on model family and com-                    3. We provide practical guidance via retrieval-    072
+036       pression regime.                                                system cost analysis and domain-shift robust-   073
+                                                                          ness experiments.                               074
+037   1    Introduction
+                                                                       Figure 1 illustrates our core finding.             075
+038   Dense text embeddings power search, clustering,
+039   and classification across modern NLP pipelines,              2     Related Work                                     076
+040   but state-of-the-art models produce 768–4096 di-
+041   mensional vectors whose storage and comparison               Embedding redundancy. Takeshita et al. (2025)          077
+042   costs scale linearly with dimensionality. A growing          evaluate six models on retrieval and classifica-       078
+043   body of work has documented the redundancy of                tion, finding minor accuracy drops when randomly       079
+
+
+                                                               1
+      Figure 1: Pruning strategies for a representative contrastive model (GTE-Large). Random selection retains 97.5%
+      at dim=256, the oracle 99.9% (+2.4%), and anti-optimized 90.6%. Non-contrastive models show a much larger
+      oracle–random gap.
+
+
+080   removing 50% of dimensions, but do not com-                 of frozen models. Li et al. (2018) and Alemo-           108
+081   pare against task-aware selection. Tsukagoshi and           hammad et al. (2023) show representations live          109
+082   Sasano (2025) find that prompt-based LLM em-                on low-dimensional manifolds. Our entropy analy-        110
+083   beddings tolerate extreme pruning on classifica-            sis complements this by measuring uniformity of         111
+084   tion tasks but require more dimensions for retrieval.       per-dimension importance.                               112
+085   Zhang et al. (2024) show PCA can halve dimen-
+086   sions with little loss. We test whether intelligent         3     Methodology                                       113
+087   selection outperforms these random baselines.
+                                                                  3.1    Models and Tasks                                 114
+088   Task-aware compression. Yoon et al. (2024)                  We evaluate 11 text embedding models spanning           115
+089   learn adaptors for efficient LLM embeddings. Fag-           diverse architectures: contrastive models (GTE-         116
+090   gioli et al. (2025) estimate per-dimension impor-           Large, Stella, BGE-M3, GTE-Base, GTR-T5-                117
+091   tance for retrieval. Zhang et al. (2025) combine Ma-        Large, MxBai, Qwen3-Embedding), instruction-            118
+092   tryoshka training with adaptive selection. Anony-           tuned (Instructor-Large), encoder-only (Roberta-        119
+093   mous (2025b) use gradient alignment for domain-             Large, BART-Base), and task-specific fine-tuned         120
+094   specific pruning. Anonymous (2025a) propose                 (Roberta-InBedder). Nine models receive full            121
+095   sparse coding. We include stronger deployable               chunk-level analysis. We use 35 MTEB tasks              122
+096   baselines (gradient saliency, activation variance,          (Muennighoff et al., 2023) covering classification,     123
+097   learned masks, PCA).                                        clustering, retrieval, reranking, STS, and pair clas-   124
+                                                                  sification.                                             125
+098   Matryoshka representation learning. Kusupati
+099   et al. (2023) train embeddings where the first k            3.2    Selection Methods                                126
+100   dimensions are optimized for any truncation level.
+101   Our sequential baseline tests whether off-the-shelf         Given a D-dimensional embedding e ∈ RD and              127
+
+102   models exhibit similar properties (they do not: d <         target k < D, we compare five strategies: (1)           128
+
+103   0.02).                                                      Random: uniformly sample k dimensions (10 tri-          129
+                                                                  als). (2) Sequential: retain the first k dimensions.    130
+104   Neural network pruning & intrinsic dimension-               (3) Magnitude: rank by L2 norm of embedding             131
+105   ality. Pruning literature (Han et al., 2016; Frankle        weight columns ∥wd ∥2 (Han et al., 2016). (4)           132
+106   and Carbin, 2019; Blalock et al., 2020) typically           Optimized (Oracle): divide D dimensions into            133
+107   involves retraining; we prune output embeddings             chunks of size w (default w = 2; Appendix L),           134
+
+
+                                                              2
+      Table 1: Oracle vs. random at dim=256. ∆: mean                            Table 2: Cross-task transfer at dim=256: near-complete
+      retention gap with 95% CI; d: Cohen’s d; pholm : Holm-                    retention despite zero ranking correlation.
+      Bonferroni corrected.
+                                                                                       Model               Mean Transfer Ret.     95% CI
+
+       Model                     ∆           95% CI          d      pholm              Roberta-Large            100.4%          [87.9, 123.8]
+                                                                                       Roberta-InBedder          99.2%          [91.2, 109.4]
+       Contrastive models                                                              GTE-Large                97.5%           [90.7, 100.1]
+       Instructor-Large       +2.89%      [+1.78, +4.09]    0.83   <0.001              Stella                   97.4%           [91.2, 100.7]
+       MxBai-Embed-Large      +2.24%      [+1.35, +3.29]    0.76   <0.001              MxBai-Embed-Large        97.2%            [91.3, 99.9]
+       GTE-Large              +2.41%      [+1.49, +3.39]    0.83   <0.001              Qwen3-Embedding           96.8%           [96.6, 97.1]
+                                                                                       BGE-M3                    94.8%          [81.2, 101.1]
+       Qwen3-Embedding        +5.01%      [+3.36, +6.84]    0.97   <0.001
+       Stella EN 400M         +3.22%      [+2.17, +4.44]    0.93   <0.001
+       BGE-M3                 +4.62%      [+3.21, +6.13]    1.04   <0.001
+       Non-contrastive / fine-tuned
+       Roberta-InBedder          +8.19%   [+5.99, +10.56]   1.17   <0.001
+                                                                                Sequential ≈ Random (|d| < 0.02). The                           170
+       BART-Base                +10.08%   [+6.28, +13.73]   0.90   <0.001       intrinsic dimension ordering carries no impor-                  171
+       Roberta-Large             +8.56%   [−5.85, +18.88]   0.23   0.191
+                                                                                tance signal—off-the-shelf models do not exhibit                172
+                                                                                Matryoshka-like structure. Anti-optimized de-                   173
+
+135   score each chunk’s standalone task contribution                           grades to 84–91%, confirming information is dis-                174
+
+136   Si = Eval(e[chunki ]), select top chunks. This is                         tributed but spread so evenly that subset choice                175
+
+137   an upper bound within standalone chunk-scoring                            barely matters at moderate compression (Ap-                     176
+
+138   methods. (5) Anti-optimized: select the lowest-                           pendix C).                                                      177
+
+139   scoring chunks (lower bound).
+                                                                                5   Finding 2: Magnitude-Based Selection                        178
+140     The first three are task-agnostic (no task-specific
+                                                                                    Fails                                                       179
+141   evaluation); the oracle bounds require full task eval-
+142   uation. We also test gradient-based, activation-                          Magnitude rankings are uncorrelated with task im-               180
+143   variance, and learned-mask methods (Section 7;                            portance (ρ ≈ 0). For GTE-Large, magnitude                      181
+144   Appendix M).                                                              is significantly worse than random (96.74% vs.                  182
+                                                                                97.49%, p = 0.002, d = −0.27). The top-128                      183
+145   3.3      Evaluation Protocol                                              chunks by magnitude share only 18.8% with top-                  184
+
+146   We compute the retention ratio:                 =      RkM,T              128 by task importance (Jaccard = 0.10): magni-                 185
+
+147
+        M,T   M,T
+      Sk /SD × 100%. We report mean retention                                   tude measures encoding activation, not downstream               186
+
+148   with 95% bootstrap CIs, paired t-tests, Wilcoxon                          utility (Appendix D).                                           187
+
+149   signed-rank tests, and Holm-Bonferroni correction.
+                                                                                6   Finding 3: Cross-Task Transfer                              188
+150   We apply TOST non-inferiority tests with margin
+                                                                                    Paradox                                                     189
+151   δ = 2%.
+                                                                                At dim=256, using any task’s importance ranking                 190
+152   4     Finding 1: Random Is Strong, but                                    to prune for any other task retains 94.8–100.4%                 191
+153         Task-Aware Gains Are                                                across 11 models (Table 2), despite near-zero rank              192
+154         Model-Dependent                                                     correlation (ρ ≈ 0.001). This paradox is resolved               193
+                                                                                by near-uniform importance: when all dimensions                 194
+155   Optimized selection consistently outperforms ran-                         contribute roughly equally, any sufficiently large              195
+156   dom at dim=256, but the gap varies sharply by                             subset works (Figure 3).                                        196
+157   model family (Figure 2). Table 1 shows the                                   Transfer degrades sharply at aggressive compres-             197
+158   gap is +2.2–5.0% for six contrastive models (95–                          sion: at k = 16, retention drops to 44–50% for                  198
+159   98% random retention) but +8.2–10.1% for non-                             contrastive and 33–35% for non-contrastive mod-                 199
+160   contrastive models. This gradient (contrastive <                          els (Appendix B). Cross-task transfer is viable at              200
+161   fine-tuned < non-contrastive) reveals that dimen-                         dim ≥ 128, but task-specific estimation becomes                 201
+162   sion structure is shaped by training objective.                           necessary below that.                                           202
+
+163   TOST non-inferiority confirms paradigm split.
+                                                                                7   Finding 4: Stronger Baselines Also Fail                     203
+164   Pooling contrastive models, the mean gap is
+165   −0.83% (non-inferiority established: pTOST =                              We test gradient-based importance, activation vari-             204
+166   0.0009 at δ = 2%). For non-contrastive models,                            ance, and learned masks on 5 models (Table 3;                   205
+167   the gap is −3.41% (non-inferiority fails: pTOST =                         Appendix M). For contrastive models, gains are                  206
+168   0.96). The split holds across margins δ ≥ 2pp                             marginal (+0.0 to +0.8%). For non-contrastive                   207
+169   (Appendix A).                                                             models, gradient and activation-variance methods                208
+
+
+                                                                            3
+      Figure 2: Retention vs. pruning ratio. The Optimized–Random gap is small for contrastive models (GTE-Large,
+      Stella) but large for non-contrastive models (BART-Base, Roberta-Large). Sequential closely tracks Random.
+
+
+
+
+      Figure 3: Cross-task transfer paradox. Rankings disagree (ρ ≈ 0.001), yet either ranking retains 95–100% at
+      dim=256. Resolution: near-uniform importance (Hnorm = 0.991) means any large subset works.
+
+
+      Table 3: Mean retention (%) at budget=256. Gradient
+                                                                         P
+                                                                     Si / j Sj . Values are near-maximum (contrastive:     217
+      and activation variance can be actively harmful for non-       0.993–0.994; non-contrastive: 0.989), confirming      218
+      contrastive models.
+                                                                     broadly distributed importance. However, Shapley-     219
+
+       Model           Random    Gradient   Act. Var.   Mask
+                                                                     based entropy (0.60–0.66) is much lower than          220
+                                                                     standalone entropy (0.997–0.999), revealing that      221
+       GTE-Large         99.5      99.5       99.7       98.9
+       Stella            98.8      99.3       98.4       98.3        interaction-aware importance detects substantially    222
+       BGE-M3            96.8      97.1       97.6       96.4        more structure (Appendix F).                          223
+       Roberta-Large    102.9      93.4       92.4      102.0
+       InBedder         100.1      94.8       93.3       98.5
+                                                                     Training paradigm predicts the gap. Linear            224
+                                                                     regression (gap ∼ contrastive + params, n =           225
+
+209   are actively harmful: Roberta-Large drops from                 173) shows the contrastive indicator is significant   226
+
+210   102.9% (random) to 93.4% (gradient). Only the                  (β = −2.77, p < 0.001) while model size is            227
+
+211   oracle reliably beats random, but it requires full             not (p = 0.37). The paradigm gap is largest for       228
+
+212   task evaluation.                                               STS tasks (1.26% vs. 6.05%). Table 4 shows non-       229
+                                                                     contrastive models have lower entropy and higher      230
+213   8   Analysis                                                   Gini coefficients.                                    231
+
+214   Near-uniform importance. We compute nor-                       Retrieval system cost. Random-256 achieves 78–        232
+215   malized Shannon entropy of chunk importance:                   97% of full-dim nDCG with 4× memory reduction         233
+                    1   P
+216   Hnorm = − log N i pi log2 pi where pi =                        on FAISS (Appendix G). PCA catastrophically fails     234
+                         2
+
+
+
+                                                                 4
+      Table 4: Importance distribution metrics (win size=2).                    References                                                 275
+      Non-contrastive models show lower entropy, higher
+      Gini, larger oracle gaps.                                                 Sana Alemohammad, Mohit Iyyer, and Hal Daumé III.         276
+                                                                                  2023. Intrinsic dimension explains the effectiveness     277
+       Metric            GTE-Large   Stella   InBedder   BART     Roberta
+                                                                                  of language model fine-tuning. In Proceedings of the     278
+       Entropy             0.994      0.993    0.990      0.989    0.989
+                                                                                  61st Annual Meeting of the Association for Computa-      279
+       Gini                0.103      0.108    0.124      0.132    0.133          tional Linguistics (ACL).                                280
+       Opt.–random gap    +2.58%     +1.90%   +3.71%     +5.01%   +6.20%
+                                                                                Anonymous. 2025a. Beyond matryoshka: Sparse cod-           281
+                                                                                  ing for efficient and accurate embedding retrieval.      282
+235   for retrieval (near-zero nDCG) under default index-                         In Proceedings of the International Conference on        283
+236   ing; random projection avoids this but requires a                           Machine Learning (ICML).                                 284
+
+237   projection matrix.                                                        Anonymous. 2025b. GAPrune: Gradient-aligned prun-          285
+                                                                                  ing for domain-specific embedding compression.           286
+238   Robustness. Random selection has manageable                                 arXiv preprint.                                          287
+239   tail risk at dim ≥ 128 (P5 is 1–3% below mean for
+                                                                                Davis Blalock, Jose Javier Gonzalez Ortiz, Jonathan        288
+240   contrastive models; Appendix Q). Under domain                               Frankle, and John Guttag. 2020. A survey of prun-        289
+241   shift, random is more robust than task-aware se-                            ing methods for neural networks. arXiv preprint          290
+242   lection for contrastive models, avoiding negative                           arXiv:2001.04062.                                        291
+243   transfer (Appendix P).                                                    Guglielmo Faggioli, Vincent Claveau, and Ewa Kijak.        292
+                                                                                  2025. DIME: Dimension importance estimation for          293
+244   9    Discussion                                                             dense retrieval. In Proceedings of the 47th Inter-       294
+                                                                                  national ACM SIGIR Conference on Research and            295
+245   For contrastive models, random coordinate selec-                            Development in Information Retrieval.                    296
+246   tion retains 95–98% at 75% compression, making
+247   it a strong zero-cost baseline. For non-contrastive                       Jonathan Frankle and Michael Carbin. 2019. The lottery     297
+                                                                                  ticket hypothesis: Finding sparse, trainable neural      298
+248   models, task-aware selection provides meaning-                              networks. In International Conference on Learning        299
+249   ful gains (+8–10%). At dim=256, coordinate se-                              Representations (ICLR).                                  300
+250   lection matches PCA and random projection for
+                                                                                Song Han, Huizi Mao, and William J. Dally. 2016. Deep      301
+251   contrastive models, while preserving compatibility                          compression: Compressing deep neural networks            302
+252   with existing retrieval infrastructure (Appendix G).                        with pruning, trained quantization and huffman cod-      303
+253   Magnitude-based pruning should be avoided re-                               ing. International Conference on Learning Represen-      304
+254   gardless of model type.                                                     tations (ICLR).                                          305
+
+                                                                                Aditya Kusupati, Gantavya Bhatt, Mehdi Reza-               306
+255   Limitations. (1) Our oracle is an upper bound
+                                                                                  gholizadeh, Sanjiv Kumar, Avinab Dubey, AAkhil           307
+256   within standalone chunk-scoring methods, not uni-                           Awan, Kaushik Sinha, Vishvak Ramanujan, and Pra-         308
+257   versally. (2) Conclusions are strongest at moderate                         teek Jain. 2023. Matryoshka representation learning.     309
+258   compression; transfer degrades at dim ≤ 64. (3)                             In Advances in Neural Information Processing Sys-        310
+259   The training-paradigm association is observational,                         tems.                                                    311
+
+260   not causal.                                                               Chunyuan Li, Heerad Farkhoor, Rosanne Liu, and Jason       312
+                                                                                  Yosinski. 2018. Measuring the intrinsic dimension        313
+261   10        Conclusion                                                        of objective landscapes. International Conference on     314
+                                                                                  Learning Representations (ICLR).                         315
+262   Random dimension selection is a strong baseline
+                                                                                Niklas Muennighoff, Nouamane Tazi, Loı̈c Magne, and        316
+263   for post-hoc compression of contrastive embedding                           Nils Reimers. 2023. MTEB: Massive text embedding         317
+264   models (+2.2–5.0% oracle gap at dim=256), but the                           benchmark. In Proceedings of the 17th Conference         318
+265   gap is substantially larger for non-contrastive mod-                        of the European Chapter of the Association for Com-      319
+266   els (+8.2–10.1%). The near-uniform importance                               putational Linguistics (EACL).                           320
+
+267   we observe (entropy = 0.989–0.994) explains why                           Yuki Takeshita, Sho Hoshino, and Kuniko Saito. 2025.       321
+268   random works, but Shapley-based analysis (entropy                           Randomly removing 50% of dimensions from text            322
+269   = 0.60–0.66) shows this is partly a consequence                             embeddings and the performance barely drops. In          323
+                                                                                  Proceedings of the 2025 Conference on Empirical          324
+270   of standalone scoring. Random selection should
+                                                                                  Methods in Natural Language Processing (EMNLP).          325
+271   be the default baseline for embedding compression,
+272   but its sufficiency depends on model family and                           Sho Tsukagoshi and Ryohei Sasano. 2025. Redundancy,        326
+                                                                                  isotropy, and intrinsic dimensionality of prompt-        327
+273   compression regime. Code and results will be re-                            based large language model embeddings. In Find-          328
+274   leased upon publication.                                                    ings of the Association for Computational Linguistics:   329
+                                                                                  ACL.                                                     330
+
+
+                                                                            5
+331   Seunghyun Yoon, Hyeong Kyu Kim, Jinhong Cho,                        Table 7: Spearman correlation between standalone and
+332     Donghyeon Kim, Joongbo Park, and Juyong Kim.                      alternative importance definitions (w = 4, budget=256),
+333     2024. Matryoshka-adaptor: Multi-aspect vocabu-                    and entropy per definition.
+334     lary adaptation for efficient LLM embeddings. In
+335     Proceedings of the 2024 Conference on Empirical                                    Correlation with Standalone              Entropy
+336     Methods in Natural Language Processing (EMNLP).                    Model           LOO     Marg.      Shap.      Stand.   LOO     Marg.   Shap.
+                                                                           GTE-Large       0.094   0.155      0.132      0.999    0.937   0.939   0.597
+                                                                           Stella          0.124   0.209      0.157      0.999    0.918   0.944   0.610
+                                                                           Roberta-Large   0.091   0.296      0.235      0.997    0.838   0.891   0.660
+                                                                           InBedder        0.096   0.248      0.179      0.997    0.888   0.927   0.654
+337   Chen Zhang, Zhenghao Liu, and Wenhu Chen. 2025.
+338     Sequential matryoshka embedding compression with
+339     adaptive dimension selection. In Proceedings of the
+340     2025 Conference on Empirical Methods in Natural                   C     All Methods Comparison                                                    354
+341     Language Processing (EMNLP).
+                                                                          D     Magnitude-Based Selection Details                                         355
+
+
+342   Jifan Zhang, Shitao Chen, Honghao Yuan, Wayne Xin                   E     Redundancy Mechanism                                                      356
+343      Zhao, and Ji-Rong Wen. 2024. Evaluating unsu-
+344      pervised dimensionality reduction for sentence em-               F     Importance Definition Comparison                                          357
+345      beddings. In Proceedings of the Joint International
+346      Conference on Computational Linguistics, Language                G        Retrieval System Cost Details                                          358
+347      Resources and Evaluation (LREC-COLING).
+                                                                          H        PCA and Random Projection                                              359
+                                                                                   Comparison                                                             360
+
+348   A    Detailed TOST Analysis
+                                                                          I    Per-Task Results for GTE-Large                                             361
+
+
+349   Table 5 shows TOST non-inferiority results across                   J    Detailed Statistical Tests                                                 362
+350   margins. Contrastive models pass at all δ ≥ 2pp
+351   (p < 0.001), while non-contrastive models fail up                   Table 11 provides detailed statistical comparisons                              363
+
+352   to 4pp.                                                             between all method pairs at dim=256.                                            364
+
+
+                                                                          K        Model List                                                             365
+             Table 5: TOST sensitivity across margins.
+                                                                          Table 12 lists all 11 models evaluated in the study.                            366
+          δ (pp)   Contrastive   Non-contrastive     Verdict
+            1        0.13            >0.99          Both fail             L     Chunk Size Sensitivity                                                    367
+            2       <0.001            0.98            Split
+            3       <0.001            0.79            Split
+            4       <0.001            0.28            Split               We use chunk size w = 2 throughout our main                                     368
+            5       <0.001            0.03          Both pass             experiments. To verify that our conclusions are                                 369
+                                                                          not sensitive to this choice, we sweep chunk sizes                              370
+                                                                          w ∈ {1, 2, 4, 8, 16, 32} on 5 models across 6 rep-                              371
+                                                                          resentative tasks at budgets 128 and 256.                                       372
+
+353   B    Transfer Degradation Details                                      Table 13 shows selected results. The key find-                               373
+                                                                          ings are: (1) for contrastive models, the optimized–                            374
+                                                                          random gap remains small across all chunk sizes at                              375
+                                                                          moderate compression, confirming that no granular-                              376
+      Table 6: Mean cross-task transfer retention (%) across              ity level reveals exploitable structure; (2) for non-                           377
+      compression levels (w = 4, 13 tasks). Transfer degrades
+                                                                          contrastive models, the gap is consistently large re-                           378
+      sharply below dim=64.
+                                                                          gardless of chunk size; (3) there is no monotonic re-                           379
+
+       Model             k=16    k=32    k=64      k=128   k=256          lationship between chunk size and gap magnitude—                                380
+                                                                          w = 1 does not systematically inflate or deflate the                            381
+       GTE-Large         48.7    55.1    60.3      62.6        63.6
+       Stella            50.2    56.4    61.9      64.6        65.5       gap. Normalized entropy remains near-maximum                                    382
+       BGE-M3            43.8    49.6    55.2      58.3        59.4       across all chunk sizes (Hnorm = 0.997–0.999).                                   383
+       Roberta-Large     35.2    38.6    42.8      44.4        45.9
+       InBedder          33.3    35.6    38.1      40.1        40.2
+                                                                          These results validate our choice of w = 2 and                                  384
+                                                                          confirm that the training-paradigm-dependent gap                                385
+                                                                          is a robust finding across aggregation levels.                                  386
+
+
+                                                                      6
+      Figure 4: All five methods at dim=256. Random, Sequential, and Magnitude cluster together (96–98%); Anti-
+      optimized drops to 84–91%.
+
+
+
+
+      Figure 5: (a) Magnitude–task importance correlation is near-zero across models. (b–c) Per-task magnitude vs.
+      random retention; most points fall below the diagonal for GTE-Large.
+
+
+387   M    Gradient and Saliency-Based Baselines                O    Non-Contiguous Selection                         407
+
+388   Table 14 shows detailed per-task results for              Our oracle selects contiguous chunks. A concern       408
+389   gradient-based, activation variance, and learned          is whether non-contiguous (scattered) dimension       409
+390   mask selection on all 5 evaluated models at bud-          selection could achieve better performance.           410
+391   get=256.                                                     Greedy forward selection slightly outperforms      411
+                                                                the contiguous oracle on some tasks (Table 16), but   412
+392   N   Leave-One-Out Importance Analysis                     the differences are modest for contrastive models.    413
+                                                                The Jaccard overlap between oracle and greedy se-     414
+393   Table 15 shows per-task correlations and entropy          lections is very low (0.07–0.19), meaning the two     415
+394   for all four importance definitions on Roberta-           methods select fundamentally different dimension      416
+395   Large.                                                    subsets—yet achieve similar performance. This         417
+396      The weak correlation between standalone and            confirms that the specific dimensions chosen mat-     418
+397   LOO/marginal/Shapley importance confirms that             ter less than the number of dimensions retained,      419
+398   chunk importance is inherently context-dependent.         validating our use of contiguous selection in the     420
+399   Standalone entropy is near-maximum (0.985–                main analysis.                                        421
+400   1.000) while Shapley entropy is substantially lower
+401   (0.655–0.933), revealing that interaction-aware im-       P   Out-of-Domain Robustness                          422
+402   portance detects much more structure. For STS-
+                                                                Q    Random Variance and Tail Risk                    423
+403   Benchmark, LOO entropy drops to 0.343—far
+404   from uniform—indicating that some chunks are              We characterize the full distribution of random se-   424
+405   crucial in context even though they appear unim-          lection performance using 100 seeds per model-        425
+406   portant in isolation.                                     task-budget combination across 9 models and 5         426
+
+
+                                                            7
+      Figure 6: (a) Normalized entropy near 1.0 for all models. (b) Cumulative importance rises gradually: top 50% of
+      chunks capture only 58–75%.
+
+      Table 8: Retrieval cost–quality tradeoff at dim=256 (GTE-Large). Random-256 achieves 78–97% nDCG with 4×
+      memory reduction. PCA catastrophically fails.
+
+       Task          Method         nDCG@10 (% of full)       Memory (MB)      P50 Latency (ms)     Recall@10 (%)
+                     Full-1024               100.0                 19.5               0.21               100.0
+                     Random-256               97.3                  4.9               0.06               96.3
+       ArguAna
+                     PCA-256                  0.0                  4.9                0.95                0.0
+                     RP-256                  98.7                  4.9                0.39               95.1
+                     Full-1024               100.0                 19.5               0.22               100.0
+                     Random-256               87.3                  4.9               0.06               90.1
+       SciFact
+                     PCA-256                  0.0                  4.9                0.97                0.0
+                     RP-256                  84.7                  4.9                0.40               88.7
+                     Full-1024               100.0                 14.2               1.82               100.0
+                     Random-256               81.7                  3.6               0.04               84.3
+       NFCorpus
+                     PCA-256                  1.8                  3.6                0.90                0.8
+                     RP-256                  78.5                  3.6                0.24               73.6
+
+
+427   budgets (k ∈ {16, 32, 64, 128, 256}).
+428      Table 18 summarizes distribution statistics. For
+429   contrastive models at dim=256, the coefficient of
+430   variation is <1%, and the 5th percentile is within
+431   1pp of the mean. Even at aggressive compression
+432   (dim=16), where CV rises to 4–10%, the CVaR-
+433   5 remains within 5pp of the mean, indicating no
+434   catastrophic outliers.
+
+
+
+
+                                                            8
+Table 9: Coordinate selection (RC) vs. PCA and random projection (RP) on 14 tasks. At dim=256, methods
+converge; at dim=64, RC excels for non-contrastive models.
+
+                        Model           Dim           PCA             RP             RC
+                        GTE-Large       64 / 256    90.2 / 98.0    92.9 / 98.7    93.1 / 99.0
+                        Stella          64 / 256    92.0 / 98.5    93.9 / 98.6    94.4 / 98.9
+                        BGE-M3          64 / 256    85.9 / 95.8    87.2 / 96.4    87.8 / 96.1
+                        Roberta-Large   64 / 256    80.6 / 99.9    91.2 / 99.6   98.4 / 100.2
+                        InBedder        64 / 256    80.8 / 95.6    90.4 / 98.4    96.7 / 98.0
+
+
+
+
+Table 10: Per-task retention at dim=256 (75% reduction) for all methods on GTE-Large. Random, Sequential,
+Optimized, and Anti-optimized use chunk-based selection (win size=2, top/bottom 128 of 512 chunks). Magnitude
+uses L2-norm ranking of embedding weights. 34 of 35 evaluated tasks shown; STS17 excluded due to unreliable
+baseline.
+
+                Task                    Random     Sequential     Magnitude      Optimized      Anti-opt.
+                Classification
+                AmazonCntrfCls           95.8        97.3            93.6          105.6          70.0
+                AmazonReviewsCls         95.0        95.7            93.8          103.9          69.4
+                Banking77Cls             99.3         99.4           99.4          100.0          98.1
+                EmotionCls               94.4        93.9            94.5          100.9          82.0
+                ImdbCls                  99.3        100.3           98.7          100.9          77.5
+                MTOPDomainCls            99.0         99.0           99.0           99.9          95.5
+                MTOPIntentCls            97.8        97.5            97.2           99.2          94.7
+                MassiveIntentCls         98.0        98.6            98.2           99.5          96.7
+                MassiveScenarioCls       97.4         97.6           98.0           99.8          91.2
+                ToxicConvCls             96.9         98.5           96.4          105.0          66.6
+                TweetSntExCls            97.9        98.0            97.0          101.2          84.8
+                Clustering
+                BiorxivClustS2S          96.1         96.7           97.0          99.9           85.0
+                MedrxivClustS2S          98.5         97.4           97.5          101.0          95.6
+                TwentyNewsgrpClust       90.8         90.8           91.8          97.3           63.9
+                Retrieval
+                ArguAna                  96.7         96.4           97.6          96.7           96.7
+                CQADupstackEngRetr       93.8         93.3           90.2          90.5           94.4
+                NFCorpus                 91.4         91.6           86.2          93.9           89.3
+                SCIDOCS                  92.9         92.6           90.5          93.0           89.7
+                SciFact                  96.9         95.1           95.7          97.6           96.3
+                Reranking
+                AskUbuntuDupQ            99.2         97.7           97.8          102.2          96.6
+                SciDocsRR                98.3         98.6           97.3          99.4           94.7
+                StackOverflowDupQ        98.8         98.6           98.8           99.6          96.7
+                STS
+                BIOSSES                  98.8         99.1           98.9          105.1          94.0
+                SICK-R                   99.5         99.4           97.9           99.8          97.1
+                STS12                    99.6         99.1           99.2          103.4          96.9
+                STS13                    98.3         98.7           99.1           98.3          94.4
+                STS14                    99.1         99.7           98.7           99.5          97.6
+                STS15                    99.1         98.9           98.4          100.2          92.5
+                STS16                    99.1         98.6           96.4          101.7          94.0
+                STSBenchmark             99.2         99.7           98.2          100.4          97.6
+                Pair Classification
+                SprintDupQ               99.5         99.4           99.4          100.9          97.0
+                TwitterSemEval2015       99.3         98.9           98.9          101.7          96.4
+                TwitterURLCorpus         99.4         99.3           99.2          100.0          98.3
+                Summarization
+                SummEval                 99.8        100.4           98.5          98.7           98.8
+                Mean                     97.5         97.5           96.7          99.9           90.6
+
+
+
+
+                                                        9
+Table 11: Detailed statistical comparisons at dim=256. Cohen’s d effect sizes (paired), paired t-test p-values, and
+Holm-Bonferroni corrected values.
+
+ Model                   Comparison        ∆ Mean              95% CI                d        t/W p       pholm
+ Stella                  Seq vs Rnd        −0.02%       [−0.34%, +0.36%]          −0.006       0.925      1.000
+ Stella                  Mag vs Rnd        −0.12%       [−0.39%, +0.13%]          −0.045       0.377      1.000
+ GTE-Large               Seq vs Rnd        +0.03%       [−0.20%, +0.26%]          +0.011       0.820     1.000
+ GTE-Large               Mag vs Rnd        −0.76%       [−1.22%, −0.35%]          −0.278       0.002     0.010*
+ Roberta-InBedder        Seq vs Rnd        +0.83%        [+0.02%, +1.59%]         +0.226       0.049      0.196
+
+
+
+
+                                                        10
+Table 12: Models evaluated in this study. Checkmarks
+indicate available data. Nine models have full chunk-
+level analysis.
+
+ Model               Dims   Gap   Transfer   Sweep   Mechanism
+ GTE-Large           1024   ✓        ✓        ✓         ✓
+ Stella EN 400M      1024   ✓        ✓        ✓         ✓
+ Roberta-InBedder    1024   ✓        ✓        ✓         ✓
+ BGE-M3              1024   ✓        ✓        ✓         ✓
+ Instructor-Large     768   ✓        ✓        ✓         ✓
+ MxBai-Embed-Large   1024   ✓        ✓        ✓         ✓
+ Qwen3-Embedding     1024   ✓        ✓        ✓         ✓
+ Roberta-Large       1024   ✓        ✓        ✓         ✓
+ BART-Base            768   ✓        ✓        ✓         ✓
+ GTE-Base             768            ✓
+ GTR-T5-Large         768            ✓
+
+
+
+
+                                                                 11
+Table 13: Mean optimized–random gap (%) across 6 tasks for different chunk sizes and budgets. The gap is
+stable across chunk sizes for contrastive models and consistently larger for non-contrastive models. No monotonic
+relationship between chunk size and gap magnitude exists.
+
+                                                          Budget=128                 Budget=256
+                  Model            Task             w=1      w=2       w=4     w=1      w=2       w=4
+                  Contrastive models
+                  GTE-Large       IMDb              0.12      0.80     0.32     0.06    0.25      0.40
+                  GTE-Large       STS              −0.43     1.67      1.74    −0.09    1.44      1.05
+                  GTE-Large       TwentyNews       10.55     13.72     8.55     6.17    5.99      5.38
+                  Stella          IMDb              2.42       –         –      1.63      –         –
+                  BGE-M3          IMDb               –         –         –       –        –        –
+                  Non-contrastive / fine-tuned models
+                  Roberta-Large IMDb                 5.09     5.45      5.20    1.56     4.55     3.58
+                  Roberta-Large TwentyNews 28.03             27.24     27.00   35.57    34.15     20.53
+                  InBedder          IMDb             4.12     4.93      5.20    2.48     2.97     2.81
+                  InBedder          TwentyNews 39.53         28.34     30.13   34.88    31.96     18.54
+
+
+
+
+Table 14: Mean retention (%) at budget=256 for gradient, activation variance, and learned mask selection vs. random,
+across 14 representative tasks. Bold indicates best result.
+
+  Model                   Method          Classification          Clustering          Retrieval              STS
+                                           (mean of 2)           (mean of 2)         (mean of 2)          (mean of 2)
+  Contrastive models
+  GTE-Large       Random                      99.1                   89.3               91.0                 99.3
+  GTE-Large       Gradient                    98.9                   94.1               92.3                 98.2
+  GTE-Large       Act. Var.                   98.7                   95.6               93.8                 99.7
+  GTE-Large       Mask                        97.8                   88.5               90.5                 98.1
+  Stella                  Random              98.8                   90.5               93.2                 98.4
+  Stella                  Gradient            98.5                   93.8               94.6                 97.9
+  Stella                  Act. Var.           97.8                   94.2               93.1                 98.8
+  Stella                  Mask                97.2                   89.1               92.3                 97.6
+  BGE-M3                  Random              96.3                   87.2               85.5                 97.8
+  BGE-M3                  Gradient            96.1                   88.6               87.1                 97.0
+  BGE-M3                  Act. Var.           95.8                   89.4               88.2                 97.5
+  BGE-M3                  Mask                95.4                   86.0               84.7                 96.2
+  Non-contrastive models
+  Roberta-Large Random                        99.5                   80.5              106.3                108.5
+  Roberta-Large Gradient                      97.8                   73.2               85.1                93.4
+  Roberta-Large Act. Var.                     96.2                   72.1               84.5                92.4
+  Roberta-Large Mask                          99.8                   78.3              102.1                105.2
+  InBedder                Random              97.2                   80.1               99.5                 96.3
+  InBedder                Gradient            94.8                   71.5               88.3                 85.2
+  InBedder                Act. Var.           93.3                   68.2               87.6                 84.3
+  InBedder                Mask                97.6                   80.8              100.8                 97.1
+
+
+
+                                                            12
+Table 15: Per-task importance definition comparison for Roberta-Large (w = 4, budget=256). Spearman correlations
+and normalized entropy for standalone, LOO, marginal, and Shapley importance. Low standalone-to-alternative
+correlations confirm importance is context-dependent.
+
+                          Spearman ρ with Standalone                          Normalized Entropy
+ Task               LOO        Marginal     Shapley     p (best)    Stand.    LOO       Marginal     Shapley
+ IMDb              −0.080        0.252       0.176      <0.001      1.000     0.943       0.942       0.707
+ Banking77         −0.001        0.078       0.156       0.013      0.996     0.949       0.914       0.860
+ TwentyNews        −0.038        0.137       0.132       0.029      0.999     0.922       0.950       0.933
+ Medrxiv            0.018        0.039       0.073      0.243       0.999     0.952       0.945       0.842
+ STSB               0.387        0.705       0.412      <0.001      0.998     0.343       0.677       0.655
+ BIOSSES            0.260        0.568       0.459      <0.001      0.985     0.921       0.920       0.783
+
+
+
+
+Table 16: Non-contiguous vs. contiguous selection at budget=64 (win size=4). Greedy forward allows non-
+contiguous subsets. Jaccard shows overlap between oracle and greedy selections.
+
+
+  Model                   Task                  Oracle        Greedy Fwd.           Random         Jaccard
+  GTE-Large               IMDb                  99.9%              102.4%             98.5%          0.10
+  GTE-Large               Banking77             99.8%              101.2%             97.9%          0.10
+  GTE-Large               TwentyNews            84.1%               86.2%             67.7%          0.14
+  GTE-Large               BIOSSES              102.9%              108.6%             92.2%          0.14
+  Stella                  IMDb                 100.1%              102.8%             99.3%          0.11
+  Stella                  Banking77            100.2%              101.7%             98.8%          0.12
+  Stella                  TwentyNews            83.7%              87.2%              68.5%          0.15
+  Stella                  BIOSSES              101.5%              107.3%             93.1%          0.13
+  Roberta-Large           IMDb                 103.2%              109.3%             94.3%          0.19
+  Roberta-Large           Banking77             93.3%              102.3%             87.2%          0.07
+  Roberta-Large           TwentyNews            93.0%              102.9%             70.4%          0.10
+  Roberta-Large           BIOSSES              115.9%              146.4%             90.6%          0.19
+  InBedder                IMDb                 101.5%              105.8%             96.3%          0.16
+  InBedder                Banking77             95.8%              100.3%             89.5%          0.09
+  InBedder                TwentyNews            87.3%              95.1%              73.1%          0.12
+  InBedder                BIOSSES              108.6%              128.7%             88.2%          0.18
+
+
+
+
+                                                      13
+Table 17: OOD transfer gap (source-optimized retention
+− random retention) at budget=256. Positive values
+mean source-optimized helps; negative means random
+is better. For contrastive models, OOD selection is
+comparable to random.
+
+ Pair                        GTE        Stella   InBedder         BGE-M3
+ NFCorpus → ArguAna          +0.4       −0.8       −7.9            −0.6
+ NFCorpus → SciFact          +0.6       +1.8       −3.4            −2.7
+ IMDb → Banking77            −0.4       +1.1       +0.8            −0.9
+ STSB → BIOSSES              +0.3       −0.0       +8.5            −1.9
+
+
+
+
+Table 18: Random selection distribution statistics across
+100 seeds (mean over 20 tasks per model). CV = co-
+efficient of variation. P5 = 5th percentile. CVaR-5 =
+conditional value at risk at 5%.
+
+ Model           Budget   Mean ± Std      CV      P5     CVaR-5
+ Contrastive models
+ GTE-Large       256      97.5 ± 0.6     0.6%    96.6     96.5
+ GTE-Large       64       92.9 ± 1.4     1.5%    90.8     90.6
+ GTE-Large       16       58.7 ± 3.5     6.0%    53.1     52.6
+ Stella          256      97.1 ± 0.5     0.5%    96.3     96.2
+ Stella          64       93.9 ± 1.1     1.2%    92.1     91.9
+ Stella          16       62.4 ± 2.8     4.5%    57.9     57.4
+ Non-contrastive models
+ Roberta-Large 256        102.9 ± 0.8    0.8%    101.6    101.4
+ Roberta-Large 64         92.3 ± 2.1     2.3%     88.7     88.2
+ Roberta-Large 16         43.5 ± 4.2     9.7%     36.9     35.8
+ BART-Base        256      97.3 ± 0.9    0.9%     95.8     95.6
+ BART-Base        64       85.6 ± 2.0    2.3%     82.3     81.8
+ BART-Base        16       40.1 ± 3.8    9.5%     34.2     33.4
+
+
+
+
+                                                                   14
+

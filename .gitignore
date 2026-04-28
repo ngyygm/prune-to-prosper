@@ -46,3 +46,13 @@ Thumbs.db
 # Secrets
 .env
 *_token*
+
+# Large data
+data/embeddings_cache/
+paper-backup-*/
+*.npz
+
+# Workflow artifacts
+AUTO_REVIEW.md
+REVIEW_STATE.json
+REVIEWER_MEMORY.md

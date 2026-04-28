@@ -1,0 +1,27 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Train/test split experiment: Oracle dimension selection advantage evaluated on held-out data. Each MTEB task's test set is split 70\%/30\%: chunks are ranked on 70\% (train) and oracle performance is evaluated on the unseen 30\% (holdout). \textbf{Holdout Gap} = oracle $-$ random (mean $\pm$ std across 24 tasks $\times$ 11 budget sizes). \textbf{Same-Data Gap} shows the original result where ranking and evaluation used the same test set.}
+\label{tab:train_test_split}
+\begin{tabular}{@{}llcccc@{}}
+\toprule
+\textbf{Model} & \textbf{Training} & \textbf{Dim} & \textbf{Holdout Gap} & \textbf{Win\%} & \textbf{Same-Data Gap} \\
+\midrule
+GTE-Large-v1.5 & Contrastive & 1024 & 1.74 $\pm$ 3.35 & 74.5\% & -0.04 \\
+Stella-400M-v5 & Contrastive & 1024 & 2.21 $\pm$ 3.93 & 80.5\% & 0.12 \\
+Instructor-Large & Contrastive & 768 & 1.52 $\pm$ 3.56 & 71.4\% & -0.27 \\
+BGE-M3 & Contrastive & 1024 & 2.70 $\pm$ 4.01 & 79.9\% & -0.10 \\
+MXBAI-Large-v1 & Contrastive & 1024 & 1.69 $\pm$ 3.13 & 75.0\% & 0.23 \\
+Qwen3-Embed-0.6B & Contrastive & 1024 & 2.42 $\pm$ 3.40 & 77.3\% & 1.71 \\
+\midrule
+InBedder-RoBERTa & Non-contrastive & 1024 & 4.02 $\pm$ 4.96 & 81.3\% & 0.10 \\
+BART-Base & Non-contrastive & 768 & 4.26 $\pm$ 5.94 & 81.8\% & -0.96 \\
+RoBERTa-Large & Non-contrastive & 1024 & 5.15 $\pm$ 5.96 & 87.2\% & 0.70 \\
+\midrule
+\textit{Contrastive avg.} & & & 2.05 $\pm$ 3.56 & 76.4\% & 0.28 \\
+\textit{Non-contrastive avg.} & & & 4.48 $\pm$ 5.62 & 83.4\% & -0.05 \\
+\midrule
+\textbf{Overall} & & & \textbf{2.86} $\pm$ 4.25 & \textbf{78.8\%} & 0.17 \\
+\bottomrule
+\end{tabular}
+\end{table}

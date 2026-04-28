@@ -1,0 +1,1477 @@
+{
+  "model": "roberta-large",
+  "model_dim": 1024,
+  "tasks": {
+    "NFCorpus": {
+      "methods": {
+        "64": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0195346709358812,
+              "recall_at_10": 0.003519077206242717,
+              "build_time_s": 0.01727461814880371,
+              "latency_p50_ms": 0.7021999359130859,
+              "throughput_qps": 1424.095829202374,
+              "memory_mb": 14.19140625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.01936420693487893,
+              "recall_at_10": 0.0016530429540455407,
+              "build_time_s": 37.47538900375366,
+              "latency_p50_ms": 0.4612588882446289,
+              "throughput_qps": 2167.979903445567,
+              "memory_mb": 15.312744140625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 60,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.019992480939830727,
+              "recall_at_10": 0.0015034790934997603,
+              "build_time_s": 0.2846848964691162,
+              "latency_p50_ms": 0.209808349609375,
+              "throughput_qps": 4766.254545454545,
+              "memory_mb": 15.96533203125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.01917489678421348,
+              "recall_at_10": 0.005545879332643366,
+              "build_time_s": 0.0001323223114013672,
+              "latency_p50_ms": 0.01220703125,
+              "throughput_qps": 81920.0,
+              "memory_mb": 0.886962890625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.023311449146431244,
+              "recall_at_10": 0.0040215347320604914,
+              "build_time_s": 1.4327392578125,
+              "latency_p50_ms": 0.030913352966308594,
+              "throughput_qps": 32348.480641678234,
+              "memory_mb": 0.9570465087890625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 60,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.026404179546786876,
+              "recall_at_10": 0.005784286850536094,
+              "build_time_s": 0.02210831642150879,
+              "latency_p50_ms": 0.00919342041015625,
+              "throughput_qps": 108773.4439834025,
+              "memory_mb": 2.660888671875,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.016435896981404737,
+              "recall_at_10": 0.0027055906006761914,
+              "build_time_s": 0.0002827644348144531,
+              "latency_p50_ms": 1.1402177810668945,
+              "throughput_qps": 877.0254390036844,
+              "memory_mb": 0.886962890625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.022964599585271247,
+              "recall_at_10": 0.01190694333587444,
+              "build_time_s": 1.4620871543884277,
+              "latency_p50_ms": 0.030927658081054688,
+              "throughput_qps": 32333.518347209374,
+              "memory_mb": 0.9570465087890625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 60,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.013461954901885018,
+              "recall_at_10": 0.0006312680957088648,
+              "build_time_s": 0.041805267333984375,
+              "latency_p50_ms": 0.07467269897460938,
+              "throughput_qps": 13391.775223499362,
+              "memory_mb": 2.660888671875,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.014636703710074249,
+              "recall_at_10": 0.0027595964786666736,
+              "build_time_s": 0.00026869773864746094,
+              "latency_p50_ms": 0.5845999717712402,
+              "throughput_qps": 1710.5714134233826,
+              "memory_mb": 0.886962890625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.017414271193246032,
+              "recall_at_10": 0.001310607412123077,
+              "build_time_s": 1.9068171977996826,
+              "latency_p50_ms": 0.030298233032226562,
+              "throughput_qps": 33005.225055083414,
+              "memory_mb": 0.9570465087890625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 60,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.01716491623934845,
+              "recall_at_10": 0.002450549380790576,
+              "build_time_s": 0.02267742156982422,
+              "latency_p50_ms": 0.010273456573486328,
+              "throughput_qps": 97338.22232536551,
+              "memory_mb": 2.660888671875,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        },
+        "128": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.019992480939830727,
+              "recall_at_10": 0.0015034790934997603,
+              "build_time_s": 0.010943174362182617,
+              "latency_p50_ms": 0.42205333709716797,
+              "throughput_qps": 2369.3687790218164,
+              "memory_mb": 14.19140625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.019562529063252475,
+              "recall_at_10": 0.0014559313225076798,
+              "build_time_s": 45.66115427017212,
+              "latency_p50_ms": 0.8081984519958496,
+              "throughput_qps": 1237.3198655979797,
+              "memory_mb": 15.312744140625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 60,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.019992480939830727,
+              "recall_at_10": 0.0015034790934997603,
+              "build_time_s": 0.5277848243713379,
+              "latency_p50_ms": 0.05788564682006836,
+              "throughput_qps": 17275.439680382224,
+              "memory_mb": 15.96533203125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.019713206165717673,
+              "recall_at_10": 0.0017496619777022028,
+              "build_time_s": 0.0005068778991699219,
+              "latency_p50_ms": 0.03554582595825195,
+              "throughput_qps": 28132.69837011201,
+              "memory_mb": 1.77392578125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.02477774591283111,
+              "recall_at_10": 0.005153350063689819,
+              "build_time_s": 11.082162618637085,
+              "latency_p50_ms": 0.17761945724487305,
+              "throughput_qps": 5630.013825688936,
+              "memory_mb": 1.914093017578125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 60,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.025264282969545134,
+              "recall_at_10": 0.003807577816285751,
+              "build_time_s": 0.0825953483581543,
+              "latency_p50_ms": 0.12622833251953125,
+              "throughput_qps": 7922.151707464491,
+              "memory_mb": 3.5478515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.018351535290806097,
+              "recall_at_10": 0.0028583955379204882,
+              "build_time_s": 0.04183530807495117,
+              "latency_p50_ms": 0.5422544479370117,
+              "throughput_qps": 1844.1526921622597,
+              "memory_mb": 1.77392578125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.01610937263821482,
+              "recall_at_10": 0.002149567095237464,
+              "build_time_s": 12.722046136856079,
+              "latency_p50_ms": 0.2738332748413086,
+              "throughput_qps": 3651.8571403695128,
+              "memory_mb": 1.914093017578125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 60,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.017733224384180516,
+              "recall_at_10": 0.011410936846288224,
+              "build_time_s": 0.12871360778808594,
+              "latency_p50_ms": 0.3191089630126953,
+              "throughput_qps": 3133.7258300708286,
+              "memory_mb": 3.5478515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.011924014527603367,
+              "recall_at_10": 0.001918341931427661,
+              "build_time_s": 0.0007297992706298828,
+              "latency_p50_ms": 0.9949374198913573,
+              "throughput_qps": 1005.0883402387211,
+              "memory_mb": 1.77392578125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.012978439203770023,
+              "recall_at_10": 0.005208354981555362,
+              "build_time_s": 10.661258935928345,
+              "latency_p50_ms": 0.21353483200073242,
+              "throughput_qps": 4683.076716947847,
+              "memory_mb": 1.914093017578125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 60,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.01808457308907834,
+              "recall_at_10": 0.006185607168286649,
+              "build_time_s": 0.0812525749206543,
+              "latency_p50_ms": 0.12868165969848633,
+              "throughput_qps": 7771.115187223241,
+              "memory_mb": 3.5478515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        },
+        "256": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.019992480939830727,
+              "recall_at_10": 0.0015034790934997603,
+              "build_time_s": 0.0183260440826416,
+              "latency_p50_ms": 0.40843963623046875,
+              "throughput_qps": 2448.342206033436,
+              "memory_mb": 14.19140625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.019562529063252475,
+              "recall_at_10": 0.0014559313225076798,
+              "build_time_s": 93.46704149246216,
+              "latency_p50_ms": 0.9787082672119141,
+              "throughput_qps": 1021.7549330085262,
+              "memory_mb": 15.312744140625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 60,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.019992480939830727,
+              "recall_at_10": 0.0015034790934997603,
+              "build_time_s": 0.4278273582458496,
+              "latency_p50_ms": 0.26740550994873047,
+              "throughput_qps": 3739.638723943009,
+              "memory_mb": 15.96533203125,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.019440857405637505,
+              "recall_at_10": 0.001755199076262557,
+              "build_time_s": 0.0014524459838867188,
+              "latency_p50_ms": 0.42682647705078125,
+              "throughput_qps": 2342.8724640271694,
+              "memory_mb": 3.5478515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.024138859572244264,
+              "recall_at_10": 0.02494522155950014,
+              "build_time_s": 20.598538398742676,
+              "latency_p50_ms": 0.36717653274536133,
+              "throughput_qps": 2723.4856011168467,
+              "memory_mb": 3.82818603515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 60,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.022621588678033905,
+              "recall_at_10": 0.014124875239153822,
+              "build_time_s": 0.13892221450805664,
+              "latency_p50_ms": 0.019037723541259766,
+              "throughput_qps": 52527.28866624922,
+              "memory_mb": 5.32177734375,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.015504139483820744,
+              "recall_at_10": 0.002009095487127714,
+              "build_time_s": 0.0008733272552490234,
+              "latency_p50_ms": 0.9876537322998048,
+              "throughput_qps": 1012.500603497388,
+              "memory_mb": 3.5478515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.022693867681733444,
+              "recall_at_10": 0.01315098762174811,
+              "build_time_s": 2.3939809799194336,
+              "latency_p50_ms": 0.11444807052612305,
+              "throughput_qps": 8737.5872341312,
+              "memory_mb": 3.82818603515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 60,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.018282532844224927,
+              "recall_at_10": 0.010608066239560373,
+              "build_time_s": 0.050926923751831055,
+              "latency_p50_ms": 0.017249584197998047,
+              "throughput_qps": 57972.41188666206,
+              "memory_mb": 5.32177734375,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.015831370046989073,
+              "recall_at_10": 0.003878747622239281,
+              "build_time_s": 0.0015947818756103516,
+              "latency_p50_ms": 0.14091014862060547,
+              "throughput_qps": 7096.720923149809,
+              "memory_mb": 3.5478515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.021919338677522333,
+              "recall_at_10": 0.0035237855403536054,
+              "build_time_s": 2.496776819229126,
+              "latency_p50_ms": 0.11168956756591797,
+              "throughput_qps": 8953.387695854502,
+              "memory_mb": 3.82818603515625,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 60,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.019781014137130945,
+              "recall_at_10": 0.003370768375283062,
+              "build_time_s": 0.061131954193115234,
+              "latency_p50_ms": 0.018167495727539062,
+              "throughput_qps": 55043.35958005249,
+              "memory_mb": 5.32177734375,
+              "n_corpus": 3633,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        }
+      }
+    },
+    "ArguAna": {
+      "methods": {
+        "64": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.005812644958496094,
+              "latency_p50_ms": 0.2536439895629883,
+              "throughput_qps": 3942.5337920403063,
+              "memory_mb": 19.53125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.24364134742597346,
+              "recall_at_10": 0.5,
+              "build_time_s": 24.319236278533936,
+              "latency_p50_ms": 1.4365291595458984,
+              "throughput_qps": 696.1223121402633,
+              "memory_mb": 21.025390625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 70,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.25491609450951197,
+              "recall_at_10": 0.51,
+              "build_time_s": 2.7194244861602783,
+              "latency_p50_ms": 0.45000791549682617,
+              "throughput_qps": 2222.1831340365675,
+              "memory_mb": 21.97265625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.011065941916258227,
+              "recall_at_10": 0.03,
+              "build_time_s": 0.00020360946655273438,
+              "latency_p50_ms": 0.07064580917358398,
+              "throughput_qps": 14155.121325638689,
+              "memory_mb": 1.220703125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.1619328431077422,
+              "recall_at_10": 0.33,
+              "build_time_s": 6.0698606967926025,
+              "latency_p50_ms": 0.034852027893066406,
+              "throughput_qps": 28692.734984265975,
+              "memory_mb": 1.3140869140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 70,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.15871852283635998,
+              "recall_at_10": 0.34,
+              "build_time_s": 0.04187297821044922,
+              "latency_p50_ms": 0.010387897491455078,
+              "throughput_qps": 96265.87101216434,
+              "memory_mb": 3.662109375,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0030102999566398118,
+              "recall_at_10": 0.01,
+              "build_time_s": 0.0003750324249267578,
+              "latency_p50_ms": 1.5004348754882812,
+              "throughput_qps": 666.4734446902092,
+              "memory_mb": 1.220703125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 5.622857570648193,
+              "latency_p50_ms": 0.03104686737060547,
+              "throughput_qps": 32209.368760559053,
+              "memory_mb": 1.3140869140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 70,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.0031546487678572877,
+              "recall_at_10": 0.01,
+              "build_time_s": 0.02687835693359375,
+              "latency_p50_ms": 0.008766651153564453,
+              "throughput_qps": 114068.64291542018,
+              "memory_mb": 3.662109375,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.0005230903625488281,
+              "latency_p50_ms": 0.9761810302734375,
+              "throughput_qps": 1024.400156311059,
+              "memory_mb": 1.220703125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.17382533699021174,
+              "recall_at_10": 0.37,
+              "build_time_s": 8.285805702209473,
+              "latency_p50_ms": 0.13422489166259766,
+              "throughput_qps": 7450.18295498952,
+              "memory_mb": 1.3140869140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 70,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.1997568849172785,
+              "recall_at_10": 0.41,
+              "build_time_s": 0.10071420669555664,
+              "latency_p50_ms": 0.0095367431640625,
+              "throughput_qps": 104857.6,
+              "memory_mb": 3.662109375,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        },
+        "128": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.25348714528033645,
+              "recall_at_10": 0.51,
+              "build_time_s": 0.01097726821899414,
+              "latency_p50_ms": 0.2536153793334961,
+              "throughput_qps": 3942.9785473894,
+              "memory_mb": 19.53125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.2513906004395836,
+              "recall_at_10": 0.51,
+              "build_time_s": 96.98946237564087,
+              "latency_p50_ms": 1.3672947883605957,
+              "throughput_qps": 731.3711779732687,
+              "memory_mb": 21.025390625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 70,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.2531003670623355,
+              "recall_at_10": 0.51,
+              "build_time_s": 3.018679618835449,
+              "latency_p50_ms": 0.08408784866333008,
+              "throughput_qps": 11892.324704414641,
+              "memory_mb": 21.97265625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.0007071495056152344,
+              "latency_p50_ms": 0.02884387969970703,
+              "throughput_qps": 34669.39990081005,
+              "memory_mb": 2.44140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.20121806228463776,
+              "recall_at_10": 0.42,
+              "build_time_s": 13.040835618972778,
+              "latency_p50_ms": 0.06538629531860352,
+              "throughput_qps": 15293.724703737465,
+              "memory_mb": 2.628173828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 70,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.21773707348891144,
+              "recall_at_10": 0.46,
+              "build_time_s": 0.33397865295410156,
+              "latency_p50_ms": 0.16901016235351562,
+              "throughput_qps": 5916.803972463605,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.0007781982421875,
+              "latency_p50_ms": 1.1751079559326172,
+              "throughput_qps": 850.985643447845,
+              "memory_mb": 2.44140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 13.544156312942505,
+              "latency_p50_ms": 0.13828039169311523,
+              "throughput_qps": 7231.683304884567,
+              "memory_mb": 2.628173828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 70,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.041712284088134766,
+              "latency_p50_ms": 0.0130462646484375,
+              "throughput_qps": 76650.29239766081,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0030102999566398118,
+              "recall_at_10": 0.01,
+              "build_time_s": 0.0011091232299804688,
+              "latency_p50_ms": 0.7136392593383789,
+              "throughput_qps": 1401.2681994641223,
+              "memory_mb": 2.44140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.22349938112164736,
+              "recall_at_10": 0.45,
+              "build_time_s": 15.065550565719604,
+              "latency_p50_ms": 0.0672006607055664,
+              "throughput_qps": 14880.806073937416,
+              "memory_mb": 2.628173828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 70,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.21457632682120859,
+              "recall_at_10": 0.45,
+              "build_time_s": 0.3461341857910156,
+              "latency_p50_ms": 0.17759084701538086,
+              "throughput_qps": 5630.920831823003,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        },
+        "256": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.25348714528033645,
+              "recall_at_10": 0.51,
+              "build_time_s": 0.010422945022583008,
+              "latency_p50_ms": 1.2605595588684082,
+              "throughput_qps": 793.2984942795484,
+              "memory_mb": 19.53125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.2513906004395836,
+              "recall_at_10": 0.51,
+              "build_time_s": 92.37410283088684,
+              "latency_p50_ms": 1.5196967124938965,
+              "throughput_qps": 658.0260336017647,
+              "memory_mb": 21.025390625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 70,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.254796442816051,
+              "recall_at_10": 0.51,
+              "build_time_s": 3.6949515342712402,
+              "latency_p50_ms": 0.8335161209106445,
+              "throughput_qps": 1199.7368436107345,
+              "memory_mb": 21.97265625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.003352642059326172,
+              "latency_p50_ms": 0.13256072998046875,
+              "throughput_qps": 7543.712230215828,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.23992778399012216,
+              "recall_at_10": 0.5,
+              "build_time_s": 27.320680618286133,
+              "latency_p50_ms": 0.12062311172485352,
+              "throughput_qps": 8290.285217322555,
+              "memory_mb": 5.25634765625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 70,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.23102231581030083,
+              "recall_at_10": 0.47,
+              "build_time_s": 0.7446184158325195,
+              "latency_p50_ms": 0.34049510955810547,
+              "throughput_qps": 2936.8997437226044,
+              "memory_mb": 7.32421875,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.001878976821899414,
+              "latency_p50_ms": 0.9639382362365723,
+              "throughput_qps": 1037.4108655594168,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 25.178834199905396,
+              "latency_p50_ms": 0.11458635330200195,
+              "throughput_qps": 8727.042716547721,
+              "memory_mb": 5.25634765625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 70,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.1457972526550293,
+              "latency_p50_ms": 0.15792608261108398,
+              "throughput_qps": 6332.07626926735,
+              "memory_mb": 7.32421875,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.004389524459838867,
+              "latency_p50_ms": 1.383662223815918,
+              "throughput_qps": 722.7197380890842,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.23702225423770756,
+              "recall_at_10": 0.48,
+              "build_time_s": 16.619267225265503,
+              "latency_p50_ms": 0.1163625717163086,
+              "throughput_qps": 8593.82862762775,
+              "memory_mb": 5.25634765625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 70,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.23375585623388734,
+              "recall_at_10": 0.48,
+              "build_time_s": 0.1202232837677002,
+              "latency_p50_ms": 0.020487308502197266,
+              "throughput_qps": 48810.706388921215,
+              "memory_mb": 7.32421875,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        }
+      }
+    },
+    "SciFact": {
+      "methods": {
+        "64": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.021380901336669922,
+              "latency_p50_ms": 0.23566246032714844,
+              "throughput_qps": 4243.35720933997,
+              "memory_mb": 19.53125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.05773403555679311,
+              "recall_at_10": 0.09333333333333334,
+              "build_time_s": 10.410688161849976,
+              "latency_p50_ms": 0.3983426094055176,
+              "throughput_qps": 2510.4017907910725,
+              "memory_mb": 21.025390625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 70,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.06332188106807543,
+              "recall_at_10": 0.1,
+              "build_time_s": 0.23500537872314453,
+              "latency_p50_ms": 0.07097244262695312,
+              "throughput_qps": 14089.975812953508,
+              "memory_mb": 21.97265625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.026221958963413585,
+              "recall_at_10": 0.045,
+              "build_time_s": 0.0001811981201171875,
+              "latency_p50_ms": 0.017554759979248047,
+              "throughput_qps": 56964.60681787315,
+              "memory_mb": 1.220703125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.07484878434011763,
+              "recall_at_10": 0.10666666666666666,
+              "build_time_s": 0.633955717086792,
+              "latency_p50_ms": 0.02670764923095703,
+              "throughput_qps": 37442.45670415997,
+              "memory_mb": 1.3140869140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 70,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.09116986063082791,
+              "recall_at_10": 0.14666666666666667,
+              "build_time_s": 0.024672985076904297,
+              "latency_p50_ms": 0.008480548858642578,
+              "throughput_qps": 117916.896260894,
+              "memory_mb": 3.662109375,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.00031185150146484375,
+              "latency_p50_ms": 1.0608243942260742,
+              "throughput_qps": 942.6630886722314,
+              "memory_mb": 1.220703125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.6393134593963623,
+              "latency_p50_ms": 0.03023386001586914,
+              "throughput_qps": 33075.49877769892,
+              "memory_mb": 1.3140869140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 70,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.020475387573242188,
+              "latency_p50_ms": 0.006289482116699219,
+              "throughput_qps": 158995.6027293404,
+              "memory_mb": 3.662109375,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.006309297535714575,
+              "recall_at_10": 0.01,
+              "build_time_s": 0.0005695819854736328,
+              "latency_p50_ms": 0.034737586975097656,
+              "throughput_qps": 28787.26149622512,
+              "memory_mb": 1.220703125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.032251915377949594,
+              "recall_at_10": 0.065,
+              "build_time_s": 0.7706029415130615,
+              "latency_p50_ms": 0.030710697174072266,
+              "throughput_qps": 32561.943948451208,
+              "memory_mb": 1.3140869140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "nlist": 70,
+              "pq_m": 16,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.061237914644435475,
+              "recall_at_10": 0.105,
+              "build_time_s": 0.027148962020874023,
+              "latency_p50_ms": 0.009779930114746094,
+              "throughput_qps": 102250.21940516822,
+              "memory_mb": 3.662109375,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 64,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        },
+        "128": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.06314319650259939,
+              "recall_at_10": 0.1,
+              "build_time_s": 0.008937835693359375,
+              "latency_p50_ms": 0.2399754524230957,
+              "throughput_qps": 4167.092883470935,
+              "memory_mb": 19.53125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.057669674900189934,
+              "recall_at_10": 0.10333333333333333,
+              "build_time_s": 12.450854063034058,
+              "latency_p50_ms": 0.42747974395751953,
+              "throughput_qps": 2339.2921281888252,
+              "memory_mb": 21.025390625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 70,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.06332188106807543,
+              "recall_at_10": 0.1,
+              "build_time_s": 0.23477935791015625,
+              "latency_p50_ms": 0.07029533386230469,
+              "throughput_qps": 14225.69529236196,
+              "memory_mb": 21.97265625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.0007822513580322266,
+              "latency_p50_ms": 0.028052330017089844,
+              "throughput_qps": 35647.66275709672,
+              "memory_mb": 2.44140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.06899630400389631,
+              "recall_at_10": 0.12,
+              "build_time_s": 1.3490502834320068,
+              "latency_p50_ms": 0.05908012390136719,
+              "throughput_qps": 16926.166263115414,
+              "memory_mb": 2.628173828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 70,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.08127598011262595,
+              "recall_at_10": 0.145,
+              "build_time_s": 0.03907012939453125,
+              "latency_p50_ms": 0.011963844299316406,
+              "throughput_qps": 83585.17337584695,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.0006992816925048828,
+              "latency_p50_ms": 1.4943695068359375,
+              "throughput_qps": 669.178536784602,
+              "memory_mb": 2.44140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 1.9637670516967773,
+              "latency_p50_ms": 0.05854368209838867,
+              "throughput_qps": 17081.26247200163,
+              "memory_mb": 2.628173828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 70,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.03397965431213379,
+              "latency_p50_ms": 0.012392997741699219,
+              "throughput_qps": 80690.7272027703,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.0009222030639648438,
+              "latency_p50_ms": 0.14608144760131836,
+              "throughput_qps": 6845.496238024514,
+              "memory_mb": 2.44140625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.012737056144690832,
+              "recall_at_10": 0.025,
+              "build_time_s": 1.6785337924957275,
+              "latency_p50_ms": 0.06053447723388672,
+              "throughput_qps": 16519.51161874754,
+              "memory_mb": 2.628173828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "nlist": 70,
+              "pq_m": 32,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.021588326267447795,
+              "recall_at_10": 0.05,
+              "build_time_s": 0.043482065200805664,
+              "latency_p50_ms": 0.014927387237548828,
+              "throughput_qps": 66990.95991055742,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 128,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        },
+        "256": {
+          "full": {
+            "flat_ip": {
+              "ndcg_at_10": 0.06314319650259939,
+              "recall_at_10": 0.1,
+              "build_time_s": 0.01127314567565918,
+              "latency_p50_ms": 0.2497410774230957,
+              "throughput_qps": 4004.14705629648,
+              "memory_mb": 19.53125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.057669674900189934,
+              "recall_at_10": 0.10333333333333333,
+              "build_time_s": 11.54703140258789,
+              "latency_p50_ms": 0.4262089729309082,
+              "throughput_qps": 2346.266886694823,
+              "memory_mb": 21.025390625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "nlist": 70,
+              "pq_m": 256,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.06332188106807543,
+              "recall_at_10": 0.1,
+              "build_time_s": 0.23778772354125977,
+              "latency_p50_ms": 0.06927728652954102,
+              "throughput_qps": 14434.745500223698,
+              "memory_mb": 21.97265625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 1024,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_coord": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.002221345901489258,
+              "latency_p50_ms": 0.08139610290527344,
+              "throughput_qps": 12285.600468658466,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.07883831747089498,
+              "recall_at_10": 0.155,
+              "build_time_s": 3.2048373222351074,
+              "latency_p50_ms": 0.11395454406738281,
+              "throughput_qps": 8775.428906184618,
+              "memory_mb": 5.25634765625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 70,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.08760225422655536,
+              "recall_at_10": 0.165,
+              "build_time_s": 0.07180070877075195,
+              "latency_p50_ms": 0.022644996643066406,
+              "throughput_qps": 44159.86523478627,
+              "memory_mb": 7.32421875,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "pca": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.0024759769439697266,
+              "latency_p50_ms": 0.9843611717224121,
+              "throughput_qps": 1015.8872868280891,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 3.2176096439361572,
+              "latency_p50_ms": 0.09526491165161133,
+              "throughput_qps": 10497.044322646845,
+              "memory_mb": 5.25634765625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 70,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.058893442153930664,
+              "latency_p50_ms": 0.020890235900878906,
+              "throughput_qps": 47869.25359506962,
+              "memory_mb": 7.32421875,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          },
+          "random_proj": {
+            "flat_ip": {
+              "ndcg_at_10": 0.0,
+              "recall_at_10": 0.0,
+              "build_time_s": 0.003918170928955078,
+              "latency_p50_ms": 0.520787239074707,
+              "throughput_qps": 1920.1699369145829,
+              "memory_mb": 4.8828125,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256
+            },
+            "ivf_pq": {
+              "ndcg_at_10": 0.04946668421098344,
+              "recall_at_10": 0.08,
+              "build_time_s": 2.812267303466797,
+              "latency_p50_ms": 0.09402275085449219,
+              "throughput_qps": 10635.723704229638,
+              "memory_mb": 5.25634765625,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "nlist": 70,
+              "pq_m": 64,
+              "nprobe": 16
+            },
+            "hnsw": {
+              "ndcg_at_10": 0.058846173532769,
+              "recall_at_10": 0.1,
+              "build_time_s": 0.07317543029785156,
+              "latency_p50_ms": 0.021800994873046875,
+              "throughput_qps": 45869.46631671041,
+              "memory_mb": 7.32421875,
+              "n_corpus": 5000,
+              "n_queries": 100,
+              "dim": 256,
+              "hnsw_M": 32,
+              "ef_search": 64
+            }
+          }
+        }
+      }
+    }
+  },
+  "total_time_s": 734.2114355564117
+}

@@ -1,0 +1,424 @@
+{
+  "model": "roberta-large-InBedder",
+  "model_dim": 1024,
+  "win_size": 4,
+  "methods": {
+    "ImdbClassification": {
+      "baseline": 82.89999999999999,
+      "budgets": {
+        "64": {
+          "contiguous_oracle": {
+            "score": 84.0,
+            "retention": 101.32689987937276
+          },
+          "greedy_forward": {
+            "score": 88.6,
+            "retention": 106.87575392038602,
+            "n_steps": 16
+          },
+          "selection_overlap_jaccard": 0.18518518518518517,
+          "random": {
+            "mean_score": 76.38,
+            "retention": 92.1351025331725,
+            "n_seeds": 5
+          }
+        },
+        "128": {
+          "contiguous_oracle": {
+            "score": 84.6,
+            "retention": 102.05066344993969
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 79.42,
+            "retention": 95.80217129071171,
+            "n_seeds": 5
+          }
+        },
+        "256": {
+          "contiguous_oracle": {
+            "score": 85.1,
+            "retention": 102.65379975874549
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 81.94000000000001,
+            "retention": 98.8419782870929,
+            "n_seeds": 5
+          }
+        }
+      }
+    },
+    "Banking77Classification": {
+      "baseline": 72.72727272727273,
+      "budgets": {
+        "64": {
+          "contiguous_oracle": {
+            "score": 66.88311688311688,
+            "retention": 91.96428571428571
+          },
+          "greedy_forward": {
+            "score": 74.18831168831169,
+            "retention": 102.00892857142856,
+            "n_steps": 16
+          },
+          "selection_overlap_jaccard": 0.06666666666666667,
+          "random": {
+            "mean_score": 63.21428571428571,
+            "retention": 86.91964285714285,
+            "n_seeds": 5
+          }
+        },
+        "128": {
+          "contiguous_oracle": {
+            "score": 72.72727272727273,
+            "retention": 100.0
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 69.87012987012986,
+            "retention": 96.07142857142856,
+            "n_seeds": 5
+          }
+        },
+        "256": {
+          "contiguous_oracle": {
+            "score": 72.72727272727273,
+            "retention": 100.0
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 72.43506493506494,
+            "retention": 99.59821428571429,
+            "n_seeds": 5
+          }
+        }
+      }
+    },
+    "TwentyNewsgroupsClustering": {
+      "baseline": 20.363679271458953,
+      "budgets": {
+        "64": {
+          "contiguous_oracle": {
+            "score": 25.23866669683727,
+            "retention": 123.93961994977467
+          },
+          "greedy_forward": {
+            "score": 29.053558761671162,
+            "retention": 142.67342543737493,
+            "n_steps": 16
+          },
+          "selection_overlap_jaccard": 0.28,
+          "random": {
+            "mean_score": 18.34175216035851,
+            "retention": 90.07091457222906,
+            "n_seeds": 5
+          }
+        },
+        "128": {
+          "contiguous_oracle": {
+            "score": 28.303933953109855,
+            "retention": 138.99223993760154
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 19.825126854989307,
+            "retention": 97.35532852737244,
+            "n_seeds": 5
+          }
+        },
+        "256": {
+          "contiguous_oracle": {
+            "score": 28.623553263884737,
+            "retention": 140.56179574583334
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 22.060778034175836,
+            "retention": 108.33394957803858,
+            "n_seeds": 5
+          }
+        }
+      }
+    },
+    "MedrxivClusteringS2S": {
+      "baseline": 24.34387006239668,
+      "budgets": {
+        "64": {
+          "contiguous_oracle": {
+            "score": 23.458917341323595,
+            "retention": 96.36478210405811
+          },
+          "greedy_forward": {
+            "score": 25.0884913250344,
+            "retention": 103.05876288662876,
+            "n_steps": 16
+          },
+          "selection_overlap_jaccard": 0.23076923076923078,
+          "random": {
+            "mean_score": 22.305325998182898,
+            "retention": 91.62604771144147,
+            "n_seeds": 5
+          }
+        },
+        "128": {
+          "contiguous_oracle": {
+            "score": 24.712636023249146,
+            "retention": 101.51482060948925
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 23.125792957966397,
+            "retention": 94.99637033344254,
+            "n_seeds": 5
+          }
+        },
+        "256": {
+          "contiguous_oracle": {
+            "score": 24.72668397621223,
+            "retention": 101.57252693525862
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 23.965644958847303,
+            "retention": 98.44632302678279,
+            "n_seeds": 5
+          }
+        }
+      }
+    },
+    "SciDocsRR": {
+      "baseline": 100.0,
+      "budgets": {
+        "64": {
+          "contiguous_oracle": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "greedy_forward": {
+            "score": 100.0,
+            "retention": 100.0,
+            "n_steps": 16
+          },
+          "selection_overlap_jaccard": 0.0,
+          "random": {
+            "mean_score": 100.0,
+            "retention": 100.0,
+            "n_seeds": 5
+          }
+        },
+        "128": {
+          "contiguous_oracle": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 100.0,
+            "retention": 100.0,
+            "n_seeds": 5
+          }
+        },
+        "256": {
+          "contiguous_oracle": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 100.0,
+            "retention": 100.0,
+            "n_seeds": 5
+          }
+        }
+      }
+    },
+    "StackOverflowDupQuestions": {
+      "baseline": 100.0,
+      "budgets": {
+        "64": {
+          "contiguous_oracle": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "greedy_forward": {
+            "score": 100.0,
+            "retention": 100.0,
+            "n_steps": 16
+          },
+          "selection_overlap_jaccard": 0.0,
+          "random": {
+            "mean_score": 100.0,
+            "retention": 100.0,
+            "n_seeds": 5
+          }
+        },
+        "128": {
+          "contiguous_oracle": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 100.0,
+            "retention": 100.0,
+            "n_seeds": 5
+          }
+        },
+        "256": {
+          "contiguous_oracle": {
+            "score": 100.0,
+            "retention": 100.0
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 100.0,
+            "retention": 100.0,
+            "n_seeds": 5
+          }
+        }
+      }
+    },
+    "STSBenchmark": {
+      "baseline": 59.72641092708897,
+      "budgets": {
+        "64": {
+          "contiguous_oracle": {
+            "score": 62.76866109725769,
+            "retention": 105.09364303487538
+          },
+          "greedy_forward": {
+            "score": 71.1458285530087,
+            "retention": 119.11954435008658,
+            "n_steps": 16
+          },
+          "selection_overlap_jaccard": 0.3333333333333333,
+          "random": {
+            "mean_score": 57.82153839214418,
+            "retention": 96.81066967631762,
+            "n_seeds": 5
+          }
+        },
+        "128": {
+          "contiguous_oracle": {
+            "score": 64.59478090957693,
+            "retention": 108.15111758252311
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 59.94539778797205,
+            "retention": 100.36664995850899,
+            "n_seeds": 5
+          }
+        },
+        "256": {
+          "contiguous_oracle": {
+            "score": 60.66473219338524,
+            "retention": 101.5710323987854
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 60.625287367637114,
+            "retention": 101.50498988068352,
+            "n_seeds": 5
+          }
+        }
+      }
+    },
+    "BIOSSES": {
+      "baseline": 58.53868324119931,
+      "budgets": {
+        "64": {
+          "contiguous_oracle": {
+            "score": 71.50705102341331,
+            "retention": 122.153501008521
+          },
+          "greedy_forward": {
+            "score": 85.10615606896998,
+            "retention": 145.3844728934261,
+            "n_steps": 16
+          },
+          "selection_overlap_jaccard": 0.18518518518518517,
+          "random": {
+            "mean_score": 52.967681192452005,
+            "retention": 90.48321256938276,
+            "n_seeds": 5
+          }
+        },
+        "128": {
+          "contiguous_oracle": {
+            "score": 72.36188977860269,
+            "retention": 123.61379821347715
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 56.90030760235186,
+            "retention": 97.20120858869205,
+            "n_seeds": 5
+          }
+        },
+        "256": {
+          "contiguous_oracle": {
+            "score": 68.87144880075404,
+            "retention": 117.65117523566462
+          },
+          "greedy_forward": {
+            "retention": null,
+            "note": "only computed for smallest budget"
+          },
+          "random": {
+            "mean_score": 59.25511913610062,
+            "retention": 101.22386745863304,
+            "n_seeds": 5
+          }
+        }
+      }
+    }
+  },
+  "total_time_s": 3866.604068040848
+}

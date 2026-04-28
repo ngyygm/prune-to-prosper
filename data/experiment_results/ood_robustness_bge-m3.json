@@ -1,0 +1,165 @@
+{
+  "model": "bge-m3",
+  "model_dim": 1024,
+  "win_size": 2,
+  "ood_pairs": {
+    "retrieval": {
+      "source": [
+        "NFCorpus"
+      ],
+      "target": [
+        "ArguAna",
+        "SciFact"
+      ],
+      "budgets": {
+        "64": {
+          "ArguAna": {
+            "baseline": 40.21721409404557,
+            "source_opt_score": 29.11391271981159,
+            "source_opt_retention": 72.3916695267117,
+            "random_mean": 29.300578787908144,
+            "random_retention": 72.85581422768487,
+            "oracle_score": 28.877128889151805,
+            "oracle_retention": 71.8029071372879
+          },
+          "SciFact": {
+            "baseline": 62.84925240553459,
+            "source_opt_score": 24.36622876179506,
+            "source_opt_retention": 38.76932155783182,
+            "random_mean": 31.918518442478785,
+            "random_retention": 50.78583630004802,
+            "oracle_score": 32.99918334363257,
+            "oracle_retention": 52.50529175861226
+          }
+        },
+        "128": {
+          "ArguAna": {
+            "baseline": 40.21721409404557,
+            "source_opt_score": 35.28056114030767,
+            "source_opt_retention": 87.72502505470958,
+            "random_mean": 35.29645959002328,
+            "random_retention": 87.76455650927139,
+            "oracle_score": 35.47346515749467,
+            "oracle_retention": 88.20468040014427
+          },
+          "SciFact": {
+            "baseline": 62.84925240553459,
+            "source_opt_score": 43.08567911914214,
+            "source_opt_retention": 68.55400417674333,
+            "random_mean": 47.207541360530996,
+            "random_retention": 75.1123355548042,
+            "oracle_score": 48.848246319651736,
+            "oracle_retention": 77.72287569064241
+          }
+        },
+        "256": {
+          "ArguAna": {
+            "baseline": 40.21721409404557,
+            "source_opt_score": 37.901604737514546,
+            "source_opt_retention": 94.24224325654156,
+            "random_mean": 38.15387268469793,
+            "random_retention": 94.86950686210477,
+            "oracle_score": 38.262656296056186,
+            "oracle_retention": 95.13999703356187
+          },
+          "SciFact": {
+            "baseline": 62.84925240553459,
+            "source_opt_score": 54.08192645416949,
+            "source_opt_retention": 86.05023032765138,
+            "random_mean": 55.80105135919202,
+            "random_retention": 88.7855451312864,
+            "oracle_score": 56.90132458222428,
+            "oracle_retention": 90.53619956378903
+          }
+        }
+      }
+    },
+    "classification": {
+      "source": [
+        "ImdbClassification"
+      ],
+      "target": [
+        "Banking77Classification"
+      ],
+      "budgets": {
+        "64": {
+          "Banking77Classification": {
+            "baseline": 90.25974025974025,
+            "source_opt_score": 86.03896103896103,
+            "source_opt_retention": 95.32374100719424,
+            "random_mean": 85.87662337662339,
+            "random_retention": 95.14388489208635,
+            "oracle_score": 85.87662337662337,
+            "oracle_retention": 95.14388489208633
+          }
+        },
+        "128": {
+          "Banking77Classification": {
+            "baseline": 90.25974025974025,
+            "source_opt_score": 87.5,
+            "source_opt_retention": 96.94244604316548,
+            "random_mean": 88.18181818181819,
+            "random_retention": 97.69784172661872,
+            "oracle_score": 87.82467532467533,
+            "oracle_retention": 97.3021582733813
+          }
+        },
+        "256": {
+          "Banking77Classification": {
+            "baseline": 90.25974025974025,
+            "source_opt_score": 88.31168831168831,
+            "source_opt_retention": 97.84172661870505,
+            "random_mean": 89.12337662337663,
+            "random_retention": 98.74100719424462,
+            "oracle_score": 88.31168831168831,
+            "oracle_retention": 97.84172661870505
+          }
+        }
+      }
+    },
+    "sts": {
+      "source": [
+        "STSBenchmark"
+      ],
+      "target": [
+        "BIOSSES"
+      ],
+      "budgets": {
+        "64": {
+          "BIOSSES": {
+            "baseline": 83.37599616417513,
+            "source_opt_score": 75.25954616511494,
+            "source_opt_retention": 90.26524374823883,
+            "random_mean": 76.85910068433891,
+            "random_retention": 92.18372699619223,
+            "oracle_score": 90.71833213898,
+            "oracle_retention": 108.80629475220556
+          }
+        },
+        "128": {
+          "BIOSSES": {
+            "baseline": 83.37599616417513,
+            "source_opt_score": 77.11019074294563,
+            "source_opt_retention": 92.48488088958896,
+            "random_mean": 79.61277788657334,
+            "random_retention": 95.48644879733531,
+            "oracle_score": 89.54240173015008,
+            "oracle_retention": 107.39590031863932
+          }
+        },
+        "256": {
+          "BIOSSES": {
+            "baseline": 83.37599616417513,
+            "source_opt_score": 80.19761048948934,
+            "source_opt_retention": 96.18788881583225,
+            "random_mean": 81.80704475190225,
+            "random_retention": 98.11822168914964,
+            "oracle_score": 89.28697422331405,
+            "oracle_retention": 107.08954415069255
+          }
+        }
+      }
+    }
+  },
+  "total_time_s": 4308.81130862236
+}

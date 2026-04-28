@@ -1,0 +1,671 @@
+{
+  "model": "bge-m3",
+  "model_dim": 1024,
+  "target_dims": [
+    64,
+    128,
+    256
+  ],
+  "methods": {
+    "ImdbClassification": {
+      "baseline": 92.62,
+      "scalar_quant_int8": {
+        "score": 92.52,
+        "retention": 99.89203195854026
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 88.18,
+          "retention": 95.20621895918808
+        },
+        "pca": {
+          "score": 91.44,
+          "retention": 98.7259771107752
+        },
+        "random_proj": {
+          "score": 87.12,
+          "retention": 94.06175771971496
+        },
+        "learnable_proj": {
+          "score": 92.06,
+          "retention": 99.39537896782552
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 90.06,
+          "retention": 97.23601813863097
+        },
+        "pca": {
+          "score": 92.0,
+          "retention": 99.33059814294968
+        },
+        "random_proj": {
+          "score": 90.36,
+          "retention": 97.55992226301015
+        },
+        "learnable_proj": {
+          "score": 92.14,
+          "retention": 99.4817534009933
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 91.32000000000001,
+          "retention": 98.59641546102354
+        },
+        "pca": {
+          "score": 91.67999999999999,
+          "retention": 98.98510041027855
+        },
+        "random_proj": {
+          "score": 92.0,
+          "retention": 99.33059814294968
+        },
+        "learnable_proj": {
+          "score": 91.97999999999999,
+          "retention": 99.30900453465773
+        }
+      }
+    },
+    "Banking77Classification": {
+      "baseline": 90.25974025974025,
+      "scalar_quant_int8": {
+        "score": 89.93506493506493,
+        "retention": 99.64028776978418
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 85.87662337662337,
+          "retention": 95.14388489208633
+        },
+        "pca": {
+          "score": 88.63636363636364,
+          "retention": 98.20143884892087
+        },
+        "random_proj": {
+          "score": 87.01298701298701,
+          "retention": 96.40287769784173
+        },
+        "learnable_proj": {
+          "score": 75.64935064935064,
+          "retention": 83.81294964028775
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 87.33766233766234,
+          "retention": 96.76258992805757
+        },
+        "pca": {
+          "score": 89.77272727272727,
+          "retention": 99.46043165467626
+        },
+        "random_proj": {
+          "score": 87.17532467532467,
+          "retention": 96.58273381294964
+        },
+        "learnable_proj": {
+          "score": 76.2987012987013,
+          "retention": 84.53237410071944
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 88.14935064935064,
+          "retention": 97.66187050359711
+        },
+        "pca": {
+          "score": 89.77272727272727,
+          "retention": 99.46043165467626
+        },
+        "random_proj": {
+          "score": 89.44805194805194,
+          "retention": 99.10071942446042
+        },
+        "learnable_proj": {
+          "score": 76.13636363636364,
+          "retention": 84.35251798561151
+        }
+      }
+    },
+    "TwentyNewsgroupsClustering": {
+      "baseline": 40.00690104429721,
+      "scalar_quant_int8": {
+        "score": 41.83876824752693,
+        "retention": 104.57887803207102
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 24.137763979990375,
+          "retention": 60.33400075967917
+        },
+        "pca": {
+          "score": 38.23457563693587,
+          "retention": 95.56995078074418
+        },
+        "random_proj": {
+          "score": 21.627512303702602,
+          "retention": 54.0594540920722
+        },
+        "learnable_proj": {
+          "score": 36.93466147566561,
+          "retention": 92.3207259536801
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 29.328591342084565,
+          "retention": 73.308830668016
+        },
+        "pca": {
+          "score": 38.26496328819091,
+          "retention": 95.64590680448467
+        },
+        "random_proj": {
+          "score": 30.086622660012356,
+          "retention": 75.20358206875176
+        },
+        "learnable_proj": {
+          "score": 37.93223945653333,
+          "retention": 94.81424070945478
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 31.14622143407092,
+          "retention": 77.85212206160284
+        },
+        "pca": {
+          "score": 36.32651952088972,
+          "retention": 90.80063332240498
+        },
+        "random_proj": {
+          "score": 36.79314003772169,
+          "retention": 91.96698338864809
+        },
+        "learnable_proj": {
+          "score": 36.22614401026303,
+          "retention": 90.54973783186061
+        }
+      }
+    },
+    "MedrxivClusteringS2S": {
+      "baseline": 23.999035252922685,
+      "scalar_quant_int8": {
+        "score": 24.809694038928658,
+        "retention": 103.3778807250481
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 15.319015894704108,
+          "retention": 63.83179879215564
+        },
+        "pca": {
+          "score": 24.567643827003725,
+          "retention": 102.36929763254459
+        },
+        "random_proj": {
+          "score": 15.94052592105712,
+          "retention": 66.4215280033635
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 19.683827331145313,
+          "retention": 82.01924420586094
+        },
+        "pca": {
+          "score": 24.858853063791766,
+          "retention": 103.58271822932703
+        },
+        "random_proj": {
+          "score": 19.479584233991197,
+          "retention": 81.16819709083475
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 22.98316930102674,
+          "retention": 95.76705504538052
+        },
+        "pca": {
+          "score": 24.56119926581041,
+          "retention": 102.34244421479093
+        },
+        "random_proj": {
+          "score": 20.46286020047788,
+          "retention": 85.26534498083977
+        }
+      }
+    },
+    "NFCorpus": {
+      "baseline": 30.827114073144713,
+      "scalar_quant_int8": {
+        "score": 30.963580092850513,
+        "retention": 100.44268178779889
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 14.640120207189453,
+          "retention": 47.49105015945463
+        },
+        "pca": {
+          "score": 21.698297604092804,
+          "retention": 70.3870545669906
+        },
+        "random_proj": {
+          "score": 13.551734243755476,
+          "retention": 43.96043759270083
+        },
+        "learnable_proj": {
+          "score": 8.136062242285888,
+          "retention": 26.392552423107563
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 21.949464594821595,
+          "retention": 71.20181455436027
+        },
+        "pca": {
+          "score": 26.3729644309984,
+          "retention": 85.55119486184216
+        },
+        "random_proj": {
+          "score": 19.218817340789233,
+          "retention": 62.34387460074265
+        },
+        "learnable_proj": {
+          "score": 9.649316764521325,
+          "retention": 31.30139506937305
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 26.77079666173288,
+          "retention": 86.84172186281451
+        },
+        "pca": {
+          "score": 29.369686244084033,
+          "retention": 95.27225342728293
+        },
+        "random_proj": {
+          "score": 23.874726869346226,
+          "retention": 77.44716814132428
+        },
+        "learnable_proj": {
+          "score": 14.956518626760055,
+          "retention": 48.51741421941779
+        }
+      }
+    },
+    "ArguAna": {
+      "baseline": 40.21721409404557,
+      "scalar_quant_int8": {
+        "score": 40.26177498043854,
+        "retention": 100.11080053006347
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 28.531001739893934,
+          "retention": 70.94226286578646
+        },
+        "pca": {
+          "score": 36.33734402576247,
+          "retention": 90.35271299695135
+        },
+        "random_proj": {
+          "score": 29.141367969785204,
+          "retention": 72.45993693556157
+        },
+        "learnable_proj": {
+          "score": 29.879238860751546,
+          "retention": 74.29465101904054
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 35.82543790561135,
+          "retention": 89.07985973825956
+        },
+        "pca": {
+          "score": 39.08161633949652,
+          "retention": 97.17633908730346
+        },
+        "random_proj": {
+          "score": 35.77442375405201,
+          "retention": 88.9530131808624
+        },
+        "learnable_proj": {
+          "score": 35.57437644581055,
+          "retention": 88.45559606048788
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 37.621010025258464,
+          "retention": 93.54454522206326
+        },
+        "pca": {
+          "score": 40.67612088231033,
+          "retention": 101.14107055548808
+        },
+        "random_proj": {
+          "score": 37.42452725639953,
+          "retention": 93.05599131974802
+        },
+        "learnable_proj": {
+          "score": 37.20030392620448,
+          "retention": 92.49846058260964
+        }
+      }
+    },
+    "SciDocsRR": {
+      "baseline": 100.0,
+      "scalar_quant_int8": {
+        "score": 100.0,
+        "retention": 100.0
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "pca": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "random_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "learnable_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "pca": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "random_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "learnable_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "pca": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "random_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "learnable_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        }
+      }
+    },
+    "StackOverflowDupQuestions": {
+      "baseline": 100.0,
+      "scalar_quant_int8": {
+        "score": 100.0,
+        "retention": 100.0
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "pca": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "random_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "learnable_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "pca": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "random_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "learnable_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "pca": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "random_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        },
+        "learnable_proj": {
+          "score": 100.0,
+          "retention": 100.0
+        }
+      }
+    },
+    "STSBenchmark": {
+      "baseline": 84.8468170635737,
+      "scalar_quant_int8": {
+        "score": 84.8474226316771,
+        "retention": 100.00071371929363
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 81.86414691446842,
+          "retention": 96.48464108338864
+        },
+        "pca": {
+          "score": 81.54671218560536,
+          "retention": 96.11051422766319
+        },
+        "random_proj": {
+          "score": 80.41273882991982,
+          "retention": 94.7740193596991
+        },
+        "learnable_proj": {
+          "score": 86.89762648745453,
+          "retention": 102.41707290250406
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 84.05813277663607,
+          "retention": 99.07046096219887
+        },
+        "pca": {
+          "score": 84.74163168233743,
+          "retention": 99.87602907819458
+        },
+        "random_proj": {
+          "score": 82.49229522644225,
+          "retention": 97.22497328878318
+        },
+        "learnable_proj": {
+          "score": 86.50669023745708,
+          "retention": 101.95631755124023
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 84.32229993492518,
+          "retention": 99.38180694715336
+        },
+        "pca": {
+          "score": 86.11072175975212,
+          "retention": 101.48963124359918
+        },
+        "random_proj": {
+          "score": 83.50327065566991,
+          "retention": 98.41650346541921
+        },
+        "learnable_proj": {
+          "score": 87.26517040927358,
+          "retention": 102.85025818221074
+        }
+      }
+    },
+    "BIOSSES": {
+      "baseline": 83.37599616417513,
+      "scalar_quant_int8": {
+        "score": 83.31756109775276,
+        "retention": 99.92991380120088
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 76.24571321391339,
+          "retention": 91.44803867024083
+        },
+        "pca": {
+          "score": 81.99765150464499,
+          "retention": 98.34683275409861
+        },
+        "random_proj": {
+          "score": 69.86243523647391,
+          "retention": 83.79202462409954
+        },
+        "learnable_proj": {
+          "score": 83.0603263208212,
+          "retention": 99.62139001885825
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 81.64463141264994,
+          "retention": 97.92342540877596
+        },
+        "pca": {
+          "score": 84.04950548644557,
+          "retention": 100.80779763152003
+        },
+        "random_proj": {
+          "score": 79.07650060689076,
+          "retention": 94.8432453522735
+        },
+        "learnable_proj": {
+          "score": 77.75418132032226,
+          "retention": 93.2572741526434
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 82.73200558679852,
+          "retention": 99.22760673694556
+        },
+        "pca": {
+          "score": 83.7633543879854,
+          "retention": 100.46459201884379
+        },
+        "random_proj": {
+          "score": 83.64347213831472,
+          "retention": 100.32080693058576
+        },
+        "learnable_proj": {
+          "score": 76.85054627255337,
+          "retention": 92.17346695471855
+        }
+      }
+    },
+    "SciFact": {
+      "baseline": 62.84925240553459,
+      "scalar_quant_int8": {
+        "score": 62.918943461905954,
+        "retention": 100.11088605465292
+      },
+      "dim_64": {
+        "random_coord": {
+          "score": 31.217680916799413,
+          "retention": 49.670727529688705
+        },
+        "pca": {
+          "score": 48.5147523467965,
+          "retention": 77.19225048812868
+        },
+        "random_proj": {
+          "score": 28.539513713413932,
+          "retention": 45.409472063824744
+        },
+        "learnable_proj": {
+          "score": 43.36516933225609,
+          "retention": 68.9987035206759
+        }
+      },
+      "dim_128": {
+        "random_coord": {
+          "score": 45.056200194879395,
+          "retention": 71.68931764558536
+        },
+        "pca": {
+          "score": 57.63476323511432,
+          "retention": 91.70318027528188
+        },
+        "random_proj": {
+          "score": 43.56939145820022,
+          "retention": 69.3236431470479
+        },
+        "learnable_proj": {
+          "score": 57.586530675599924,
+          "retention": 91.62643702429908
+        }
+      },
+      "dim_256": {
+        "random_coord": {
+          "score": 53.97659513662361,
+          "retention": 85.88263673900177
+        },
+        "pca": {
+          "score": 61.987743190169745,
+          "retention": 98.62924508663052
+        },
+        "random_proj": {
+          "score": 52.58063648549485,
+          "retention": 83.66151461312295
+        },
+        "learnable_proj": {
+          "score": 66.4347963475618,
+          "retention": 105.70499060019283
+        }
+      }
+    }
+  },
+  "total_time_s": 1049.6277046203613
+}
