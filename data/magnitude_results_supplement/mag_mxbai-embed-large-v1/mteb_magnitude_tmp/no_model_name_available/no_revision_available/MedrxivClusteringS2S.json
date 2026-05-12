@@ -1,0 +1,32 @@
+{
+  "dataset_revision": "35191c8c0dca72d8ff3efcd72aa802307d469663",
+  "task_name": "MedrxivClusteringS2S",
+  "mteb_version": "1.38.54",
+  "scores": {
+    "test": [
+      {
+        "v_measure": 0.307983,
+        "v_measure_std": 0.015463,
+        "v_measures": [
+          0.289336,
+          0.294533,
+          0.295367,
+          0.296529,
+          0.295112,
+          0.329036,
+          0.323288,
+          0.325819,
+          0.327668,
+          0.303142
+        ],
+        "main_score": 0.307983,
+        "hf_subset": "default",
+        "languages": [
+          "eng-Latn"
+        ]
+      }
+    ]
+  },
+  "evaluation_time": 49.6648166179657,
+  "kg_co2_emissions": null
+}
